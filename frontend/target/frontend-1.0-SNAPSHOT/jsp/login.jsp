@@ -3,15 +3,15 @@
 <head>
     <title>Login</title>
     <!-- MetisMenu CSS -->
-    <link href="resources/css/metisMenu.min.css" rel="stylesheet">
+    <link href="../resources/css/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="resources/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../resources/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="resources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../resources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link href="resources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../resources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -54,16 +54,16 @@
 </div>
 
 <!-- jQuery -->
-<script src="resources/js/libs/jquery-3.2.1.min.js"></script>
+<script src="../resources/js/libs/jquery-3.2.1.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="resources/js/libs/bootstrap.min.js"></script>
+<script src="../resources/js/libs/bootstrap.min.js"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
-<script src="resources/js/metisMenu.min.js"></script>
+<script src="../resources/js/metisMenu.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="resources/js/sb-admin-2.js"></script>
+<script src="../resources/js/sb-admin-2.js"></script>
 
 </body>
 </html>

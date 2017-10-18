@@ -6,56 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bc443cb-cf3d-4bb8-a271-e682dde8a8b6" name="Default" comment="second commit: jsp pages">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/images/sort_asc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/images/sort_asc_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/images/sort_both.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/images/sort_desc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/images/sort_desc_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/frontend_war.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/frontend_war_exploded.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_11_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_11_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_11_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_11_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_11_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_11_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_11_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/jsp/Head.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/jsp/profile.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/css/dataTables.bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/css/dataTables.responsive.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/css/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/css/metisMenu.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/css/sb-admin-2.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/js/dataTables.bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/js/dataTables.responsive.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/js/jquery.dataTables.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/js/metisMenu.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/js/sb-admin-2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/js/sb-admin-2.min.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/src/main/webapp/resources/css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/resources/css/style.css" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/target/classes/com/netcracker/etalon/controllers/TestController.class" afterPath="$PROJECT_DIR$/frontend/target/classes/com/netcracker/etalon/controllers/TestController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/WEB-INF/classes/com/netcracker/etalon/controllers/TestController.class" afterPath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/WEB-INF/classes/com/netcracker/etalon/controllers/TestController.class" />
+    <list default="true" id="8bc443cb-cf3d-4bb8-a271-e682dde8a8b6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/webapp/jsp/login.jsp" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/jsp/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/webapp/resources/css/libs/bootstrap.min.css" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/css/libs/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/webapp/resources/js/libs/bootstrap.min.js" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/resources/js/libs/bootstrap.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/index.jsp" afterPath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/webapp/jsp/profile.jsp" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/jsp/profile.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/jsp/login.jsp" afterPath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/jsp/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/resources/css/libs/bootstrap.min.css" afterPath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/resources/css/libs/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/resources/js/libs/bootstrap.min.js" afterPath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/resources/js/libs/bootstrap.min.js" />
     </list>
     <ignored path="$PROJECT_DIR$/frontend/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -69,11 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/jsp/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="177">
               <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -92,10 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
+            <state relative-caret-position="-921">
               <caret line="43" column="21" lean-forward="false" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
               <folding>
                 <element signature="n#style#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -118,8 +84,8 @@
       <file leaf-file-name="profile.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/jsp/profile.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="298" column="50" lean-forward="false" selection-start-line="298" selection-start-column="50" selection-end-line="298" selection-end-column="50" />
+            <state relative-caret-position="242">
+              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -151,12 +117,12 @@
         <option value="$PROJECT_DIR$/../startbootstrap-sb-admin-2-gh-pages/pages/requests.html" />
         <option value="$PROJECT_DIR$/../startbootstrap-sb-admin-2-gh-pages/pages/index.html" />
         <option value="$PROJECT_DIR$/frontend/src/main/webapp/jsp/blocks/admin.jsp" />
-        <option value="$PROJECT_DIR$/frontend/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/frontend/src/main/webapp/resources/css/dataTables.bootstrap.css" />
         <option value="$PROJECT_DIR$/frontend/src/main/webapp/jsp/login.jsp" />
         <option value="$PROJECT_DIR$/frontend/src/main/webapp/jsp/Head.jsp" />
-        <option value="$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp" />
         <option value="$PROJECT_DIR$/frontend/src/main/webapp/jsp/profile.jsp" />
+        <option value="$PROJECT_DIR$/frontend/src/main/webapp/index.jsp" />
+        <option value="$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp" />
       </list>
     </option>
   </component>
@@ -462,7 +428,7 @@
       <workItem from="1507917519642" duration="3541000" />
       <workItem from="1508246203772" duration="8790000" />
       <workItem from="1508261588946" duration="3479000" />
-      <workItem from="1508338898880" duration="2565000" />
+      <workItem from="1508338898880" duration="3769000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1507918416078</created>
@@ -471,11 +437,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507918416078</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="second commit: jsp pages">
+      <created>1508342767526</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1508342767526</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18375000" />
+    <option name="totallyTimeSpent" value="19579000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -491,7 +464,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298611" sideWeight="0.49676377" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.49676377" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -499,7 +472,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.49676377" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298611" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -760,25 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/resources/css/dataTables.bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="80" column="67" lean-forward="false" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="43" column="21" lean-forward="false" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/resources/js/dataTables.responsive.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -792,33 +746,6 @@
         <state relative-caret-position="184">
           <caret line="189" column="2" lean-forward="false" selection-start-line="189" selection-start-column="2" selection-end-line="189" selection-end-column="2" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="56" lean-forward="false" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/jsp/profile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="298" column="50" lean-forward="false" selection-start-line="298" selection-start-column="50" selection-end-line="298" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/jsp/Head.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="42" column="21" lean-forward="false" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -843,6 +770,52 @@
         <state relative-caret-position="177">
           <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/resources/css/dataTables.bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="80" column="67" lean-forward="false" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/jsp/profile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/jsp/Head.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="42" column="21" lean-forward="false" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-921">
+          <caret line="43" column="21" lean-forward="false" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
