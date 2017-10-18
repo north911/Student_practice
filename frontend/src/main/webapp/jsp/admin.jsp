@@ -11,16 +11,16 @@
 
     <title>Admin page</title>
 
-    <link href="resources/css/metisMenu.min.css" rel="stylesheet">
+    <link href="../resources/css/metisMenu.min.css" rel="stylesheet">
 
-    <link href="resources/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../resources/css/sb-admin-2.css" rel="stylesheet">
 
-    <link href="resources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../resources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link href="resources/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="../resources/css/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- DataTables Responsive CSS -->
-    <link href="resources/css/dataTables.responsive.css" rel="stylesheet">
+    <link href="../resources/css/dataTables.responsive.css" rel="stylesheet">
 
 
 
@@ -711,17 +711,17 @@
 
 <!-- jQuery -->
 <!-- jQuery -->
-<script src="resources/js/libs/jquery-3.2.1.min.js"></script>
+<script src="../resources/js/libs/jquery-3.2.1.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="resources/js/libs/bootstrap.min.js"></script>
+<script src="../resources/js/libs/bootstrap.min.js"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
-<script src="resources/js/metisMenu.min.js"></script>
+<script src="../resources/js/metisMenu.min.js"></script>
 
-<script src="resources/js/jquery.dataTables.min.js"></script>
-<script src="resources/js/dataTables.bootstrap.min.js"></script>
-<script src="resources/js/dataTables.responsive.js"></script>
+<script src="../resources/js/jquery.dataTables.min.js"></script>
+<script src="../resources/js/dataTables.bootstrap.min.js"></script>
+<script src="../resources/js/dataTables.responsive.js"></script>
 
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
