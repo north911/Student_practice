@@ -26,14 +26,49 @@ package com.netcracker.etalon.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
 public class TestController {
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/loginpage", method = RequestMethod.GET)
     public String goToLoginPage() {
-        return "login";
+        return "loginpage";
     }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(
+            @RequestParam("email") String email,
+            @RequestParam("password") String pass){
+        String result;
+        switch (email){
+            case "admin@gmail.com":
+                result = "admin";
+            break;
+            case "head@gmail.com":
+                result = "head";
+                break;
+                default:
+                    result= "profile";
+        }
+        return result;
+
+    }
+
+             @RequestMapping(value = "/admin", method = RequestMethod.GET)
+     public String goToAdmin() {
+               return "admin";
+           }
+
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    public String goToProfile() {
+        return "profile";
+    }
+    @RequestMapping(value = "/head", method = RequestMethod.GET)
+    public String goToHead() {
+        return "head";
+    }
+
 }
 

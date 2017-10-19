@@ -22,7 +22,6 @@
     <link href="../resources/css/dataTables.responsive.css" rel="stylesheet">
 
 
-
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 </head>
@@ -42,8 +41,6 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <!-- /.navbar-header -->
-
 
     </nav>
 
@@ -78,6 +75,7 @@
                                 <th>Min avg ball</th>
                                 <th>Total quantity</th>
                                 <th>Available quantity</th>
+                                <th>Show info</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -149,7 +147,7 @@
                                 <td class="center">X</td>
                                 <td class="center">X</td>
                                 <td class="center">X</td>
-                                <td><button></button></td>d>
+                                <td><button></button></td>
                             </tr>
                             <tr class="gradeA">
                                 <td><div class="checkbox">
