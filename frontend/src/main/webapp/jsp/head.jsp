@@ -32,14 +32,15 @@
 <div id="wrapper">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation"  style="background-color: darkcyan" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+
+        <div class="nav navbar-bot-links navbar-right" style="margin: 5px">
+
+            <form action="/logout" method="post">
+                <div class="form-group">
+                    <input class="btn btn-xs btn-success btn-block" type="submit" value="logout">
+                </div>
+            </form>
         </div>
 
     </nav>

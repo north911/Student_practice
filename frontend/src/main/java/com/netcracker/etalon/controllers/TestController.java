@@ -55,6 +55,10 @@ public class TestController {
         return result;
 
     }
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    public String logout(){
+                return "loginpage";
+    }
 
              @RequestMapping(value = "/admin", method = RequestMethod.GET)
      public String goToAdmin() {
