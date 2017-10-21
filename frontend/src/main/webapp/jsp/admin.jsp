@@ -79,23 +79,23 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-4"></div>
-                                                <div class="col-md-4"><input></div>
+                                                <div class="col-md-4"><input class="form-control"></div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3 "><label>quantity</label></div>
                                                 <div class="col-md-6 col-md-offset-1"><label>faculty</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3"><input></div>
-                                                <div class="col-md-6 col-md-offset-1"><input></div>
+                                                <div class="col-md-3"><input class="form-control"></div>
+                                                <div class="col-md-6 col-md-offset-1"><input class="form-control"></div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3 "><label>Availabe spec</label></div>
                                                 <div class="col-md-6 col-md-offset-1"><label>Min avg ball</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3"><input></div>
-                                                <div class="col-md-6 col-md-offset-1"><input></div>
+                                                <div class="col-md-3"><input class="form-control"></div>
+                                                <div class="col-md-6 col-md-offset-1"><input class="form-control"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -125,8 +125,8 @@
                                                 <div class="col-md-5 col-md-offset-1 "><label>Last name</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-5"><input></div>
-                                                <div class="col-md-5 col-md-offset-1 "><input></div>
+                                                <div class="col-md-5"><input class="form-control"></div>
+                                                <div class="col-md-5 col-md-offset-1 "><input class="form-control"></div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-4"><label>Faculty</label></div>
