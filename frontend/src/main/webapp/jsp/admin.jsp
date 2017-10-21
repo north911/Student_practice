@@ -21,6 +21,7 @@
 
     <!-- DataTables Responsive CSS -->
     <link href="../resources/css/dataTables.responsive.css" rel="stylesheet">
+    <link href="../resources/css/datepicker.css">
 
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -56,7 +57,6 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <button type="button" class="btn btn-primary">Show all req</button>
                         <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                             Add request
                         </button>
@@ -78,8 +78,22 @@
                                                 <div class="col-md-4"><label>To</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-4"></div>
-                                                <div class="col-md-4"><input class="form-control"></div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group date">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </div>
+                                                        <input type="text" class="form-control pull-right" id="datepicker">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group date">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </div>
+                                                        <input type="text" class="form-control pull-right" id="datepicker1">
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3 "><label>quantity</label></div>
@@ -720,7 +734,7 @@
 <script src="../resources/js/jquery.dataTables.min.js"></script>
 <script src="../resources/js/dataTables.bootstrap.min.js"></script>
 <script src="../resources/js/dataTables.responsive.js"></script>
-
+<script src="../resources/js/datepicker.js"></script>
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
     $(document).ready(function() {
@@ -731,6 +745,15 @@
             responsive: true
         });
     });
+</script>
+<script>
+    $('#datepicker').datepicker({
+        autoclose: true
+    })
+    $('#datepicker1').datepicker({
+        autoclose: true
+    })
+
 </script>
 
 </body>
