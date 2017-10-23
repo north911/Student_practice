@@ -27,7 +27,7 @@ public class UsersServiceImpl implements UsersService {
         userRepository.delete(id);
     }
 
-   /* @Override
+    /*@Override
     public Users getByName(String name) {
         return userRepository.findByName(name);
     }*/

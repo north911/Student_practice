@@ -13,7 +13,7 @@ public class Faculties {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name= "increment", strategy= "increment")
-    @Column(name = "id", length = 6, nullable = false)
+    //@Column(name = "id", length = 6, nullable = false)
     private long idFaculty;
 
     @Column

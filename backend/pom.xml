@@ -10,7 +10,23 @@
         <groupId>com.netcracker.devschool.dev4</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
+    <dependencies>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-jpa</artifactId>
+        <version>${spring.data}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-entitymanager</artifactId>
+        <version>${hb.manager}</version>
+    </dependency>
+    </dependencies>
     <artifactId>backend</artifactId>
 
 </project>
