@@ -1,7 +1,8 @@
 package com.netcracker.devschool.dev4.studPract.repository;
 
-import com.netcracker.devschool.dev4.studPract.entity.Faculties;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.netcracker.devschool.dev4.studPract.entity.FacultiesEntity;
+import org.springframework.data.repository.CrudRepository;
 
-public interface FacultiesRepository extends JpaRepository<Faculties,Long>{
+public interface FacultiesRepository extends CrudRepository<FacultiesEntity,Integer> {
+
 }

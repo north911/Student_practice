@@ -1,10 +1,9 @@
 package com.netcracker.devschool.dev4.studPract.service.impl;
 
-import com.netcracker.devschool.dev4.studPract.entity.Users;
-import com.netcracker.devschool.dev4.studPract.repository.UserRepository;
+import com.netcracker.devschool.dev4.studPract.entity.UsersEntity;
+import com.netcracker.devschool.dev4.studPract.repository.UsersRepository;
 import com.netcracker.devschool.dev4.studPract.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,33 +12,26 @@ import java.util.List;
 public class UsersServiceImpl implements UsersService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UsersRepository usersRepository;
 
     @Override
-    public Users addUser(Users user){
-
-    Users savedUser = userRepository.saveAndFlush(user);
-    return savedUser;
+    public UsersEntity save(UsersEntity user) {
+        return null;
     }
 
     @Override
-    public void delete(long id) {
-        userRepository.delete(id);
-    }
+    public void deleteById(long id) {
 
-    /*@Override
-    public Users getByName(String name) {
-        return userRepository.findByName(name);
-    }*/
-
-    @Override
-    public Users editUser(Users user) {
-        return userRepository.saveAndFlush(user);
     }
 
     @Override
-    public List<Users> getAll() {
-        return userRepository.findAll();
+    public List<UsersEntity> findAll() {
+        return null;
+    }
+
+    @Override
+    public List<UsersEntity> findUserByUserName(String name) {
+        return null;
     }
 }
 

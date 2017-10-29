@@ -1,14 +1,13 @@
 package com.netcracker.devschool.dev4.studPract.service;
 
 
-import com.netcracker.devschool.dev4.studPract.entity.Users;
+import com.netcracker.devschool.dev4.studPract.entity.UsersEntity;
 
 import java.util.List;
 
 public interface UsersService {
-    Users addUser(Users user);
-    void delete(long id);
-   // Users getByName(String name);
-    Users editUser(Users user);
-    List<Users> getAll();
+    UsersEntity save(UsersEntity user);
+    void deleteById(long id);
+    List<UsersEntity> findAll();
+    List<UsersEntity> findUserByUserName(String name);
 }
