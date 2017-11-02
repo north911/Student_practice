@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface StudentsService {
 
-   StudentsEntity save(StudentsEntity studentsEntity);
-    void deleteById(long id);
-    List<StudentsEntity> findAll();
-    List<StudentsEntity> findUserByUserName(String name);
+   StudentsEntity saveStudent(StudentsEntity studentsEntity);
+    void deleteStudentById(int id);
+    List<StudentsEntity> findAllStudents();
+    List<StudentsEntity> findStudentByName(String name);
 }

@@ -13,22 +13,22 @@ public class FacultiesServiceImpl implements FacultiesService {
     FacultiesRepository facultiesRepository;
 
     @Override
-    public FacultiesEntity save(FacultiesEntity facultiesEntity) {
-        return null;
+    public FacultiesEntity saveFaculty(FacultiesEntity facultiesEntity) {
+        return facultiesRepository.save(facultiesEntity);
     }
 
     @Override
-    public void deleteById(long id) {
-
+    public void deleteFacultyById(int id) {
+        facultiesRepository.delete(id);
     }
 
     @Override
-    public List<FacultiesEntity> findAll() {
-        return null;
+    public List<FacultiesEntity> findAllFaculties() {
+        return (List<FacultiesEntity>)facultiesRepository.findAll();
     }
 
     @Override
-    public List<FacultiesEntity> findUserByUserName(String name) {
-        return null;
+    public List<FacultiesEntity>  findFacultyByName(String name) {
+        return (List<FacultiesEntity>)facultiesRepository.;
     }
 }

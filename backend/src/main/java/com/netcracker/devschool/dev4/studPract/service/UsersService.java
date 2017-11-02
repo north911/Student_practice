@@ -6,8 +6,8 @@ import com.netcracker.devschool.dev4.studPract.entity.UsersEntity;
 import java.util.List;
 
 public interface UsersService {
-    UsersEntity save(UsersEntity user);
-    void deleteById(long id);
-    List<UsersEntity> findAll();
-    List<UsersEntity> findUserByUserName(String name);
+    UsersEntity saveUser(UsersEntity user);
+    void deleteUserById(int id);
+    List<UsersEntity> findAllUsers();
+    List<UsersEntity> findUserByName(String name);
 }

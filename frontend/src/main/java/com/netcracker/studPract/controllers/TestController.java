@@ -21,8 +21,10 @@
  * United States of America
  * All rights reserved.
  */
-package com.netcracker.etalon.controllers;
+package com.netcracker.studPract.controllers;
 
+import com.netcracker.devschool.dev4.studPract.service.UsersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,6 +33,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class TestController {
+
+    @Autowired
+    private UsersService usersService;
 
     @RequestMapping(value = "/loginpage", method = RequestMethod.GET)
     public String goToLoginPage() {
@@ -69,6 +74,7 @@ public class TestController {
     public String goToProfile() {
         return "profile";
     }
+
     @RequestMapping(value = "/head", method = RequestMethod.GET)
     public String goToHead() {
         return "head";

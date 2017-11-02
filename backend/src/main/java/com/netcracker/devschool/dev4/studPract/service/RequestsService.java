@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface RequestsService {
     RequestsEntity save(RequestsEntity requestsEntity);
-    void deleteById(long id);
-    List<RequestsEntity> findAll();
-    List<RequestsEntity> findUserByUserName(String name);
+    void deleteRequestById(int id);
+    List<RequestsEntity> findAllRequests();
+    List<RequestsEntity> findRequestByName(String name);
 }

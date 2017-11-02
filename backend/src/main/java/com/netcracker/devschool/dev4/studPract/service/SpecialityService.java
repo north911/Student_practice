@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface SpecialityService {
 
-    SpecialityEntity save(SpecialityEntity specialityEntity);
-    void deleteById(long id);
-    List<SpecialityEntity> findAll();
-    List<SpecialityEntity> findUserByUserName(String name);
+    SpecialityEntity saveSpeciality(SpecialityEntity specialityEntity);
+    void deleteSpecialityById(int id);
+    List<SpecialityEntity> findAllSpecialities();
+    List<SpecialityEntity> findSpecialityByName(String name);
 }

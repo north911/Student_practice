@@ -15,22 +15,22 @@ public class UsersServiceImpl implements UsersService {
     private UsersRepository usersRepository;
 
     @Override
-    public UsersEntity save(UsersEntity user) {
-        return null;
+    public UsersEntity saveUser(UsersEntity user) {
+        return usersRepository.save(user);
     }
 
     @Override
-    public void deleteById(long id) {
-
+    public void deleteUserById(int id) {
+        usersRepository.delete(id);
     }
 
     @Override
-    public List<UsersEntity> findAll() {
-        return null;
+    public List<UsersEntity> findAllUsers() {
+        return (List<UsersEntity>)usersRepository.findAll();
     }
 
     @Override
-    public List<UsersEntity> findUserByUserName(String name) {
+    public List<UsersEntity> findUserByName(String name) {
         return null;
     }
 }
