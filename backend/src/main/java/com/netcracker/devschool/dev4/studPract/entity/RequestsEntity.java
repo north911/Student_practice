@@ -4,8 +4,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "requests", schema = "stpractice", catalog = "")
-@IdClass(RequestsEntityPK.class)
+@Table(name = "requests", schema = "stpractice")
 public class RequestsEntity {
     private int idRequest;
     private Date practicePeriod;
@@ -15,7 +14,6 @@ public class RequestsEntity {
     private Date dateTo;
     private int idSpec;
     private int idFaculty;
-    private FacultiesEntity facultiesByIdFaculty;
 
     @Id
     @Column(name = "idRequest", nullable = false)
@@ -130,13 +128,4 @@ public class RequestsEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "idFaculty", referencedColumnName = "idFaculty", nullable = false)
-    public FacultiesEntity getFacultiesByIdFaculty() {
-        return facultiesByIdFaculty;
-    }
-
-    public void setFacultiesByIdFaculty(FacultiesEntity facultiesByIdFaculty) {
-        this.facultiesByIdFaculty = facultiesByIdFaculty;
-    }
 }

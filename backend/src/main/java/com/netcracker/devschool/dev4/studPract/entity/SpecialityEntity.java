@@ -3,14 +3,11 @@ package com.netcracker.devschool.dev4.studPract.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "speciality", schema = "stpractice", catalog = "")
-@IdClass(SpecialityEntityPK.class)
+@Table(name = "speciality", schema = "stpractice")
 public class SpecialityEntity {
     private int idSpec;
     private String nameSpec;
     private int idFaculty;
-    private RequestsEntity requestsByIdSpec;
-    private FacultiesEntity facultiesByIdFaculty;
 
     @Id
     @Column(name = "idSpec", nullable = false)
@@ -64,23 +61,4 @@ public class SpecialityEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "idSpec", referencedColumnName = "idSpec", nullable = false)
-    public RequestsEntity getRequestsByIdSpec() {
-        return requestsByIdSpec;
-    }
-
-    public void setRequestsByIdSpec(RequestsEntity requestsByIdSpec) {
-        this.requestsByIdSpec = requestsByIdSpec;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "idFaculty", referencedColumnName = "idFaculty", nullable = false)
-    public FacultiesEntity getFacultiesByIdFaculty() {
-        return facultiesByIdFaculty;
-    }
-
-    public void setFacultiesByIdFaculty(FacultiesEntity facultiesByIdFaculty) {
-        this.facultiesByIdFaculty = facultiesByIdFaculty;
-    }
 }

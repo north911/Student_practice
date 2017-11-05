@@ -19,7 +19,7 @@ public class FacultiesServiceImpl implements FacultiesService {
 
     @Override
     public void deleteFacultyById(int id) {
-        facultiesRepository.delete(id);
+        facultiesRepository.deleteById(id);
     }
 
     @Override
@@ -29,6 +29,6 @@ public class FacultiesServiceImpl implements FacultiesService {
 
     @Override
     public List<FacultiesEntity>  findFacultyByName(String name) {
-        return (List<FacultiesEntity>)facultiesRepository.;
+        return null;
     }
 }

@@ -34,8 +34,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class TestController {
 
-    @Autowired
-    private UsersService usersService;
 
     @RequestMapping(value = "/loginpage", method = RequestMethod.GET)
     public String goToLoginPage() {
@@ -65,7 +63,7 @@ public class TestController {
                 return "loginpage";
     }
 
-             @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
      public String goToAdmin() {
                return "admin";
            }

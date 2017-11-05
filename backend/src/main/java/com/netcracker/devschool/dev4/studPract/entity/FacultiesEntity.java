@@ -3,8 +3,9 @@ package com.netcracker.devschool.dev4.studPract.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "faculties", schema = "stpractice", catalog = "")
+@Table(name = "faculties", schema = "stpractice")
 public class FacultiesEntity {
+
     private int idFaculty;
     private String facultyName;
 

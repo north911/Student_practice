@@ -3,15 +3,13 @@ package com.netcracker.devschool.dev4.studPract.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "students", schema = "stpractice", catalog = "")
-@IdClass(StudentsEntityPK.class)
+@Table(name = "students", schema = "stpractice")
 public class StudentsEntity {
     private int idUser;
     private int avgBall;
     private byte isBudget;
     private int idGroup;
     private int idSpec;
-    private RequestsHasStudentsEntity requestsHasStudentsByIdUser;
 
     @Id
     @Column(name = "idUser", nullable = false)
@@ -89,13 +87,4 @@ public class StudentsEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "idUser", referencedColumnName = "Students_idUser", nullable = false)
-    public RequestsHasStudentsEntity getRequestsHasStudentsByIdUser() {
-        return requestsHasStudentsByIdUser;
-    }
-
-    public void setRequestsHasStudentsByIdUser(RequestsHasStudentsEntity requestsHasStudentsByIdUser) {
-        this.requestsHasStudentsByIdUser = requestsHasStudentsByIdUser;
-    }
 }

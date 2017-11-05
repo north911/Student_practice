@@ -4,7 +4,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "requests_has_students", schema = "stpractice", catalog = "")
-@IdClass(RequestsHasStudentsEntityPK.class)
 public class RequestsHasStudentsEntity {
     private int requestsIdRequest;
     private int studentsIdUser;
