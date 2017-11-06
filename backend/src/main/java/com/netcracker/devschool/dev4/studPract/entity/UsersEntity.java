@@ -5,15 +5,21 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users", schema = "stpractice")
 public class UsersEntity {
-    private int idUsers;
-    private String password;
-    private String firstName;
-    private String lastName;
-    private String eMail;
-    private String role;
 
     @Id
-    @Column(name = "idUsers", nullable = false)
+    private int idUsers;
+
+    private String password;
+
+    private String firstName;
+
+    private String lastName;
+
+    private String eMail;
+
+    private String role;
+
+
     public int getIdUsers() {
         return idUsers;
     }
@@ -22,8 +28,7 @@ public class UsersEntity {
         this.idUsers = idUsers;
     }
 
-    @Basic
-    @Column(name = "password", nullable = false, length = 45)
+
     public String getPassword() {
         return password;
     }
@@ -32,8 +37,7 @@ public class UsersEntity {
         this.password = password;
     }
 
-    @Basic
-    @Column(name = "FirstName", nullable = false, length = 45)
+
     public String getFirstName() {
         return firstName;
     }
@@ -42,8 +46,7 @@ public class UsersEntity {
         this.firstName = firstName;
     }
 
-    @Basic
-    @Column(name = "LastName", nullable = false, length = 45)
+
     public String getLastName() {
         return lastName;
     }
@@ -52,8 +55,8 @@ public class UsersEntity {
         this.lastName = lastName;
     }
 
-    @Basic
-    @Column(name = "eMail", nullable = false, length = 45)
+
+
     public String geteMail() {
         return eMail;
     }
@@ -62,8 +65,7 @@ public class UsersEntity {
         this.eMail = eMail;
     }
 
-    @Basic
-    @Column(name = "Role", nullable = false, length = 45)
+
     public String getRole() {
         return role;
     }

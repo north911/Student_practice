@@ -26,19 +26,19 @@ import java.util.Properties;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@ComponentScan("com.netcracker.devschool.dev4.studPract")
+@ComponentScan("com.netcracker")
 @PropertySource("classpath:app.properties")
 @EnableJpaRepositories("com.netcracker.devschool.dev4.studPract.repository")
 public class DataConfig extends WebMvcConfigurerAdapter {
 
-    private static final String PROP_DATABASE_DRIVER = "db.driver";
-    private static final String PROP_DATABASE_PASSWORD = "db.password";
-    private static final String PROP_DATABASE_URL = "db.url";
-    private static final String PROP_DATABASE_USERNAME = "db.username";
-    private static final String PROP_HIBERNATE_DIALECT = "db.hibernate.dialect";
-    private static final String PROP_HIBERNATE_SHOW_SQL = "db.hibernate.show_sql";
-    private static final String PROP_ENTITYMANAGER_PACKAGES_TO_SCAN = "db.entitymanager.packages.to.scan";
-    private static final String PROP_HIBERNATE_HBM2DDL_AUTO = "db.hibernate.hbm2ddl.auto";
+    private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";
+    private static final String PROPERTY_NAME_DATABASE_PASSWORD = "db.password";
+    private static final String PROPERTY_NAME_DATABASE_URL = "db.url";
+    private static final String PROPERTY_NAME_DATABASE_USERNAME = "db.username";
+
+    private static final String PROPERTY_NAME_HIBERNATE_DIALECT = "hibernate.dialect";
+    private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "hibernate.show_sql";
+    private static final String PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN = "entitymanager.packages.to.scan";
 
     @Resource
     private Environment env;
@@ -47,41 +47,52 @@ public class DataConfig extends WebMvcConfigurerAdapter {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-        dataSource.setDriverClassName(env.getRequiredProperty(PROP_DATABASE_DRIVER));
-        dataSource.setUrl(env.getRequiredProperty(PROP_DATABASE_URL));
-        dataSource.setUsername(env.getRequiredProperty(PROP_DATABASE_USERNAME));
-        dataSource.setPassword(env.getRequiredProperty(PROP_DATABASE_PASSWORD));
+        dataSource.setDriverClassName(env.getRequiredProperty(PROPERTY_NAME_DATABASE_DRIVER));
+        dataSource.setUrl(env.getRequiredProperty(PROPERTY_NAME_DATABASE_URL));
+        dataSource.setUsername(env.getRequiredProperty(PROPERTY_NAME_DATABASE_USERNAME));
+        dataSource.setPassword(env.getRequiredProperty(PROPERTY_NAME_DATABASE_PASSWORD));
 
         return dataSource;
+    }
+
+    // Bean name must be "multipartResolver", by default Spring uses method name as bean name.
+    @Bean
+    public MultipartResolver multipartResolver() {
+        return new CommonsMultipartResolver();
     }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource());
-        entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistence.class);
-        entityManagerFactoryBean.setPackagesToScan(env.getRequiredProperty(PROP_ENTITYMANAGER_PACKAGES_TO_SCAN));
+        entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
+        entityManagerFactoryBean.setPackagesToScan(env.getRequiredProperty(PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN));
 
-        entityManagerFactoryBean.setJpaProperties(getHibernateProperties());
+        entityManagerFactoryBean.setJpaProperties(hibProperties());
 
         return entityManagerFactoryBean;
+    }
+
+    private Properties hibProperties() {
+        Properties properties = new Properties();
+        properties.put(PROPERTY_NAME_HIBERNATE_DIALECT, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DIALECT));
+        properties.put(PROPERTY_NAME_HIBERNATE_SHOW_SQL, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_SHOW_SQL));
+        return properties;
     }
 
     @Bean
     public JpaTransactionManager transactionManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
-
         return transactionManager;
     }
 
-    private Properties getHibernateProperties() {
-        Properties properties = new Properties();
-        properties.put(PROP_HIBERNATE_DIALECT, env.getRequiredProperty(PROP_HIBERNATE_DIALECT));
-        properties.put(PROP_HIBERNATE_SHOW_SQL, env.getRequiredProperty(PROP_HIBERNATE_SHOW_SQL));
-        properties.put(PROP_HIBERNATE_HBM2DDL_AUTO, env.getRequiredProperty(PROP_HIBERNATE_HBM2DDL_AUTO));
-
-        return properties;
+    @Bean
+    public InternalResourceViewResolver viewResolver() {
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        viewResolver.setViewClass(JstlView.class);
+        viewResolver.setSuffix(".jsp");
+        return viewResolver;
     }
 
 }

@@ -6,11 +6,12 @@ import javax.persistence.*;
 @Table(name = "faculties", schema = "stpractice")
 public class FacultiesEntity {
 
+    @Id
     private int idFaculty;
+
     private String facultyName;
 
-    @Id
-    @Column(name = "idFaculty", nullable = false)
+
     public int getIdFaculty() {
         return idFaculty;
     }
@@ -19,8 +20,8 @@ public class FacultiesEntity {
         this.idFaculty = idFaculty;
     }
 
-    @Basic
-    @Column(name = "FacultyName", nullable = false, length = 45)
+
+
     public String getFacultyName() {
         return facultyName;
     }

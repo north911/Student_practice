@@ -3,13 +3,14 @@ package com.netcracker.devschool.dev4.studPract.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "requests_has_students", schema = "stpractice", catalog = "")
+@Table(name = "requests_has_students", schema = "stpractice")
 public class RequestsHasStudentsEntity {
+    @Id
     private int requestsIdRequest;
+
+
     private int studentsIdUser;
 
-    @Id
-    @Column(name = "Requests_idRequest", nullable = false)
     public int getRequestsIdRequest() {
         return requestsIdRequest;
     }
@@ -18,8 +19,7 @@ public class RequestsHasStudentsEntity {
         this.requestsIdRequest = requestsIdRequest;
     }
 
-    @Id
-    @Column(name = "Students_idUser", nullable = false)
+
     public int getStudentsIdUser() {
         return studentsIdUser;
     }

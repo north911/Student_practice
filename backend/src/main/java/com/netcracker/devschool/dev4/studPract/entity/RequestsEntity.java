@@ -6,17 +6,24 @@ import java.sql.Date;
 @Entity
 @Table(name = "requests", schema = "stpractice")
 public class RequestsEntity {
+    @Id
     private int idRequest;
+
     private Date practicePeriod;
+
     private int idUser;
+
     private String companyName;
+
     private Date dateFrom;
+
     private Date dateTo;
+
     private int idSpec;
+
     private int idFaculty;
 
-    @Id
-    @Column(name = "idRequest", nullable = false)
+
     public int getIdRequest() {
         return idRequest;
     }
@@ -25,8 +32,8 @@ public class RequestsEntity {
         this.idRequest = idRequest;
     }
 
-    @Basic
-    @Column(name = "practice_period", nullable = false)
+
+
     public Date getPracticePeriod() {
         return practicePeriod;
     }
@@ -35,8 +42,7 @@ public class RequestsEntity {
         this.practicePeriod = practicePeriod;
     }
 
-    @Id
-    @Column(name = "idUser", nullable = false)
+
     public int getIdUser() {
         return idUser;
     }
@@ -45,8 +51,8 @@ public class RequestsEntity {
         this.idUser = idUser;
     }
 
-    @Basic
-    @Column(name = "CompanyName", nullable = false, length = 45)
+
+
     public String getCompanyName() {
         return companyName;
     }
@@ -55,8 +61,8 @@ public class RequestsEntity {
         this.companyName = companyName;
     }
 
-    @Basic
-    @Column(name = "dateFrom", nullable = false)
+
+
     public Date getDateFrom() {
         return dateFrom;
     }
@@ -65,8 +71,8 @@ public class RequestsEntity {
         this.dateFrom = dateFrom;
     }
 
-    @Basic
-    @Column(name = "dateTo", nullable = false)
+
+
     public Date getDateTo() {
         return dateTo;
     }
@@ -75,8 +81,7 @@ public class RequestsEntity {
         this.dateTo = dateTo;
     }
 
-    @Id
-    @Column(name = "idSpec", nullable = false)
+
     public int getIdSpec() {
         return idSpec;
     }
@@ -85,8 +90,7 @@ public class RequestsEntity {
         this.idSpec = idSpec;
     }
 
-    @Id
-    @Column(name = "idFaculty", nullable = false)
+
     public int getIdFaculty() {
         return idFaculty;
     }

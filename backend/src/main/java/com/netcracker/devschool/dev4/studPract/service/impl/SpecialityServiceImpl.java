@@ -19,7 +19,7 @@ public class SpecialityServiceImpl implements SpecialityService{
 
     @Override
     public void deleteSpecialityById(int id) {
-        specialityRepository.deleteById(id);
+        specialityRepository.delete(id);
 
     }
 

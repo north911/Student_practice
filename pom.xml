@@ -7,7 +7,7 @@
     <artifactId>studPract</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>studPract</name>
+    <name>studentPractice</name>
     <url>http://maven.apache.org</url>
 
     <modules>

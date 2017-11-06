@@ -7,7 +7,5 @@ import java.util.List;
 
 public interface UsersRepository extends CrudRepository<UsersEntity, Integer> {
 
-    List<UsersEntity> findByUsername(String firstName);
-    List<UsersEntity> findByUsernameAndPassword(String firstName, String password);
 
 }

@@ -5,14 +5,15 @@ import javax.persistence.*;
 @Entity
 @Table(name = "students", schema = "stpractice")
 public class StudentsEntity {
+
+    @Id
     private int idUser;
     private int avgBall;
     private byte isBudget;
     private int idGroup;
     private int idSpec;
 
-    @Id
-    @Column(name = "idUser", nullable = false)
+
     public int getIdUser() {
         return idUser;
     }
@@ -21,8 +22,7 @@ public class StudentsEntity {
         this.idUser = idUser;
     }
 
-    @Basic
-    @Column(name = "avg_ball", nullable = false)
+
     public int getAvgBall() {
         return avgBall;
     }
@@ -31,8 +31,7 @@ public class StudentsEntity {
         this.avgBall = avgBall;
     }
 
-    @Basic
-    @Column(name = "isBudget", nullable = false)
+
     public byte getIsBudget() {
         return isBudget;
     }
@@ -41,8 +40,7 @@ public class StudentsEntity {
         this.isBudget = isBudget;
     }
 
-    @Basic
-    @Column(name = "idGroup", nullable = false)
+
     public int getIdGroup() {
         return idGroup;
     }
@@ -51,8 +49,7 @@ public class StudentsEntity {
         this.idGroup = idGroup;
     }
 
-    @Id
-    @Column(name = "idSpec", nullable = false)
+
     public int getIdSpec() {
         return idSpec;
     }

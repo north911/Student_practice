@@ -5,12 +5,15 @@ import javax.persistence.*;
 @Entity
 @Table(name = "speciality", schema = "stpractice")
 public class SpecialityEntity {
-    private int idSpec;
-    private String nameSpec;
-    private int idFaculty;
 
     @Id
-    @Column(name = "idSpec", nullable = false)
+    private int idSpec;
+
+    private String nameSpec;
+
+    private int idFaculty;
+
+
     public int getIdSpec() {
         return idSpec;
     }
@@ -19,8 +22,8 @@ public class SpecialityEntity {
         this.idSpec = idSpec;
     }
 
-    @Basic
-    @Column(name = "NameSpec", nullable = false, length = 45)
+
+
     public String getNameSpec() {
         return nameSpec;
     }
@@ -29,8 +32,6 @@ public class SpecialityEntity {
         this.nameSpec = nameSpec;
     }
 
-    @Id
-    @Column(name = "idFaculty", nullable = false)
     public int getIdFaculty() {
         return idFaculty;
     }

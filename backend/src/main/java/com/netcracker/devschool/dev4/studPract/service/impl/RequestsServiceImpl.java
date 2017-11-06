@@ -20,7 +20,7 @@ public class RequestsServiceImpl implements RequestsService{
     @Override
     public void deleteRequestById(int id) {
 
-        requestsRepository.deleteById(id);
+        requestsRepository.delete(id);
 
     }
 
