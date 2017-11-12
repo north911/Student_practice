@@ -28,6 +28,34 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
     <script>
+
+    /*    $(function () {
+            $('#faculties').on('change', function () {
+                refreshSpecialities(this.value, 0);
+            })
+        });
+
+
+        function refreshSpecialities(id, val) {
+            $.ajax({
+                url: 'getSpecialitiesByFacultyId/' + id,
+                dataType: 'json',
+                success: function (data) {
+                    $('#specs').find('option').remove();
+                    var options = "";
+                    $.each(data, function (index, value) {
+                        options += '<option value="' + value.id + '">' + value.name + '</option>';
+                    });
+                    $('#specs').html(options);
+                    if (val) {
+                        $('#specs').val(val);
+                    }
+                    $('#faculties').val(data.facultyId);
+                }
+            });
+        }*/
+
+
         function init() {
             $('#faculty_add').ajaxForm({
                 dataType: 'json',
@@ -41,6 +69,7 @@
 
                 }
             });
+
         }
     </script>
 
@@ -255,26 +284,26 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
+                                            <form action="/adds" id="speciality_add" method="post" role="form">
                                             <div class="row">
                                                 <div class="col-md-5"><label>available faculties</label></div>
                                                 <div class="col-md-5 col-md-offset-1"><label>spec name</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-4"><select class="form-control">
-                                                    <option>fkp</option>
-                                                    <option>fksis</option>
-                                                    <option>ief</option>
-                                                    <option>vf</option>
-                                                    <option>fre</option>
+                                                <div class="col-md-4"><select id="listFaculties" name="facname" class="form-control">
+                                                    <c:forEach items="${listFaculties}" var="faculty">
+                                                        <option value="${faculty.facultyName}">${faculty.facultyName}</option>
+                                                    </c:forEach>
                                                 </select></div>
-                                                <div class="col-md-5 col-md-offset-1 "><input class="form-control"></div>
+                                                <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="sname"></div>
                                             </div>
-
+                                                <button type="submit" class="btn btn-primary ">Create</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary">Create</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
                                     </div>
                                 </div>
                                 <!-- /.modal-content -->
@@ -292,7 +321,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
-                                            <form action="/add" id="faculty_add" method="post" role="form">
+                                            <form action="/addf" id="faculty_add" method="post" role="form">
                                             <div class="row">
                                                 <div class="col-md-5"><label>faculty name</label></div>
                                                 <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="fname"></div>
@@ -303,7 +332,6 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-
                                     </div>
                                 </div>
                                 <!-- /.modal-content -->
@@ -788,20 +816,21 @@
                                         <thead>
                                         <tr>
                                             <th>cb</th>
-                                            <th>idFac</th>
-                                            <th>Fac</th>
+                                            <th>speciality</th>
+                                            <th>Faculty</th>
                                         </tr>
                                         </thead>
                                         <tbody>
 
 
-                                            <c:forEach items="${listFaculties}" var="faculty" >
+                                            <c:forEach items="${listSpecialities}" var="speciality" >
                                                 <tr>
                                                     <td><div class="checkbox">
                                                         <label><input type="checkbox" value=""></label>
                                                     </div></td>
-                                                    <td>${faculty.idFaculty}</td>
-                                                    <td>${faculty.facultyName}</td>
+                                                    <td>${speciality.nameSpec}</td>
+                                                    <td>${listFaculties.stream().filter(FacultiesEntity -> FacultiesEntity.getIdFaculty()==speciality.getIdFaculty()).findFirst().get().getFacultyName()}</td>
+                                                    <td>
                                                 </tr>
                                             </c:forEach>
 

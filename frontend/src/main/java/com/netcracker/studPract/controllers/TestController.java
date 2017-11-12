@@ -24,15 +24,16 @@
 package com.netcracker.studPract.controllers;
 
 import com.netcracker.devschool.dev4.studPract.entity.FacultiesEntity;
+import com.netcracker.devschool.dev4.studPract.entity.SpecialityEntity;
 import com.netcracker.devschool.dev4.studPract.service.FacultiesService;
+import com.netcracker.devschool.dev4.studPract.service.SpecialityService;
 import com.netcracker.devschool.dev4.studPract.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @Controller
@@ -40,6 +41,9 @@ public class TestController {
 
     @Autowired
     FacultiesService facultiesService;
+
+    @Autowired
+    SpecialityService specialityService;
 
     @RequestMapping(value = "/loginpage", method = RequestMethod.GET)
     public String goToLoginPage() {
@@ -69,10 +73,10 @@ public class TestController {
                 return "loginpage";
     }
 
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/admin", method = RequestMethod.GET)
      public String goToAdmin() {
                return "admin";
-           }
+           }*/
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String goToProfile() {
@@ -90,7 +94,7 @@ public class TestController {
         return "/admin";
     }*/
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/addf", method = RequestMethod.POST)
     public FacultiesEntity addFaculty( @RequestParam(value = "fname", required = false) String fname){
         FacultiesEntity facultiesEntity = new FacultiesEntity();
         facultiesEntity.setFacultyName(fname);
@@ -98,12 +102,37 @@ public class TestController {
         return facultiesEntity;
     }
 
-    @RequestMapping(value = "/admin1", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String listFaculties(Model model){
         model.addAttribute("faculty", new FacultiesEntity());
         model.addAttribute("listFaculties", facultiesService.findAllFaculties());
+        model.addAttribute("listSpecialities", specialityService.findAllSpecialities());
         return "/admin";
     }
+
+    @RequestMapping(value = "/adds", method = RequestMethod.POST)
+    public SpecialityEntity addSpeciality(@RequestParam(value = "sname", required = false) String sname,
+                                          @RequestParam(value = "facname", required = false)  String facname){
+        SpecialityEntity specialityEntity = new SpecialityEntity();
+        specialityEntity.setIdFaculty(facultiesService.findFacultyByName(facname).getIdFaculty());
+        specialityEntity.setNameSpec(sname);
+        specialityService.saveSpeciality(specialityEntity);
+        return specialityEntity;
+    }
+
+   @RequestMapping(value = "/getSpecialitiesByFacultyId/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<SpecialityEntity> getSpecilaitiesByFacultyId(@PathVariable int id) {
+        return specialityService.findByFacultyId(id);
+    }
+
+    @RequestMapping(value = "/getAllFaculties", method = RequestMethod.GET)
+    @ResponseBody
+    public List<FacultiesEntity> getAllFaculties() {
+        return facultiesService.findAllFaculties();
+    }
+
+
 
 }
 

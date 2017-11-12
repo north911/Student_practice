@@ -32,7 +32,7 @@ public class FacultiesServiceImpl implements FacultiesService {
     }
 
     @Override
-    public List<FacultiesEntity>  findFacultyByName(String name) {
-        return null;
+    public FacultiesEntity  findFacultyByName(String name) {
+        return facultiesRepository.findFacultyByName(name);
     }
 }

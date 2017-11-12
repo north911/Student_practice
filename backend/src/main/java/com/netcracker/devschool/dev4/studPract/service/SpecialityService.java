@@ -10,4 +10,5 @@ public interface SpecialityService {
     void deleteSpecialityById(int id);
     List<SpecialityEntity> findAllSpecialities();
     List<SpecialityEntity> findSpecialityByName(String name);
+    List<SpecialityEntity> findByFacultyId(int id);
 }

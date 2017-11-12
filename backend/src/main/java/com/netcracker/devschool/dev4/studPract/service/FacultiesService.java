@@ -9,5 +9,6 @@ public interface FacultiesService {
     FacultiesEntity saveFaculty(FacultiesEntity facultiesEntity);
     void deleteFacultyById(int id);
     List<FacultiesEntity> findAllFaculties();
-    List<FacultiesEntity> findFacultyByName(String name);
+    FacultiesEntity findFacultyByName(String name);
+
 }
