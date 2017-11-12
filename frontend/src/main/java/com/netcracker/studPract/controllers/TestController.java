@@ -23,9 +23,13 @@
  */
 package com.netcracker.studPract.controllers;
 
+import com.netcracker.devschool.dev4.studPract.entity.FacultiesEntity;
+import com.netcracker.devschool.dev4.studPract.service.FacultiesService;
 import com.netcracker.devschool.dev4.studPract.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,6 +38,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class TestController {
 
+    @Autowired
+    FacultiesService facultiesService;
 
     @RequestMapping(value = "/loginpage", method = RequestMethod.GET)
     public String goToLoginPage() {
@@ -76,6 +82,27 @@ public class TestController {
     @RequestMapping(value = "/head", method = RequestMethod.GET)
     public String goToHead() {
         return "head";
+    }
+
+    /*@RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String addCabinet(@ModelAttribute("faculty")FacultiesEntity facultiesEntity){
+        facultiesService.saveFaculty(facultiesEntity);
+        return "/admin";
+    }*/
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public FacultiesEntity addFaculty( @RequestParam(value = "fname", required = false) String fname){
+        FacultiesEntity facultiesEntity = new FacultiesEntity();
+        facultiesEntity.setFacultyName(fname);
+        facultiesService.saveFaculty(facultiesEntity);
+        return facultiesEntity;
+    }
+
+    @RequestMapping(value = "/admin1", method = RequestMethod.GET)
+    public String listFaculties(Model model){
+        model.addAttribute("faculty", new FacultiesEntity());
+        model.addAttribute("listFaculties", facultiesService.findAllFaculties());
+        return "/admin";
     }
 
 }

@@ -12,5 +12,5 @@
 <script src="resources/js/libs/popper.min.js"></script>
 <link href="resources/css/libs/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="resources/css/general.css" rel="stylesheet" type="text/css" media="all"/>
-<body>
-</body>
+<script src="resources/js/libs/jquery.form.min.js"></script>
+

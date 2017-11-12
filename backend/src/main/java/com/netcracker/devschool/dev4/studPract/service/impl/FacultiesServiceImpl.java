@@ -4,9 +4,13 @@ import com.netcracker.devschool.dev4.studPract.entity.FacultiesEntity;
 import com.netcracker.devschool.dev4.studPract.repository.FacultiesRepository;
 import com.netcracker.devschool.dev4.studPract.service.FacultiesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
+@Service
 public class FacultiesServiceImpl implements FacultiesService {
 
     @Autowired

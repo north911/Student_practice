@@ -5,9 +5,11 @@ import com.netcracker.devschool.dev4.studPract.repository.UsersRepository;
 import com.netcracker.devschool.dev4.studPract.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 @Service
 public class UsersServiceImpl implements UsersService {
 

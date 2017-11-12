@@ -1,13 +1,13 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: andrey
-  Date: 17.10.2017
-  Time: 21:36
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
+<%@ page session="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+
+    <jsp:include page="/jsp/blocks/header.jsp"/>
 
     <title>Admin page</title>
 
@@ -27,9 +27,26 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
+    <script>
+        function init() {
+            $('#faculty_add').ajaxForm({
+                dataType: 'json',
+                success: function (data) {
+
+                }
+            });
+            $('#speciality_add').ajaxForm({
+                dataType: 'json',
+                success: function (data) {
+
+                }
+            });
+        }
+    </script>
+
 </head>
-<body>
-<jsp:include page="/jsp/blocks/header.jsp"/>
+<body onload="init()">
+
 
 <div id="wrapper">
 
@@ -228,8 +245,72 @@
                             </div>
                             <!-- /.modal-dialog -->
                         </div>
-                        <button type="button" class="btn btn-primary">Create spec???</button>
-                        <button type="button" class="btn btn-primary">Create fac???</button>
+                        <button type="button" class="btn btn-primary" data-target="#myModal5" data-toggle="modal">Create spec</button>
+                        <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h4 class="modal-title" id="myModalLabel5">Add student</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-md-5"><label>available faculties</label></div>
+                                                <div class="col-md-5 col-md-offset-1"><label>spec name</label></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4"><select class="form-control">
+                                                    <option>fkp</option>
+                                                    <option>fksis</option>
+                                                    <option>ief</option>
+                                                    <option>vf</option>
+                                                    <option>fre</option>
+                                                </select></div>
+                                                <div class="col-md-5 col-md-offset-1 "><input class="form-control"></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Create</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+
+                        <button type="button" class="btn btn-primary" data-target="#myModal6" data-toggle="modal">Create fac</button>
+                        <div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h4 class="modal-title" id="myModalLabel6">Add faculty</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <form action="/add" id="faculty_add" method="post" role="form">
+                                            <div class="row">
+                                                <div class="col-md-5"><label>faculty name</label></div>
+                                                <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="fname"></div>
+                                            </div>
+                                                <button type="submit" class="btn btn-primary">Create</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -243,7 +324,7 @@
                 </li>
                 <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false">Requests tab</a>
                 </li>
-                <li class=""><a href="#messages" data-toggle="tab" aria-expanded="false">Reserved tab</a>
+                <li class=""><a href="#messages" data-toggle="tab" aria-expanded="false">faculties tab</a>
                 </li>
             </ul>
 
@@ -694,8 +775,47 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="messages">
-                    <h4>Messages Tab</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h4>Faculties Tab</h4>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Table of the students
+                                </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example3">
+                                        <thead>
+                                        <tr>
+                                            <th>cb</th>
+                                            <th>idFac</th>
+                                            <th>Fac</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+
+                                            <c:forEach items="${listFaculties}" var="faculty" >
+                                                <tr>
+                                                    <td><div class="checkbox">
+                                                        <label><input type="checkbox" value=""></label>
+                                                    </div></td>
+                                                    <td>${faculty.idFaculty}</td>
+                                                    <td>${faculty.facultyName}</td>
+                                                </tr>
+                                            </c:forEach>
+
+                                        </tbody>
+                                    </table>
+                                    <!-- /.table-responsive -->
+
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -721,16 +841,6 @@
 </div>
 <!-- /#wrapper -->
 
-<!-- jQuery -->
-<!-- jQuery -->
-<script src="../resources/js/libs/jquery-3.2.1.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="../resources/js/libs/bootstrap.min.js"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="../resources/js/metisMenu.min.js"></script>
-
 <script src="../resources/js/jquery.dataTables.min.js"></script>
 <script src="../resources/js/dataTables.bootstrap.min.js"></script>
 <script src="../resources/js/dataTables.responsive.js"></script>
@@ -742,6 +852,9 @@
             responsive: true
         });
         $('#dataTables-example1').DataTable({
+            responsive: true
+        });
+        $('#dataTables-example3').DataTable({
             responsive: true
         });
     });
