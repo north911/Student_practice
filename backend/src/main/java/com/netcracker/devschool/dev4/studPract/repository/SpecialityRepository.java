@@ -11,4 +11,7 @@ public interface SpecialityRepository extends CrudRepository<SpecialityEntity,In
 
     @Query("select s from SpecialityEntity s where s.idFaculty = :idFaculty")
     List<SpecialityEntity> findByFacultyId(@Param("idFaculty") int idFaculty);
+
+    @Query("select s from SpecialityEntity s where s.nameSpec = :nameSpec")
+    SpecialityEntity findIdByNameSpec(@Param("nameSpec") String nameSpec);
 }

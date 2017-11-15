@@ -8,9 +8,13 @@ public class StudentsEntity {
 
     @Id
     private int idUser;
+
     private int avgBall;
+
     private byte isBudget;
+
     private int idGroup;
+
     private int idSpec;
 
 

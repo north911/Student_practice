@@ -39,11 +39,7 @@ import java.util.List;
 @Controller
 public class TestController {
 
-    @Autowired
-    FacultiesService facultiesService;
 
-    @Autowired
-    SpecialityService specialityService;
 
     @RequestMapping(value = "/loginpage", method = RequestMethod.GET)
     public String goToLoginPage() {
@@ -73,10 +69,6 @@ public class TestController {
                 return "loginpage";
     }
 
-    /*@RequestMapping(value = "/admin", method = RequestMethod.GET)
-     public String goToAdmin() {
-               return "admin";
-           }*/
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String goToProfile() {
@@ -88,49 +80,8 @@ public class TestController {
         return "head";
     }
 
-    /*@RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addCabinet(@ModelAttribute("faculty")FacultiesEntity facultiesEntity){
-        facultiesService.saveFaculty(facultiesEntity);
-        return "/admin";
-    }*/
 
-    @RequestMapping(value = "/addf", method = RequestMethod.POST)
-    public FacultiesEntity addFaculty( @RequestParam(value = "fname", required = false) String fname){
-        FacultiesEntity facultiesEntity = new FacultiesEntity();
-        facultiesEntity.setFacultyName(fname);
-        facultiesService.saveFaculty(facultiesEntity);
-        return facultiesEntity;
-    }
 
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String listFaculties(Model model){
-        model.addAttribute("faculty", new FacultiesEntity());
-        model.addAttribute("listFaculties", facultiesService.findAllFaculties());
-        model.addAttribute("listSpecialities", specialityService.findAllSpecialities());
-        return "/admin";
-    }
-
-    @RequestMapping(value = "/adds", method = RequestMethod.POST)
-    public SpecialityEntity addSpeciality(@RequestParam(value = "sname", required = false) String sname,
-                                          @RequestParam(value = "facname", required = false)  String facname){
-        SpecialityEntity specialityEntity = new SpecialityEntity();
-        specialityEntity.setIdFaculty(facultiesService.findFacultyByName(facname).getIdFaculty());
-        specialityEntity.setNameSpec(sname);
-        specialityService.saveSpeciality(specialityEntity);
-        return specialityEntity;
-    }
-
-   @RequestMapping(value = "/getSpecialitiesByFacultyId/{id}", method = RequestMethod.GET)
-    @ResponseBody
-    public List<SpecialityEntity> getSpecilaitiesByFacultyId(@PathVariable int id) {
-        return specialityService.findByFacultyId(id);
-    }
-
-    @RequestMapping(value = "/getAllFaculties", method = RequestMethod.GET)
-    @ResponseBody
-    public List<FacultiesEntity> getAllFaculties() {
-        return facultiesService.findAllFaculties();
-    }
 
 
 

@@ -35,4 +35,9 @@ public class FacultiesServiceImpl implements FacultiesService {
     public FacultiesEntity  findFacultyByName(String name) {
         return facultiesRepository.findFacultyByName(name);
     }
+
+    @Override
+    public FacultiesEntity findFacultyById(int id) {
+        return facultiesRepository.findOne(id);
+    }
 }

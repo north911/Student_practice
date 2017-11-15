@@ -9,6 +9,6 @@ public interface SpecialityService {
     SpecialityEntity saveSpeciality(SpecialityEntity specialityEntity);
     void deleteSpecialityById(int id);
     List<SpecialityEntity> findAllSpecialities();
-    List<SpecialityEntity> findSpecialityByName(String name);
+    SpecialityEntity findSpecialityByName(String name);
     List<SpecialityEntity> findByFacultyId(int id);
 }

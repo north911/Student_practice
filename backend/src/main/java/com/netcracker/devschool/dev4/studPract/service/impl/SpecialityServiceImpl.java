@@ -33,8 +33,8 @@ public class SpecialityServiceImpl implements SpecialityService{
     }
 
     @Override
-    public List<SpecialityEntity> findSpecialityByName(String name) {
-        return null;
+    public SpecialityEntity findSpecialityByName(String name) {
+        return specialityRepository.findIdByNameSpec(name);
     }
 
     @Override

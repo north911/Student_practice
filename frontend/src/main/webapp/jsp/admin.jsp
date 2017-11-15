@@ -29,7 +29,7 @@
 
     <script>
 
-    /*    $(function () {
+        $(function () {
             $('#faculties').on('change', function () {
                 refreshSpecialities(this.value, 0);
             })
@@ -44,16 +44,17 @@
                     $('#specs').find('option').remove();
                     var options = "";
                     $.each(data, function (index, value) {
-                        options += '<option value="' + value.id + '">' + value.name + '</option>';
+                        options += '<option value="' + value.idSpec + '">' + value.nameSpec + '</option>';
                     });
                     $('#specs').html(options);
                     if (val) {
                         $('#specs').val(val);
                     }
-                    $('#faculties').val(data.facultyId);
+
                 }
             });
-        }*/
+
+        }
 
 
         function init() {
@@ -69,7 +70,18 @@
 
                 }
             });
+            $('#student_add').ajaxForm({
+                dataType: 'json',
+                success: function (data) {
 
+                }
+            });
+
+            $('#faculties').val(data.idFaculty);
+            refreshSpecialities(data.idFaculty, data.idSpec);
+        }
+        function myFunction() {
+            location.reload();
         }
     </script>
 
@@ -180,50 +192,56 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
+                                            <form action="/addstud" id="student_add" method="post" role="form">
                                             <div class="row">
                                                 <div class="col-md-5"><label>First name</label></div>
                                                 <div class="col-md-5 col-md-offset-1 "><label>Last name</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-5"><input class="form-control"></div>
-                                                <div class="col-md-5 col-md-offset-1 "><input class="form-control"></div>
+                                                <div class="col-md-5"><input class="form-control" name="firstName"></div>
+                                                <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="firstName"></div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-4"><label>Faculty</label></div>
                                                 <div class="col-md-4"><label>Speciality</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-4"><select class="form-control">
-                                                    <option>fkp</option>
-                                                    <option>fksis</option>
-                                                    <option>ief</option>
-                                                    <option>vf</option>
-                                                    <option>fre</option>
+                                                <div class="col-md-4"><select id="faculties" name="facname" class="form-control">
+                                                    <c:forEach items="${listFaculties}" var="faculty">
+                                                        <option value="${faculty.idFaculty}">${faculty.facultyName}</option>
+                                                    </c:forEach>
                                                 </select></div>
-                                                <div class="col-md-4"><select class="form-control">
-                                                    <option>fkp</option>
-                                                    <option>fksis</option>
-                                                    <option>ief</option>
-                                                    <option>vf</option>
-                                                    <option>fre</option>
-                                                </select></div>
+                                                <div class="col-md-4"><select id="specs" name="speciality" class="form-control">
+                                                </select>
+                                                </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3 "><label>Avg ball</label></div>
-                                                <div class="col-md-6 col-md-offset-1"><label>Is budget</label></div>
+                                                <div class="col-md-3 col-md-offset-1"><label>Is budget</label></div>
+                                                <div class="col-md-3 "><label>num group</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3"><input></div>
+                                                <div class="col-md-3"><input type="number" name="avgB"></div>
                                                 <div class="col-md-6 col-md-offset-1"><label>
-                                                    <input type="checkbox" value="">
+                                                    <input type="checkbox" value="" name="isBudget">
                                                 </label></div>
+                                                <div class="col-md-3"><input type="number" name="group"></div>
                                             </div>
-
+                                                <div class="row">
+                                                    <div class="col-md-4 "><label>login</label></div>
+                                                    <div class="col-md-4 col-md-offset-1"><label>pass</label></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-5"><input class="form-control" name="login"></div>
+                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="pass"></div>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Create</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary">Create</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
                                     </div>
                                 </div>
                                 <!-- /.modal-content -->
@@ -292,12 +310,12 @@
                                             <div class="row">
                                                 <div class="col-md-4"><select id="listFaculties" name="facname" class="form-control">
                                                     <c:forEach items="${listFaculties}" var="faculty">
-                                                        <option value="${faculty.facultyName}">${faculty.facultyName}</option>
+                                                        <option value="${faculty.idFaculty}">${faculty.facultyName}</option>
                                                     </c:forEach>
                                                 </select></div>
                                                 <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="sname"></div>
                                             </div>
-                                                <button type="submit" class="btn btn-primary ">Create</button>
+                                                <button type="submit" class="btn btn-primary"   onClick="location.href=location.href">Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             </form>
                                         </div>
@@ -326,7 +344,7 @@
                                                 <div class="col-md-5"><label>faculty name</label></div>
                                                 <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="fname"></div>
                                             </div>
-                                                <button type="submit" class="btn btn-primary">Create</button>
+                                                <button type="submit" class="btn btn-primary" onClick="window.location.reload()">Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             </form>
                                         </div>
