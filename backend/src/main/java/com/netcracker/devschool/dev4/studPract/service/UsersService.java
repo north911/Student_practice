@@ -10,6 +10,6 @@ public interface UsersService {
     void deleteUserById(int id);
     List<UsersEntity> findAllUsers();
     List<UsersEntity> findUserByName(String name);
-    List<UsersEntity> findUserByRole(String role);
+    List<UsersEntity> findUsersByRole(String role);
     UsersEntity findByUserLogin(String login);
 }

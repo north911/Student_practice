@@ -406,8 +406,8 @@
                                         <thead>
                                         <tr>
                                             <th>CB</th>
-                                            <th>Last name</th>
                                             <th>First name</th>
+                                            <th>Last name</th>
                                             <th>Faculty</th>
                                             <th>Speciality</th>
                                             <th>Group</th>
@@ -420,210 +420,26 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center"><button type="button" class="btn btn-primary btn-circle"><i class="fa fa-list"></i>
-                                            </button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center"><button type="button" class="btn btn-primary btn-circle"><i class="fa fa-list"></i>
-                                            </button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center"><button type="button" class="btn btn-primary btn-circle"><i class="fa fa-list"></i>
-                                            </button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center"><button type="button" class="btn btn-primary btn-circle"><i class="fa fa-list"></i>
-                                            </button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center"><button type="button" class="btn btn-primary btn-circle"><i class="fa fa-list"></i>
-                                            </button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center"><button type="button" class="btn btn-primary btn-circle"><i class="fa fa-list"></i>
-                                            </button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center"><button type="button" class="btn btn-primary btn-circle"><i class="fa fa-list"></i>
-                                            </button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center"><button type="button" class="btn btn-primary btn-circle"><i class="fa fa-list"></i>
-                                            </button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center"><button type="button" class="btn btn-primary btn-circle"><i class="fa fa-list"></i>
-                                            </button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center"><button type="button" class="btn btn-primary btn-circle"><i class="fa fa-list"></i>
-                                            </button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center"><button type="button" class="btn btn-primary btn-circle"><i class="fa fa-list"></i>
-                                            </button></td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center"><button type="button" class="btn btn-primary btn-circle"><i class="fa fa-list"></i>
-                                            </button></td>
-                                        </tr>
+                                        <c:forEach items="${listStudents}" var="student" >
+                                            <tr>
+                                                <td><div class="checkbox">
+                                                    <label><input type="checkbox" value="checked"></label>
+                                                </div></td>
+                                                <td>${listUsersStudents.stream().filter(UsersEntity -> UsersEntity.getIdUsers()==student.getIdUser()).findFirst().get().getFirstName()}</td>
+                                                <td>${listUsersStudents.stream().filter(UsersEntity -> UsersEntity.getIdUsers()==student.getIdUser()).findFirst().get().getLastName()}</td>
+                                                <td>${listFaculties.stream().filter(FacultiesEntity -> FacultiesEntity.getIdFaculty()==(listSpecialities.stream().filter(SpecialityEntity -> SpecialityEntity.getIdSpec()==student.getIdSpec()).findFirst().get().getIdFaculty())).findFirst().get().getFacultyName()}</td>
+                                                <td>${listSpecialities.stream().filter(SpecialityEntity -> SpecialityEntity.getIdSpec()==student.getIdSpec()).findFirst().get().getNameSpec()}</td>
+                                                <td>${student.idGroup}</td>
+                                                <td>${student.isBudget}</td>
+                                                <td>${student.avgBall}</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </c:forEach>
+
+
                                         </tbody>
                                     </table>
                                     <!-- /.table-responsive -->
@@ -650,8 +466,8 @@
                                         <tr>
                                             <th>CB</th>
                                             <th>Company name</th>
-                                            <th>Dates</th>
-                                            <th>Status</th>
+                                            <th>Date from</th>
+                                            <th>Date to</th>
                                             <th>Faculty</th>
                                             <th>Speciality</th>
                                             <th>Min avg ball</th>
@@ -660,174 +476,23 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
 
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
+                                        <c:forEach items="${listRequests}" var="request" >
+                                            <tr>
+                                                <td><div class="checkbox">
+                                                    <label><input type="checkbox" value=""></label>
+                                                </div></td>
+                                                <td>${request.companyName}</td>
+                                                <td>${request.dateFrom.toString()}</td>
+                                                <td>${request.dateTo.toString()}</td>
+                                                <td>${listFaculties.stream().filter(FacultiesEntity -> FacultiesEntity.getIdFaculty()==request.getIdFaculty()).findFirst().get().getFacultyName()}</td>
+                                                <td>${listSpecialities.stream().filter(SpecialityEntity -> SpecialityEntity.getIdSpec()==request.getIdSpec()).findFirst().get().getNameSpec()}</td>
+                                                <td>${request.minAvg}</td>
+                                                <td>${request.quantity}</td>
+                                                <td></td>
+                                            </tr>
+                                        </c:forEach>
 
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td><div class="checkbox">
-                                                <label><input type="checkbox" value=""></label>
-                                            </div></td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-
-                                        </tr>
                                         </tbody>
                                     </table>
                                     <!-- /.table-responsive -->
@@ -868,10 +533,8 @@
                                                     </div></td>
                                                     <td>${speciality.nameSpec}</td>
                                                     <td>${listFaculties.stream().filter(FacultiesEntity -> FacultiesEntity.getIdFaculty()==speciality.getIdFaculty()).findFirst().get().getFacultyName()}</td>
-                                                    <td>
                                                 </tr>
                                             </c:forEach>
-
                                         </tbody>
                                     </table>
                                     <!-- /.table-responsive -->

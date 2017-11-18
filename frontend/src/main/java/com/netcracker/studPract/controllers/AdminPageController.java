@@ -37,8 +37,14 @@ public class AdminPageController {
     @RequestMapping(value = "/addf", method = RequestMethod.POST)
     public FacultiesEntity addFaculty( @RequestParam(value = "fname", required = false) String fname){
         FacultiesEntity facultiesEntity = new FacultiesEntity();
+
+        try{
         facultiesEntity.setFacultyName(fname);
-        facultiesService.saveFaculty(facultiesEntity);
+        facultiesService.saveFaculty(facultiesEntity);}
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
         return facultiesEntity;
     }
 
@@ -47,7 +53,9 @@ public class AdminPageController {
         model.addAttribute("faculty", new FacultiesEntity());
         model.addAttribute("listFaculties", facultiesService.findAllFaculties());
         model.addAttribute("listSpecialities", specialityService.findAllSpecialities());
-        //model.addAttribute("listStudents",st
+        model.addAttribute("listStudents",studentsService.findAllStudents());
+        model.addAttribute("listUsersStudents",usersService.findUsersByRole("student"));
+        model.addAttribute("listRequests",requestsService.findAllRequests());
         return "/admin";
     }
 
@@ -55,9 +63,14 @@ public class AdminPageController {
     public SpecialityEntity addSpeciality(@RequestParam(value = "sname", required = false) String sname,
                                           @RequestParam(value = "facname", required = false)  int facname){
         SpecialityEntity specialityEntity = new SpecialityEntity();
+        try{
         specialityEntity.setIdFaculty(facultiesService.findFacultyById(facname).getIdFaculty());
         specialityEntity.setNameSpec(sname);
-        specialityService.saveSpeciality(specialityEntity);
+        specialityService.saveSpeciality(specialityEntity);}
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
         return specialityEntity;
     }
 
@@ -79,6 +92,7 @@ public class AdminPageController {
                                      @RequestParam(value = "pass", required = false) String pass){
         StudentsEntity studentsEntity = new StudentsEntity();
         UsersEntity usersEntity = new UsersEntity();
+        try{
         studentsEntity.setAvgBall(avgBall);
         studentsEntity.setIdGroup(group);
         studentsEntity.setIdSpec(Integer.parseInt(speciality));
@@ -91,7 +105,11 @@ public class AdminPageController {
         usersEntity.setPassword(pass);
         usersService.saveUser(usersEntity);
         studentsEntity.setIdUser(usersService.findByUserLogin(login).getIdUsers());
-        studentsService.saveStudent(studentsEntity);
+        studentsService.saveStudent(studentsEntity);}
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
         return studentsEntity;
     }
 
@@ -112,6 +130,8 @@ public class AdminPageController {
 
 
         RequestsEntity requestsEntity = new RequestsEntity();
+
+        try{
         DateFormat format = new SimpleDateFormat("MM/dd/yy", Locale.ENGLISH);
         try {
             Date start = format.parse(fromDate);
@@ -126,7 +146,11 @@ public class AdminPageController {
         requestsEntity.setIdSpec(Integer.parseInt(idSpec));
         requestsEntity.setQuantity(Integer.parseInt(quantity));
         requestsEntity.setMinAvg(Double.parseDouble(minAvg));
-        requestsService.save(requestsEntity);
+        requestsService.save(requestsEntity);}
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
 
         return requestsEntity;
     }

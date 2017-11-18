@@ -42,8 +42,8 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public List<UsersEntity> findUserByRole(String role) {
-        return (List<UsersEntity>) usersRepository.findByUserRole(role);
+    public List<UsersEntity> findUsersByRole(String role) {
+        return (List<UsersEntity>) usersRepository.findUsersByRole(role);
     }
 }
 
