@@ -428,6 +428,7 @@
                                             <th>Status</th>
                                             <th>Company</th>
                                             <th>Period</th>
+                                            <th></th>
                                             <th>show info</th>
                                         </tr>
                                         </thead>
@@ -447,6 +448,7 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
+                                                <td><a href="<c:url value='/removeStudent/${student.idUser}'/>"><button>delete</button></a></td>
                                                 <td></td>
                                             </tr>
                                         </c:forEach>
@@ -485,6 +487,7 @@
                                             <th>Min avg ball</th>
                                             <th>Total quantity</th>
                                             <th>Available quantity</th>
+                                            <th></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -502,6 +505,7 @@
                                                 <td>${request.minAvg}</td>
                                                 <td>${request.quantity}</td>
                                                 <td></td>
+                                                <td><a href="<c:url value='/removeRequest/${request.idRequest}'/>"><button>delete</button></a></td>
                                             </tr>
                                         </c:forEach>
 
@@ -533,6 +537,7 @@
                                             <th>cb</th>
                                             <th>speciality</th>
                                             <th>Faculty</th>
+                                            <th></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -545,6 +550,7 @@
                                                     </div></td>
                                                     <td>${speciality.nameSpec}</td>
                                                     <td>${listFaculties.stream().filter(FacultiesEntity -> FacultiesEntity.getIdFaculty()==speciality.getIdFaculty()).findFirst().get().getFacultyName()}</td>
+                                                    <td><a href="<c:url value='/removeSpec/${speciality.idSpec}'/>"><button>delete</button></a></td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>

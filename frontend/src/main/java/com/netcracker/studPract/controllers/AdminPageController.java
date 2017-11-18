@@ -2,11 +2,9 @@ package com.netcracker.studPract.controllers;
 
 
 import com.netcracker.devschool.dev4.studPract.entity.*;
-import com.netcracker.devschool.dev4.studPract.repository.StudentsRepository;
 import com.netcracker.devschool.dev4.studPract.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -154,4 +152,27 @@ public class AdminPageController {
 
         return requestsEntity;
     }
+
+    @RequestMapping("/removeSpec/{id}")
+    public String removeSpec(@PathVariable("id") int id){
+        specialityService.deleteSpecialityById(id);
+
+        return "redirect:/admin";
+    }
+
+    @RequestMapping("/removeStudent/{id}")
+    public String removeStudent(@PathVariable("id") int id){
+        studentsService.deleteStudentById(id);
+        usersService.deleteUserById(id);
+
+        return "redirect:/admin";
+    }
+
+    @RequestMapping("/removeRequest/{id}")
+    public String removeRequest(@PathVariable("id") int id){
+        requestsService.deleteRequestById(id);
+
+        return "redirect:/admin";
+    }
+
 }
