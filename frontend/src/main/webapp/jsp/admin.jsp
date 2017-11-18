@@ -33,6 +33,9 @@
             $('#faculties').on('change', function () {
                 refreshSpecialities(this.value, 0);
             })
+            $('#faculties1').on('change', function () {
+                refreshSpecialities(this.value, 0);
+            })
         });
 
 
@@ -46,7 +49,16 @@
                     $.each(data, function (index, value) {
                         options += '<option value="' + value.idSpec + '">' + value.nameSpec + '</option>';
                     });
+                    $('#specs1').find('option').remove();
+                    var options = "";
+                    $.each(data, function (index, value) {
+                        options += '<option value="' + value.idSpec + '">' + value.nameSpec + '</option>';
+                    });
                     $('#specs').html(options);
+                    if (val) {
+                        $('#specs').val(val);
+                    }
+                    $('#specs1').html(options);
                     if (val) {
                         $('#specs').val(val);
                     }
@@ -225,12 +237,12 @@
                                                 <div class="col-md-4"><label>Speciality</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-4"><select id="faculties" name="facname" class="form-control">
+                                                <div class="col-md-4"><select id="faculties1" name="facname" class="form-control">
                                                     <c:forEach items="${listFaculties}" var="faculty">
                                                         <option value="${faculty.idFaculty}">${faculty.facultyName}</option>
                                                     </c:forEach>
                                                 </select></div>
-                                                <div class="col-md-4"><select id="specs" name="speciality" class="form-control">
+                                                <div class="col-md-4"><select id="specs1" name="speciality" class="form-control">
                                                 </select>
                                                 </div>
                                             </div>
