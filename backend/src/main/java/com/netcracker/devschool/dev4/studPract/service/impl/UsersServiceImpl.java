@@ -17,6 +17,11 @@ public class UsersServiceImpl implements UsersService {
     private UsersRepository usersRepository;
 
     @Override
+    public UsersEntity findByUserLogin(String login) {
+        return usersRepository.findByUserLogin(login);
+    }
+
+    @Override
     public UsersEntity saveUser(UsersEntity user) {
         return usersRepository.save(user);
     }

@@ -1,22 +1,20 @@
 package com.netcracker.studPract.controllers;
 
 
-import com.netcracker.devschool.dev4.studPract.entity.StudentsEntity;
-import com.netcracker.devschool.dev4.studPract.entity.UsersEntity;
+import com.netcracker.devschool.dev4.studPract.entity.*;
 import com.netcracker.devschool.dev4.studPract.repository.StudentsRepository;
-import com.netcracker.devschool.dev4.studPract.service.StudentsService;
+import com.netcracker.devschool.dev4.studPract.service.*;
 import org.springframework.stereotype.Controller;
-import com.netcracker.devschool.dev4.studPract.entity.FacultiesEntity;
-import com.netcracker.devschool.dev4.studPract.entity.SpecialityEntity;
-import com.netcracker.devschool.dev4.studPract.service.FacultiesService;
-import com.netcracker.devschool.dev4.studPract.service.SpecialityService;
-import com.netcracker.devschool.dev4.studPract.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @Controller
 public class AdminPageController {
@@ -32,6 +30,9 @@ public class AdminPageController {
 
     @Autowired
     StudentsService studentsService;
+
+    @Autowired
+    RequestsService requestsService;
 
     @RequestMapping(value = "/addf", method = RequestMethod.POST)
     public FacultiesEntity addFaculty( @RequestParam(value = "fname", required = false) String fname){
@@ -80,17 +81,16 @@ public class AdminPageController {
         UsersEntity usersEntity = new UsersEntity();
         studentsEntity.setAvgBall(avgBall);
         studentsEntity.setIdGroup(group);
-        studentsEntity.setIdSpec(specialityService.findSpecialityByName(speciality).getIdSpec());
-        if(!isBudget.equals(null))
+        studentsEntity.setIdSpec(Integer.parseInt(speciality));
+        if(isBudget.equals("budget"))
         studentsEntity.setIsBudget((byte)1);
         usersEntity.setFirstName(fname);
         usersEntity.setLastName(lname);
         usersEntity.setRole("student");
         usersEntity.seteMail(login);
         usersEntity.setPassword(pass);
-        usersEntity.setIdUsers(Integer.parseInt(login));
         usersService.saveUser(usersEntity);
-        studentsEntity.setIdUser(Integer.parseInt(login));
+        studentsEntity.setIdUser(usersService.findByUserLogin(login).getIdUsers());
         studentsService.saveStudent(studentsEntity);
         return studentsEntity;
     }
@@ -99,5 +99,35 @@ public class AdminPageController {
     @ResponseBody
     public List<FacultiesEntity> getAllFaculties() {
         return facultiesService.findAllFaculties();
+    }
+
+    @RequestMapping(value = "/addreq", method = RequestMethod.POST)
+    public RequestsEntity addRequest(@RequestParam(value = "company", required = false) String compName,
+                                     @RequestParam(value = "dateFrom", required = false) String fromDate,
+                                     @RequestParam(value = "dateTo", required = false) String toDate,
+                                     @RequestParam(value = "idFac", required = false) String idFac,
+                                     @RequestParam(value = "idSpec", required = false) String idSpec,
+                                     @RequestParam(value = "quantity", required = false) String quantity,
+                                     @RequestParam(value = "minAvg", required = false) String minAvg){
+
+
+        RequestsEntity requestsEntity = new RequestsEntity();
+        DateFormat format = new SimpleDateFormat("MM/dd/yy", Locale.ENGLISH);
+        try {
+            Date start = format.parse(fromDate);
+            requestsEntity.setDateFrom(start);
+            Date end = format.parse(toDate);
+            requestsEntity.setDateTo(end);
+        } catch (java.text.ParseException e) {
+            e.printStackTrace();
+        }
+        requestsEntity.setCompanyName(compName);
+        requestsEntity.setIdFaculty(Integer.parseInt(idFac));
+        requestsEntity.setIdSpec(Integer.parseInt(idSpec));
+        requestsEntity.setQuantity(Integer.parseInt(quantity));
+        requestsEntity.setMinAvg(Double.parseDouble(minAvg));
+        requestsService.save(requestsEntity);
+
+        return requestsEntity;
     }
 }

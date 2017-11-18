@@ -77,7 +77,15 @@
                 }
             });
 
+            $('#request_add').ajaxForm({
+                dataType: 'json',
+                success: function (data) {
+
+                }
+            });
+
             $('#faculties').val(data.idFaculty);
+            $('#faculties1').val(data.idFaculty);
             refreshSpecialities(data.idFaculty, data.idSpec);
         }
         function myFunction() {
@@ -127,9 +135,10 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
+                                            <form action="/addreq" id="request_add" method="post" role="form">
                                             <div class="row">
                                                 <div class="col-md-8"><label>Company name</label></div>
-                                                <div class="col-md-8"><label><input type="text"></label></div>
+                                                <div class="col-md-8"><label><input type="text" name="company"></label></div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-4"><label>From</label></div>
@@ -141,7 +150,7 @@
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-calendar"></i>
                                                         </div>
-                                                        <input type="text" class="form-control pull-right" id="datepicker">
+                                                        <input type="text" class="form-control pull-right" id="datepicker" name="dateFrom">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
@@ -149,31 +158,41 @@
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-calendar"></i>
                                                         </div>
-                                                        <input type="text" class="form-control pull-right" id="datepicker1">
+                                                        <input type="text" class="form-control pull-right" id="datepicker1" name="dateTo">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3 "><label>quantity</label></div>
-                                                <div class="col-md-6 col-md-offset-1"><label>faculty</label></div>
+                                                <div class="col-md-3 "><label>faculties</label></div>
+                                                <div class="col-md-6 col-md-offset-1"><label>specialities</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3"><input class="form-control"></div>
-                                                <div class="col-md-6 col-md-offset-1"><input class="form-control"></div>
+                                                <div class="col-md-4"><select id="faculties" name="idFac" class="form-control">
+                                                    <c:forEach items="${listFaculties}" var="faculty">
+                                                        <option value="${faculty.idFaculty}">${faculty.facultyName}</option>
+                                                    </c:forEach>
+                                                </select></div>
+                                                <div class="col-md-4"><select id="specs" name="idSpec" class="form-control">
+                                                </select>
+                                                </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3 "><label>Availabe spec</label></div>
+                                                <div class="col-md-3 "><label>Quantity</label></div>
                                                 <div class="col-md-6 col-md-offset-1"><label>Min avg ball</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3"><input class="form-control"></div>
-                                                <div class="col-md-6 col-md-offset-1"><input class="form-control"></div>
+                                                <div class="col-md-3"><input class="form-control" name="quantity"></div>
+                                                <div class="col-md-6 col-md-offset-1"><input class="form-control" name="minAvg"></div>
                                             </div>
+                                                <div class="row">
+                                                    <button type="submit" class="btn btn-primary">Create</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary">Create</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
                                     </div>
                                 </div>
                                 <!-- /.modal-content -->
@@ -199,7 +218,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-5"><input class="form-control" name="firstName"></div>
-                                                <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="firstName"></div>
+                                                <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="lastName"></div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-4"><label>Faculty</label></div>
@@ -222,9 +241,10 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3"><input type="number" name="avgB"></div>
-                                                <div class="col-md-6 col-md-offset-1"><label>
-                                                    <input type="checkbox" value="" name="isBudget">
-                                                </label></div>
+                                                <div class="col-md-3 col-md-offset-1"><select class="form-control" name="isBudget">
+                                                    <option>budget</option>
+                                                    <option>obligated</option>
+                                                </select></div>
                                                 <div class="col-md-3"><input type="number" name="group"></div>
                                             </div>
                                                 <div class="row">

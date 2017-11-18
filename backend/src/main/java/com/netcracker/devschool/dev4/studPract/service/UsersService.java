@@ -11,4 +11,5 @@ public interface UsersService {
     List<UsersEntity> findAllUsers();
     List<UsersEntity> findUserByName(String name);
     List<UsersEntity> findUserByRole(String role);
+    UsersEntity findByUserLogin(String login);
 }
