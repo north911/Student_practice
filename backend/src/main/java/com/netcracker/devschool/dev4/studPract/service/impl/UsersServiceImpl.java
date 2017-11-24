@@ -18,7 +18,12 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public UsersEntity findByUserLogin(String login) {
-        return usersRepository.findByUserLogin(login);
+        return usersRepository.findByUsername(login);
+    }
+
+    @Override
+    public UsersEntity findById(int id) {
+        return usersRepository.findOne(id);
     }
 
     @Override
@@ -43,7 +48,7 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public List<UsersEntity> findUsersByRole(String role) {
-        return (List<UsersEntity>) usersRepository.findUsersByRole(role);
+        return (List<UsersEntity>)usersRepository.findUsersByRole(role);
     }
 }
 

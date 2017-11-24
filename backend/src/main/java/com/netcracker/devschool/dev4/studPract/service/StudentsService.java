@@ -10,4 +10,5 @@ public interface StudentsService {
     void deleteStudentById(int id);
     List<StudentsEntity> findAllStudents();
     List<StudentsEntity> findStudentByName(String name);
+    StudentsEntity findById(int id);
 }

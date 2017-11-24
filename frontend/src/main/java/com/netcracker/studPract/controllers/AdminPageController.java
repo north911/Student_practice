@@ -99,7 +99,7 @@ public class AdminPageController {
         usersEntity.setFirstName(fname);
         usersEntity.setLastName(lname);
         usersEntity.setRole("student");
-        usersEntity.seteMail(login);
+        usersEntity.setusername(login);
         usersEntity.setPassword(pass);
         usersService.saveUser(usersEntity);
         studentsEntity.setIdUser(usersService.findByUserLogin(login).getIdUsers());
@@ -173,6 +173,19 @@ public class AdminPageController {
         requestsService.deleteRequestById(id);
 
         return "redirect:/admin";
+    }
+
+    @RequestMapping("/profile/{id}")
+    public String studentData(@PathVariable("id") int id, Model model){
+        model.addAttribute("user",usersService.findById(id));
+        model.addAttribute("listFaculties", facultiesService.findAllFaculties());
+        model.addAttribute("student", studentsService.findById(id));
+        model.addAttribute("listFaculties", facultiesService.findAllFaculties());
+        model.addAttribute("listSpecialities", specialityService.findAllSpecialities());
+        model.addAttribute("listStudents",studentsService.findAllStudents());
+        model.addAttribute("listUsersStudents",usersService.findUsersByRole("student"));
+        model.addAttribute("listRequests",requestsService.findAllRequests());
+        return "profile";
     }
 
 }

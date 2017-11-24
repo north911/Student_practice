@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page session="true" %>
 <html>
 <head>
     <title>Login</title>
@@ -30,12 +32,19 @@
                     <h3 class="panel-title">Please Sign In</h3>
                 </div>
                 <div class="panel-body">
-                    <form action="/login" method="post">
+                    <c:if test="${not empty error}">
+                        <div class="alert alert-danger alert-dismissible">${error}</div>
+                    </c:if>
+                    <c:if test="${not empty msg}">
+                        <div class="alert alert-info alert-dismissible">${msg}</div>
+                    </c:if>
+                    <form action="<c:url value='/login'/>" method="post">
                         <div class="form-group has-feedback">
-                            <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                            <input type="email" class="form-control" aria-describedby="emailHelp" name="username"
+                                   placeholder="Email" autofocus>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                            <input type="password" class="form-control" placeholder="Пароль" name="password">
                         </div>
                         <div class="checkbox">
                             <label>
@@ -45,6 +54,8 @@
                         <div class="form-group">
                             <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
                         </div>
+                        <input type="hidden" name="${_csrf.parameterName}"
+                               value="${_csrf.token}"/>
                     </form>
                 </div>
             </div>
@@ -63,6 +74,15 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="../resources/js/sb-admin-2.js"></script>
+<script>
+    $(function () {
+        $('input[type="checkbox"]').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
+    });
+</script>
 
 </body>
 </html>

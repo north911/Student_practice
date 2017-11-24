@@ -12,7 +12,7 @@ public interface UsersRepository extends CrudRepository<UsersEntity, Integer> {
     @Query("select b from UsersEntity b where b.role = :role")
     List<UsersEntity> findUsersByRole(@Param("role") String role);
 
-    @Query("select b from UsersEntity b where b.eMail = :eMail")
-    UsersEntity findByUserLogin(@Param("eMail") String eMail);
+    @Query("select b from UsersEntity b where b.username = :username")
+    UsersEntity findByUsername(@Param("username") String username);
 
 }

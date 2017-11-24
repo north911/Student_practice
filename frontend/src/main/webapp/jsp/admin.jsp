@@ -449,7 +449,7 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td><a href="<c:url value='/removeStudent/${student.idUser}'/>"><button>delete</button></a></td>
-                                                <td></td>
+                                                <td><a href="/profile/${student.idUser}" target="_blank"><button>show</button></a></td>
                                             </tr>
                                         </c:forEach>
 

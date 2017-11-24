@@ -23,15 +23,13 @@
  */
 package com.netcracker.studPract.controllers;
 
-import com.netcracker.devschool.dev4.studPract.entity.FacultiesEntity;
-import com.netcracker.devschool.dev4.studPract.entity.SpecialityEntity;
-import com.netcracker.devschool.dev4.studPract.service.FacultiesService;
-import com.netcracker.devschool.dev4.studPract.service.SpecialityService;
-import com.netcracker.devschool.dev4.studPract.service.UsersService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -41,7 +39,7 @@ public class TestController {
 
 
 
-    @RequestMapping(value = "/loginpage", method = RequestMethod.GET)
+   /* @RequestMapping(value = "/loginpage", method = RequestMethod.GET)
     public String goToLoginPage() {
         return "loginpage";
     }
@@ -63,14 +61,14 @@ public class TestController {
         }
         return result;
 
-    }
+    }*/
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     public String logout(){
-                return "loginpage";
+                return "login";
     }
 
 
-    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+   /* @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String goToProfile() {
         return "profile";
     }
@@ -78,10 +76,45 @@ public class TestController {
     @RequestMapping(value = "/head", method = RequestMethod.GET)
     public String goToHead() {
         return "head";
+    }*/
+
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login(@RequestParam(value = "error", required = false) String error,
+                              @RequestParam(value = "logout", required = false) String logout) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        if (!(auth instanceof AnonymousAuthenticationToken)) {
+
+            String role = auth.getAuthorities().toString();
+
+
+            String targetUrl = "";
+            if (role.contains("STUDENT")) {
+                targetUrl = "/profile";
+            } else if (role.contains("HEAD")) {
+                targetUrl = "/head";
+            } else if (role.contains("ADMIN")) {
+                targetUrl = "/admin";
+            }
+
+            return new ModelAndView("redirect:" + targetUrl);
+
+        }
+
+        ModelAndView model = new ModelAndView();
+        if (error != null) {
+            model.addObject("error", "Invalid username and password!");
+        }
+
+        if (logout != null) {
+            model.addObject("msg", "You've been logged out successfully.");
+        }
+        model.setViewName("login");
+
+        return model;
+
     }
-
-
-
 
 
 
