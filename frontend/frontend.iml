@@ -9,6 +9,7 @@
         <fileset id="web dispatcherServlet servlet context" name="MVC dispatcherServlet servlet context" removed="true">
           <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/web-spring-context.xml</file>
         </fileset>
+        <fileset id="fileset2" name="Spring Application Context" removed="false" />
       </configuration>
     </facet>
     <facet type="web" name="Web">

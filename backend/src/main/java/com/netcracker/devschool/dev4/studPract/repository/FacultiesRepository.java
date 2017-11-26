@@ -10,4 +10,5 @@ public interface FacultiesRepository extends CrudRepository<FacultiesEntity,Inte
 
     @Query("select s from FacultiesEntity s where s.facultyName = :facultyName")
     FacultiesEntity findFacultyByName(@Param("facultyName") String facultyName);
+
 }

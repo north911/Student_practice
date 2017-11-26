@@ -11,4 +11,5 @@ public interface FacultiesService {
     List<FacultiesEntity> findAllFaculties();
     FacultiesEntity findFacultyByName(String name);
     FacultiesEntity findFacultyById(int id);
+    FacultiesEntity findByIdSpec(int id);
 }

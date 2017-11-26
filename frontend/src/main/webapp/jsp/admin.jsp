@@ -438,10 +438,10 @@
                                                 <td><div class="checkbox">
                                                     <label><input type="checkbox" value="checked"></label>
                                                 </div></td>
-                                                <td>${listUsersStudents.stream().filter(UsersEntity -> UsersEntity.getIdUsers()==student.getIdUser()).findFirst().get().getFirstName()}</td>
-                                                <td>${listUsersStudents.stream().filter(UsersEntity -> UsersEntity.getIdUsers()==student.getIdUser()).findFirst().get().getLastName()}</td>
-                                                <td>${listFaculties.stream().filter(FacultiesEntity -> FacultiesEntity.getIdFaculty()==(listSpecialities.stream().filter(SpecialityEntity -> SpecialityEntity.getIdSpec()==student.getIdSpec()).findFirst().get().getIdFaculty())).findFirst().get().getFacultyName()}</td>
-                                                <td>${listSpecialities.stream().filter(SpecialityEntity -> SpecialityEntity.getIdSpec()==student.getIdSpec()).findFirst().get().getNameSpec()}</td>
+                                                <td>${student.firstName}</td>
+                                                <td>${student.lastName}</td>
+                                                <td>${student.facName}</td>
+                                                <td>${student.specName}</td>
                                                 <td>${student.idGroup}</td>
                                                 <td>${student.isBudget}</td>
                                                 <td>${student.avgBall}</td>
@@ -500,8 +500,8 @@
                                                 <td>${request.companyName}</td>
                                                 <td>${request.dateFrom.toString()}</td>
                                                 <td>${request.dateTo.toString()}</td>
-                                                <td>${listFaculties.stream().filter(FacultiesEntity -> FacultiesEntity.getIdFaculty()==request.getIdFaculty()).findFirst().get().getFacultyName()}</td>
-                                                <td>${listSpecialities.stream().filter(SpecialityEntity -> SpecialityEntity.getIdSpec()==request.getIdSpec()).findFirst().get().getNameSpec()}</td>
+                                                <td><%--${listFaculties.stream().filter(FacultiesEntity -> FacultiesEntity.getIdFaculty()==request.getIdFaculty()).findFirst().get().getFacultyName()}--%></td>
+                                                <td><%--${listSpecialities.stream().filter(SpecialityEntity -> SpecialityEntity.getIdSpec()==request.getIdSpec()).findFirst().get().getNameSpec()}--%></td>
                                                 <td>${request.minAvg}</td>
                                                 <td>${request.quantity}</td>
                                                 <td></td>
@@ -541,15 +541,13 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-
-
                                             <c:forEach items="${listSpecialities}" var="speciality" >
                                                 <tr>
                                                     <td><div class="checkbox">
                                                         <label><input type="checkbox" value=""></label>
                                                     </div></td>
                                                     <td>${speciality.nameSpec}</td>
-                                                    <td>${listFaculties.stream().filter(FacultiesEntity -> FacultiesEntity.getIdFaculty()==speciality.getIdFaculty()).findFirst().get().getFacultyName()}</td>
+                                                    <td>${speciality.nameFaculty}</td>
                                                     <td><a href="<c:url value='/removeSpec/${speciality.idSpec}'/>"><button>delete</button></a></td>
                                                 </tr>
                                             </c:forEach>

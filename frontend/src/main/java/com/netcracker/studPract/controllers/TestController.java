@@ -68,7 +68,7 @@ public class TestController {
     }
 
 
-   /* @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String goToProfile() {
         return "profile";
     }
@@ -76,7 +76,7 @@ public class TestController {
     @RequestMapping(value = "/head", method = RequestMethod.GET)
     public String goToHead() {
         return "head";
-    }*/
+    }
 
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)

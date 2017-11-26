@@ -40,4 +40,9 @@ public class FacultiesServiceImpl implements FacultiesService {
     public FacultiesEntity findFacultyById(int id) {
         return facultiesRepository.findOne(id);
     }
+
+    @Override
+    public FacultiesEntity findByIdSpec(int id) {
+        return null;
+    }
 }

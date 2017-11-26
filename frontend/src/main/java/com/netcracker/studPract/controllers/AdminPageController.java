@@ -1,8 +1,10 @@
 package com.netcracker.studPract.controllers;
-
-
 import com.netcracker.devschool.dev4.studPract.entity.*;
 import com.netcracker.devschool.dev4.studPract.service.*;
+import com.netcracker.studPract.beans.SpecialityViewModel;
+import com.netcracker.studPract.beans.StudentViewModel;
+import com.netcracker.studPract.converters.SpecialityConverter;
+import com.netcracker.studPract.converters.StudentConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -32,6 +35,13 @@ public class AdminPageController {
     @Autowired
     RequestsService requestsService;
 
+    @Autowired
+    SpecialityConverter specialityConverter;
+
+    @Autowired
+    StudentConverter studentConverter;
+
+
     @RequestMapping(value = "/addf", method = RequestMethod.POST)
     public FacultiesEntity addFaculty( @RequestParam(value = "fname", required = false) String fname){
         FacultiesEntity facultiesEntity = new FacultiesEntity();
@@ -48,10 +58,12 @@ public class AdminPageController {
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String listAllTables(Model model){
+
+
         model.addAttribute("faculty", new FacultiesEntity());
         model.addAttribute("listFaculties", facultiesService.findAllFaculties());
-        model.addAttribute("listSpecialities", specialityService.findAllSpecialities());
-        model.addAttribute("listStudents",studentsService.findAllStudents());
+        model.addAttribute("listSpecialities",new ArrayList<SpecialityViewModel>(specialityConverter.convert(specialityService.findAllSpecialities(),facultiesService)));
+        model.addAttribute("listStudents",new ArrayList<StudentViewModel>(studentConverter.convert(usersService.findAllUsers(),studentsService.findAllStudents(),facultiesService,specialityService)));
         model.addAttribute("listUsersStudents",usersService.findUsersByRole("student"));
         model.addAttribute("listRequests",requestsService.findAllRequests());
         return "/admin";
