@@ -3,6 +3,7 @@ package com.netcracker.studPract.converters;
 import com.netcracker.devschool.dev4.studPract.entity.SpecialityEntity;
 import com.netcracker.devschool.dev4.studPract.service.FacultiesService;
 import com.netcracker.studPract.beans.SpecialityViewModel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -12,10 +13,11 @@ import java.util.List;
 @Component
 public class SpecialityEntityToView implements SpecialityConverter {
 
-
+    @Autowired
+    FacultiesService facultiesService;
 
     @Override
-    public List<SpecialityViewModel> convert(List<SpecialityEntity> specialityEntity, FacultiesService facultiesService){
+    public List<SpecialityViewModel> convert(List<SpecialityEntity> specialityEntity){
 
         List<SpecialityViewModel> specialityViewModel = new ArrayList<>();
         SpecialityEntityToView specialityEntityToView = new SpecialityEntityToView();

@@ -11,5 +11,5 @@ import java.util.List;
 
 public interface StudentConverter {
 
-    List<StudentViewModel> convert(List<UsersEntity> usersEntities, List<StudentsEntity> studentsEntities, FacultiesService facultiesService, SpecialityService specialityService);
+    List<StudentViewModel> convert(List<UsersEntity> usersEntities, List<StudentsEntity> studentsEntities);
 }

@@ -7,5 +7,5 @@ import com.netcracker.studPract.beans.SpecialityViewModel;
 import java.util.List;
 
 public interface SpecialityConverter {
-    List<SpecialityViewModel> convert(List<SpecialityEntity> specialityEntiry, FacultiesService facultiesService);
+    List<SpecialityViewModel> convert(List<SpecialityEntity> specialityEntiry);
 }

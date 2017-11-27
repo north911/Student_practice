@@ -40,8 +40,7 @@
                     </c:if>
                     <form action="<c:url value='/login'/>" method="post">
                         <div class="form-group has-feedback">
-                            <input type="email" class="form-control" aria-describedby="emailHelp" name="username"
-                                   placeholder="Email" autofocus>
+                            <input  class="form-control"  name="username" autofocus>
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" placeholder="Пароль" name="password">

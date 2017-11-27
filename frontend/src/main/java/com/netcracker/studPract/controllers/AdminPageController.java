@@ -42,6 +42,8 @@ public class AdminPageController {
     StudentConverter studentConverter;
 
 
+
+
     @RequestMapping(value = "/addf", method = RequestMethod.POST)
     public FacultiesEntity addFaculty( @RequestParam(value = "fname", required = false) String fname){
         FacultiesEntity facultiesEntity = new FacultiesEntity();
@@ -62,8 +64,8 @@ public class AdminPageController {
 
         model.addAttribute("faculty", new FacultiesEntity());
         model.addAttribute("listFaculties", facultiesService.findAllFaculties());
-        model.addAttribute("listSpecialities",new ArrayList<SpecialityViewModel>(specialityConverter.convert(specialityService.findAllSpecialities(),facultiesService)));
-        model.addAttribute("listStudents",new ArrayList<StudentViewModel>(studentConverter.convert(usersService.findAllUsers(),studentsService.findAllStudents(),facultiesService,specialityService)));
+        model.addAttribute("listSpecialities",new ArrayList<SpecialityViewModel>(specialityConverter.convert(specialityService.findAllSpecialities())));
+        model.addAttribute("listStudents",new ArrayList<StudentViewModel>(studentConverter.convert(usersService.findAllUsers(),studentsService.findAllStudents())));
         model.addAttribute("listUsersStudents",usersService.findUsersByRole("student"));
         model.addAttribute("listRequests",requestsService.findAllRequests());
         return "/admin";

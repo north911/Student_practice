@@ -20,6 +20,9 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     DataSource dataSource;
 
     @Autowired
+    AuthSuccessHandler authSuccessHandler;
+
+    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(dataSource)
                 .usersByUsernameQuery(
@@ -41,7 +44,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
                 .frameOptions().sameOrigin().httpStrictTransportSecurity().disable().and()
                 .formLogin().loginPage("/login")
                 .usernameParameter("username").passwordParameter("password")
-                .successHandler(new AuthSuccessHandler())
+                .successHandler(authSuccessHandler)
                 .and()
                 .logout().logoutSuccessUrl("/login?logout")
                 .and()
