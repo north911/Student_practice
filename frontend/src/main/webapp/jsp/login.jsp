@@ -40,10 +40,10 @@
                     </c:if>
                     <form action="<c:url value='/login'/>" method="post">
                         <div class="form-group has-feedback">
-                            <input  class="form-control"  name="username" autofocus>
+                            <input  class="form-control" minlength="3" name="username" autofocus>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Пароль" name="password">
+                            <input type="password" class="form-control" minlength="3" placeholder="Пароль" name="password">
                         </div>
                         <div class="checkbox">
                             <label>

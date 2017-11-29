@@ -33,12 +33,7 @@
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
 
         <div class="nav navbar-bot-links navbar-right" style="margin: 5px">
-
-            <form action="/logout" method="post">
-                <div class="form-group">
-                    <input class="btn btn-xs btn-success btn-block" type="submit" value="logout">
-                </div>
-            </form>
+            <a href="/logout" class="btn btn-primary btn-block"><b>Выйти</b></a>
         </div>
 
     </nav>

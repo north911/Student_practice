@@ -27,6 +27,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
+
     <script>
 
         $(function () {
@@ -99,6 +100,9 @@
             $('#faculties').val(data.idFaculty);
             $('#faculties1').val(data.idFaculty);
             refreshSpecialities(data.idFaculty, data.idSpec);
+            $.validate({
+                lang: 'ru'
+            });
         }
         function myFunction() {
             location.reload();
@@ -116,13 +120,8 @@
 
         <div class="nav navbar-bot-links navbar-right" style="margin: 5px">
 
-            <form action="/logout" method="post">
-                <div class="form-group">
-                    <input class="btn btn-xs btn-success btn-block" type="submit" value="logout">
-                </div>
-            </form>
+            <a href="/logout" class="btn btn-primary btn-block"><b>Выйти</b></a>
         </div>
-
     </nav>
 
 
@@ -147,10 +146,15 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
-                                            <form action="/addreq" id="request_add" method="post" role="form">
+                                            <form action="/addreq?${_csrf.parameterName}=${_csrf.token}" id="request_add" method="post" role="form"
+                                                  class="form-horizontal"
+                                                  data-fv-framework="bootstrap"
+                                                  data-fv-icon-valid="glyphicon glyphicon-ok"
+                                                  data-fv-icon-invalid="glyphicon glyphicon-remove"
+                                                  data-fv-icon-validating="glyphicon glyphicon-refresh">
                                             <div class="row">
                                                 <div class="col-md-8"><label>Company name</label></div>
-                                                <div class="col-md-8"><label><input type="text" name="company"></label></div>
+                                                <div class="col-md-8"><label><input id="cname" name="company" minlength="2" type="text" required="" aria-required="true" class="error" aria-invalid="true"></label></div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-4"><label>From</label></div>
@@ -193,14 +197,15 @@
                                                 <div class="col-md-6 col-md-offset-1"><label>Min avg ball</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3"><input class="form-control" name="quantity"></div>
-                                                <div class="col-md-6 col-md-offset-1"><input class="form-control" name="minAvg"></div>
+                                                <div class="col-md-3"><input class="inputQ" id="quantity" name="quantity"></div>
+                                                <div class="col-md-6 col-md-offset-1"><input class="inputAvg"  name="minAvg"></div>
                                             </div>
                                                 <div class="row">
                                                     <button type="submit" class="btn btn-primary">Create</button>
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                 </div>
                                             </form>
+
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -223,7 +228,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
-                                            <form action="/addstud" id="student_add" method="post" role="form">
+                                            <form action="/addstud?${_csrf.parameterName}=${_csrf.token}" id="student_add" method="post" role="form">
                                             <div class="row">
                                                 <div class="col-md-5"><label>First name</label></div>
                                                 <div class="col-md-5 col-md-offset-1 "><label>Last name</label></div>
@@ -334,7 +339,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
-                                            <form action="/adds" id="speciality_add" method="post" role="form">
+                                            <form action="/adds?${_csrf.parameterName}=${_csrf.token}" id="speciality_add" method="post" role="form">
                                             <div class="row">
                                                 <div class="col-md-5"><label>available faculties</label></div>
                                                 <div class="col-md-5 col-md-offset-1"><label>spec name</label></div>
@@ -371,12 +376,12 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
-                                            <form action="/addf" id="faculty_add" method="post" role="form">
+                                            <form action="/addf?${_csrf.parameterName}=${_csrf.token}" id="faculty_add" method="post" role="form">
                                             <div class="row">
                                                 <div class="col-md-5"><label>faculty name</label></div>
                                                 <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="fname"></div>
                                             </div>
-                                                <button type="submit" class="btn btn-primary" onClick="window.location.reload()">Create</button>
+                                                <button type="submit" class="btn btn-primary">Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             </form>
                                         </div>
@@ -613,6 +618,18 @@
         autoclose: true
     })
 
+</script>
+<script>
+    $("#request_add").validate();
+    jQuery.validator.addClassRules("inputQ", {
+        required: true,
+        range: [0, 15]
+    });
+    jQuery.validator.addClassRules("inputAvg", {
+        required: true,
+        range: [4, 10],
+        number: true
+    });
 </script>
 
 </body>

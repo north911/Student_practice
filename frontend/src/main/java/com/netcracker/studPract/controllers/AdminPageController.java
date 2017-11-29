@@ -61,7 +61,6 @@ public class AdminPageController {
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String listAllTables(Model model){
 
-
         model.addAttribute("faculty", new FacultiesEntity());
         model.addAttribute("listFaculties", facultiesService.findAllFaculties());
         model.addAttribute("listSpecialities",new ArrayList<SpecialityViewModel>(specialityConverter.convert(specialityService.findAllSpecialities())));
