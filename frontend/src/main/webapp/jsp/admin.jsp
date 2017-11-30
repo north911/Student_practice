@@ -96,6 +96,12 @@
 
                 }
             });
+            $('#head_add').ajaxForm({
+                dataType: 'json',
+                success: function (data) {
+
+                }
+            });
 
             $('#faculties').val(data.idFaculty);
             $('#faculties1').val(data.idFaculty);
@@ -366,6 +372,47 @@
                             <!-- /.modal-dialog -->
                         </div>
 
+                        <button type="button" class="btn btn-primary" data-target="#myModal7" data-toggle="modal">Create fac</button>
+                        <div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h4 class="modal-title" id="myModalLabel7">Add faculty</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <form action="/addhead?${_csrf.parameterName}=${_csrf.token}" id="head_add" method="post" role="form">
+                                            <div class="row">
+                                                <div class="col-md-5"><label>first name</label></div>
+                                                <div class="col-md-5"><label>last name</label></div>
+
+                                            </div>
+                                                <div class="row">
+                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="firstName"></div>
+                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="lastName"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-5"><label>login</label></div>
+                                                    <div class="col-md-5"><label>password</label></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="login"></div>
+                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="password"></div>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Create</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+
                         <button type="button" class="btn btn-primary" data-target="#myModal6" data-toggle="modal">Create fac</button>
                         <div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                             <div class="modal-dialog">
@@ -377,10 +424,10 @@
                                     <div class="modal-body">
                                         <div class="container-fluid">
                                             <form action="/addf?${_csrf.parameterName}=${_csrf.token}" id="faculty_add" method="post" role="form">
-                                            <div class="row">
-                                                <div class="col-md-5"><label>faculty name</label></div>
-                                                <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="fname"></div>
-                                            </div>
+                                                <div class="row">
+                                                    <div class="col-md-5"><label>faculty name</label></div>
+                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="fname"></div>
+                                                </div>
                                                 <button type="submit" class="btn btn-primary">Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             </form>

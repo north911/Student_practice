@@ -65,7 +65,6 @@ public class AdminPageController {
         model.addAttribute("listFaculties", facultiesService.findAllFaculties());
         model.addAttribute("listSpecialities",new ArrayList<SpecialityViewModel>(specialityConverter.convert(specialityService.findAllSpecialities())));
         model.addAttribute("listStudents",new ArrayList<StudentViewModel>(studentConverter.convert(usersService.findAllUsers(),studentsService.findAllStudents())));
-        model.addAttribute("listUsersStudents",usersService.findUsersByRole("student"));
         model.addAttribute("listRequests",requestsService.findAllRequests());
         return "/admin";
     }
@@ -83,6 +82,24 @@ public class AdminPageController {
             return null;
         }
         return specialityEntity;
+    }
+    @RequestMapping(value = "/addhead", method = RequestMethod.POST)
+    public UsersEntity addHead(@RequestParam(value = "firstName", required = false) String fname,
+                               @RequestParam(value = "lastName", required = false)  String lname,
+                               @RequestParam(value = "login", required = false)  String login,
+                               @RequestParam(value = "password", required = false)  String password){
+
+        UsersEntity usersEntity = new UsersEntity();
+        UserRolesEntity userRolesEntity = new UserRolesEntity();
+        usersEntity.setusername(login);
+        usersEntity.setFirstName(fname);
+        usersEntity.setLastName(lname);
+        usersEntity.setEnabled(1);
+        usersEntity.setPassword(password);
+        userRolesEntity.setUserrole("ROLE_HOP");
+        userRolesEntity.setusername(login);
+        usersService.saveUser(usersEntity,userRolesEntity);
+        return usersEntity;
     }
 
     @RequestMapping(value = "/getSpecialitiesByFacultyId/{id}", method = RequestMethod.GET)
@@ -103,6 +120,7 @@ public class AdminPageController {
                                      @RequestParam(value = "pass", required = false) String pass){
         StudentsEntity studentsEntity = new StudentsEntity();
         UsersEntity usersEntity = new UsersEntity();
+        UserRolesEntity userRolesEntity = new UserRolesEntity();
         try{
         studentsEntity.setAvgBall(avgBall);
         studentsEntity.setIdGroup(group);
@@ -111,10 +129,12 @@ public class AdminPageController {
         studentsEntity.setIsBudget((byte)1);
         usersEntity.setFirstName(fname);
         usersEntity.setLastName(lname);
-        usersEntity.setRole("student");
         usersEntity.setusername(login);
         usersEntity.setPassword(pass);
-        usersService.saveUser(usersEntity);
+        userRolesEntity.setusername(login);
+        userRolesEntity.setUserrole("ROLE_STUDENT");
+        usersEntity.setEnabled(1);
+        usersService.saveUser(usersEntity,userRolesEntity);
         studentsEntity.setIdUser(usersService.findByUserLogin(login).getIdUsers());
         studentsService.saveStudent(studentsEntity);}
         catch (Exception e){
@@ -196,7 +216,6 @@ public class AdminPageController {
         model.addAttribute("listFaculties", facultiesService.findAllFaculties());
         model.addAttribute("listSpecialities", specialityService.findAllSpecialities());
         model.addAttribute("listStudents",studentsService.findAllStudents());
-        model.addAttribute("listUsersStudents",usersService.findUsersByRole("student"));
         model.addAttribute("listRequests",requestsService.findAllRequests());
         return "profile";
     }

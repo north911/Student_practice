@@ -1,6 +1,8 @@
 package com.netcracker.devschool.dev4.studPract.service.impl;
 
+import com.netcracker.devschool.dev4.studPract.entity.UserRolesEntity;
 import com.netcracker.devschool.dev4.studPract.entity.UsersEntity;
+import com.netcracker.devschool.dev4.studPract.repository.UserRolesRepository;
 import com.netcracker.devschool.dev4.studPract.repository.UsersRepository;
 import com.netcracker.devschool.dev4.studPract.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,9 @@ public class UsersServiceImpl implements UsersService {
     @Autowired
     private UsersRepository usersRepository;
 
+    @Autowired
+    UserRolesRepository userRolesRepository;
+
     @Override
     public UsersEntity findByUserLogin(String login) {
         return usersRepository.findByUsername(login);
@@ -27,7 +32,8 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public UsersEntity saveUser(UsersEntity user) {
+    public UsersEntity saveUser(UsersEntity user, UserRolesEntity userRole) {
+        userRolesRepository.save(userRole);
         return usersRepository.save(user);
     }
 
@@ -46,9 +52,5 @@ public class UsersServiceImpl implements UsersService {
         return null;
     }
 
-    @Override
-    public List<UsersEntity> findUsersByRole(String role) {
-        return (List<UsersEntity>)usersRepository.findUsersByRole(role);
-    }
 }
 
