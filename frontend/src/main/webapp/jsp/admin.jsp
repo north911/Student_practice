@@ -203,8 +203,8 @@
                                                 <div class="col-md-6 col-md-offset-1"><label>Min avg ball</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3"><input class="inputQ" id="quantity" name="quantity"></div>
-                                                <div class="col-md-6 col-md-offset-1"><input class="inputAvg"  name="minAvg"></div>
+                                                <div class="col-md-3"><input  id="quantity" name="quantity"></div>
+                                                <div class="col-md-6 col-md-offset-1"><input id="minAvg"  name="minAvg"></div>
                                             </div>
                                                 <div class="row">
                                                     <button type="submit" class="btn btn-primary">Create</button>
@@ -276,7 +276,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-5"><input class="form-control" name="login"></div>
-                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="pass"></div>
+                                                    <div class="col-md-5"><input class="form-control" name="pass"></div>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -358,7 +358,7 @@
                                                 </select></div>
                                                 <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="sname"></div>
                                             </div>
-                                                <button type="submit" class="btn btn-primary"   onClick="location.href=location.href">Create</button>
+                                                <button type="submit" class="btn btn-primary"  >Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             </form>
                                         </div>
@@ -372,7 +372,7 @@
                             <!-- /.modal-dialog -->
                         </div>
 
-                        <button type="button" class="btn btn-primary" data-target="#myModal7" data-toggle="modal">Create fac</button>
+                        <button type="button" class="btn btn-primary" data-target="#myModal7" data-toggle="modal">Register HOP</button>
                         <div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -385,19 +385,19 @@
                                             <form action="/addhead?${_csrf.parameterName}=${_csrf.token}" id="head_add" method="post" role="form">
                                             <div class="row">
                                                 <div class="col-md-5"><label>first name</label></div>
-                                                <div class="col-md-5"><label>last name</label></div>
+                                                <div class="col-md-5 col-md-offset-1 " ><label>last name</label></div>
 
                                             </div>
                                                 <div class="row">
-                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="firstName"></div>
+                                                    <div class="col-md-5"><input class="form-control" name="firstName"></div>
                                                     <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="lastName"></div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-5"><label>login</label></div>
-                                                    <div class="col-md-5"><label>password</label></div>
+                                                    <div class="col-md-5 col-md-offset-1 "><label>password</label></div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="login"></div>
+                                                    <div class="col-md-5 "><input class="form-control" name="login"></div>
                                                     <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="password"></div>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Create</button>
@@ -666,7 +666,7 @@
     })
 
 </script>
-<script>
+<%--<script>
     $("#request_add").validate();
     jQuery.validator.addClassRules("inputQ", {
         required: true,
@@ -676,6 +676,59 @@
         required: true,
         range: [4, 10],
         number: true
+    });
+</script>--%>
+<script>
+    $( "#request_add" ).validate({
+        rules: {
+            quantity: {
+                required: true,
+                range: [1, 15]
+            },
+            minAvg: {
+                required: true,
+                range: [4, 10],
+                number: true
+            }
+
+        }
+    });
+
+    $( "#student_add" ).validate({
+        rules: {
+            firstName: {
+                required: true,
+                minlength: 2
+            },
+
+            lastName: {
+                required: true,
+                minlength: 2
+            },
+            speciality: {
+            required: true
+            },
+            avgB: {
+                required: true,
+                range: [4, 10],
+                number: true
+            },
+            login: {
+                required: true,
+                minlength: 5
+            },
+            pass: {
+                required: true,
+                minlength: 5
+            },
+            group: {
+                required: true,
+                minlength: 6,
+                maxlength: 6
+            }
+
+
+        }
     });
 </script>
 
