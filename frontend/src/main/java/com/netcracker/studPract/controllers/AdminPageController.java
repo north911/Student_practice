@@ -1,8 +1,10 @@
 package com.netcracker.studPract.controllers;
 import com.netcracker.devschool.dev4.studPract.entity.*;
 import com.netcracker.devschool.dev4.studPract.service.*;
+import com.netcracker.studPract.beans.HopViewModel;
 import com.netcracker.studPract.beans.SpecialityViewModel;
 import com.netcracker.studPract.beans.StudentViewModel;
+import com.netcracker.studPract.converters.HopConverter;
 import com.netcracker.studPract.converters.SpecialityConverter;
 import com.netcracker.studPract.converters.StudentConverter;
 import org.springframework.stereotype.Controller;
@@ -41,6 +43,9 @@ public class AdminPageController {
     @Autowired
     StudentConverter studentConverter;
 
+    @Autowired
+    HopConverter hopConverter;
+
 
 
 
@@ -66,6 +71,7 @@ public class AdminPageController {
         model.addAttribute("listSpecialities",new ArrayList<SpecialityViewModel>(specialityConverter.convert(specialityService.findAllSpecialities())));
         model.addAttribute("listStudents",new ArrayList<StudentViewModel>(studentConverter.convert(usersService.findAllUsers(),studentsService.findAllStudents())));
         model.addAttribute("listRequests",requestsService.findAllRequests());
+        model.addAttribute("listHops",new ArrayList<HopViewModel>(hopConverter.convert(usersService.findByRole("ROLE_HOP"))));
         return "/admin";
     }
 
@@ -96,7 +102,7 @@ public class AdminPageController {
         usersEntity.setLastName(lname);
         usersEntity.setEnabled(1);
         usersEntity.setPassword(password);
-        userRolesEntity.setUserrole("ROLE_HOP");
+        userRolesEntity.setUserrole("ROLE_HEAD");
         userRolesEntity.setusername(login);
         usersService.saveUser(usersEntity,userRolesEntity);
         return usersEntity;

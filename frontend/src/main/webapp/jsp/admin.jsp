@@ -456,6 +456,8 @@
                 </li>
                 <li class=""><a href="#messages" data-toggle="tab" aria-expanded="false">faculties tab</a>
                 </li>
+                <li class=""><a href="#hops" data-toggle="tab" aria-expanded="false">heads of practice</a>
+                </li>
             </ul>
 
             <!-- Tab panes -->
@@ -615,6 +617,42 @@
                         <!-- /.col-lg-12 -->
                     </div>
                 </div>
+                <div class="tab-pane fade" id="hops">
+                    <h4>Faculties Tab</h4>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Table of the students
+                                </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example4">
+                                        <thead>
+                                        <tr>
+                                            <th>FN</th>
+                                            <th>LN</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach items="${listHops}" var="hop" >
+                                            <tr>
+                                                <td>${hop.firstName}</td>
+                                                <td>${hop.lastName}</td>
+                                            </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                    </table>
+                                    <!-- /.table-responsive -->
+
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -653,6 +691,9 @@
             responsive: true
         });
         $('#dataTables-example3').DataTable({
+            responsive: true
+        });
+        $('#dataTables-example4').DataTable({
             responsive: true
         });
     });
@@ -726,8 +767,45 @@
                 minlength: 6,
                 maxlength: 6
             }
+        }
+    });
 
+    $( "#speciality_add" ).validate({
+        rules: {
+            sname: {
+                required: true,
+                minlength: 2
+            }
+        }
+    });
 
+    $( "#faculty_add" ).validate({
+        rules: {
+            fname: {
+                required: true,
+                minlength: 2
+            }
+        }
+    });
+
+    $( "#head_add" ).validate({
+        rules: {
+            firstName: {
+                required: true,
+                minlength: 2
+            },
+            lastName: {
+                required: true,
+                minlength: 2
+            },
+            login: {
+                required: true,
+                minlength: 5
+            },
+            password: {
+                required: true,
+                minlength: 5
+            }
         }
     });
 </script>

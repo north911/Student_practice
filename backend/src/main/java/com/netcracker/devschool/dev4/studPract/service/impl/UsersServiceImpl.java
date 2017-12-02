@@ -32,6 +32,11 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
+    public List<UsersEntity> findByRole(String role) {
+        return usersRepository.findUsersByRole(role);
+    }
+
+    @Override
     public UsersEntity saveUser(UsersEntity user, UserRolesEntity userRole) {
         userRolesRepository.save(userRole);
         return usersRepository.save(user);
