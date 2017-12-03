@@ -490,7 +490,7 @@
                                         <c:forEach items="${listStudents}" var="student" >
                                             <tr>
                                                 <td><div class="checkbox">
-                                                    <label><input type="checkbox" value="checked"></label>
+                                                    <label><input type="checkbox" class="ids" name="ids[]" value="${student.idUser}"></label>
                                                 </div></td>
                                                 <td>${student.firstName}</td>
                                                 <td>${student.lastName}</td>
@@ -662,11 +662,49 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <p>
-                            <button type="button" class="btn btn-primary btn-lg">Delete student</button>
+                        <div id="response"></div>
+                            <button type="button" class="btn btn-primary btn-lg" id="btnadd">Delete student</button>
                             <button type="button" class="btn btn-primary btn-lg">Assign student</button>
                             <button type="button" class="btn btn-primary btn-lg">Release student</button>
                         </p>
                     </div>
+                    <script>
+
+                        $('#btnadd').click(function() {
+
+                            $.ajax({
+                                url: "testcb",
+                                type: "post",
+                                data: $('.ids:checked').serialize(),
+                                success: function(data) {
+                                    $('#response').html(data);
+                                }
+                            });
+
+
+                        });
+                    </script>
+                  <%--  <script type="text/javascript">
+
+                        $(document).ready(function(){
+                            $('.btnadd').click(function(){
+                                var checkValues = $('input[name=checkboxlist]:checked').map(function()
+                                {
+                                    return $(this).val();
+                                }).get();
+
+                                $.ajax({
+                                    url: 'testcb',
+                                    type: 'post',
+                                    data: { 'ids[]': checkValues },
+                                    success:function(data){
+                                    }
+                                });
+                            });
+                        });
+
+                    </script>--%>
+
                 </div>
             </div>
         </div>

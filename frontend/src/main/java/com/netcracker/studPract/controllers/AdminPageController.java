@@ -213,6 +213,14 @@ public class AdminPageController {
 
         return "redirect:/admin";
     }
+    @RequestMapping(value = "/testcb", method = RequestMethod.POST)
+    public String testCB(@RequestParam(value = "ids[]") String[] id){
+
+            studentsService.deleteStudentById(Integer.parseInt(id[0]));
+            studentsService.deleteStudentById(Integer.parseInt(id[0]));
+
+        return "redirect:/admin";
+    }
 
     @RequestMapping("/profile/{id}")
     public String studentData(@PathVariable("id") int id, Model model){

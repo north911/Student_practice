@@ -18,7 +18,12 @@ public class StudentsServiceImpl implements StudentsService{
 
     @Override
     public StudentsEntity saveStudent(StudentsEntity studentsEntity) {
+
+        if(studentsEntity.getAvgBall() > 4 && studentsEntity.getAvgBall() < 10 &&
+                studentsEntity.getIdSpec()!=0 && studentsEntity.getIdGroup() > 9999 &&
+                studentsEntity.getIdGroup()<=99999 && studentsEntity.getIdUser() != 0 )
         return studentsRepository.save(studentsEntity);
+        else return null;
     }
 
     @Override

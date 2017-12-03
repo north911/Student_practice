@@ -18,7 +18,10 @@ public class FacultiesServiceImpl implements FacultiesService {
 
     @Override
     public FacultiesEntity saveFaculty(FacultiesEntity facultiesEntity) {
+        if(facultiesEntity.getFacultyName()!=null)
         return facultiesRepository.save(facultiesEntity);
+        else
+            return null;
     }
 
     @Override
@@ -41,8 +44,5 @@ public class FacultiesServiceImpl implements FacultiesService {
         return facultiesRepository.findOne(id);
     }
 
-    @Override
-    public FacultiesEntity findByIdSpec(int id) {
-        return null;
-    }
+
 }

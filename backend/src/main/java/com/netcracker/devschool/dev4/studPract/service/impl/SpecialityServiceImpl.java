@@ -18,7 +18,10 @@ public class SpecialityServiceImpl implements SpecialityService{
 
     @Override
     public SpecialityEntity saveSpeciality(SpecialityEntity specialityEntity) {
+        if (specialityEntity.getNameSpec().length() > 2 && specialityEntity.getIdFaculty()!=0)
         return specialityRepository.save(specialityEntity);
+        else
+            return null;
     }
 
     @Override

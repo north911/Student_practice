@@ -38,8 +38,13 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public UsersEntity saveUser(UsersEntity user, UserRolesEntity userRole) {
+        if(user.getFirstName().length() > 2 && user.getLastName().length() > 2&&
+                user.getEnabled()==1 && user.getPassword().length() > 5 &&
+                user.getusername().length() > 5 && userRole.getusername().equals(userRole.getusername())){
         userRolesRepository.save(userRole);
-        return usersRepository.save(user);
+        return usersRepository.save(user);}
+        else
+            return null;
     }
 
     @Override
