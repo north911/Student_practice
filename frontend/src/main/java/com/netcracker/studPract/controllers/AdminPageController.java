@@ -11,13 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
+
 
 @Controller
 public class AdminPageController {
@@ -46,23 +42,6 @@ public class AdminPageController {
     @Autowired
     HopConverter hopConverter;
 
-
-
-
-    @RequestMapping(value = "/addf", method = RequestMethod.POST)
-    public FacultiesEntity addFaculty( @RequestParam(value = "fname", required = false) String fname){
-        FacultiesEntity facultiesEntity = new FacultiesEntity();
-
-        try{
-        facultiesEntity.setFacultyName(fname);
-        facultiesService.saveFaculty(facultiesEntity);}
-        catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }
-        return facultiesEntity;
-    }
-
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String listAllTables(Model model){
 
@@ -71,41 +50,8 @@ public class AdminPageController {
         model.addAttribute("listSpecialities",new ArrayList<SpecialityViewModel>(specialityConverter.convert(specialityService.findAllSpecialities())));
         model.addAttribute("listStudents",new ArrayList<StudentViewModel>(studentConverter.convert(usersService.findAllUsers(),studentsService.findAllStudents())));
         model.addAttribute("listRequests",requestsService.findAllRequests());
-        model.addAttribute("listHops",new ArrayList<HopViewModel>(hopConverter.convert(usersService.findByRole("ROLE_HOP"))));
+        model.addAttribute("listHops",new ArrayList<HopViewModel>(hopConverter.convert(usersService.findByRole("ROLE_HEAD"))));
         return "/admin";
-    }
-
-    @RequestMapping(value = "/adds", method = RequestMethod.POST)
-    public SpecialityEntity addSpeciality(@RequestParam(value = "sname", required = false) String sname,
-                                          @RequestParam(value = "facname", required = false)  int facname){
-        SpecialityEntity specialityEntity = new SpecialityEntity();
-        try{
-        specialityEntity.setIdFaculty(facultiesService.findFacultyById(facname).getIdFaculty());
-        specialityEntity.setNameSpec(sname);
-        specialityService.saveSpeciality(specialityEntity);}
-        catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }
-        return specialityEntity;
-    }
-    @RequestMapping(value = "/addhead", method = RequestMethod.POST)
-    public UsersEntity addHead(@RequestParam(value = "firstName", required = false) String fname,
-                               @RequestParam(value = "lastName", required = false)  String lname,
-                               @RequestParam(value = "login", required = false)  String login,
-                               @RequestParam(value = "password", required = false)  String password){
-
-        UsersEntity usersEntity = new UsersEntity();
-        UserRolesEntity userRolesEntity = new UserRolesEntity();
-        usersEntity.setusername(login);
-        usersEntity.setFirstName(fname);
-        usersEntity.setLastName(lname);
-        usersEntity.setEnabled(1);
-        usersEntity.setPassword(password);
-        userRolesEntity.setUserrole("ROLE_HEAD");
-        userRolesEntity.setusername(login);
-        usersService.saveUser(usersEntity,userRolesEntity);
-        return usersEntity;
     }
 
     @RequestMapping(value = "/getSpecialitiesByFacultyId/{id}", method = RequestMethod.GET)
@@ -114,124 +60,10 @@ public class AdminPageController {
         return specialityService.findByFacultyId(id);
     }
 
-    @RequestMapping(value = "/addstud", method = RequestMethod.POST)
-    public StudentsEntity addStudent(@RequestParam(value = "firstName", required = false) String fname,
-                                        @RequestParam(value = "lastName", required = false) String lname,
-                                     @RequestParam(value = "speciality", required = false) String speciality,
-                                     @RequestParam(value = "facname", required = false) int fac,
-                                     @RequestParam(value = "avgB", required = false) int avgBall,
-                                     @RequestParam(value = "isBudget", required = false) String isBudget,
-                                     @RequestParam(value = "group", required = false) int group,
-                                     @RequestParam(value = "login", required = false)  String login,
-                                     @RequestParam(value = "pass", required = false) String pass){
-        StudentsEntity studentsEntity = new StudentsEntity();
-        UsersEntity usersEntity = new UsersEntity();
-        UserRolesEntity userRolesEntity = new UserRolesEntity();
-        try{
-        studentsEntity.setAvgBall(avgBall);
-        studentsEntity.setIdGroup(group);
-        studentsEntity.setIdSpec(Integer.parseInt(speciality));
-        if(isBudget.equals("budget"))
-        studentsEntity.setIsBudget((byte)1);
-        usersEntity.setFirstName(fname);
-        usersEntity.setLastName(lname);
-        usersEntity.setusername(login);
-        usersEntity.setPassword(pass);
-        userRolesEntity.setusername(login);
-        userRolesEntity.setUserrole("ROLE_STUDENT");
-        usersEntity.setEnabled(1);
-        usersService.saveUser(usersEntity,userRolesEntity);
-        studentsEntity.setIdUser(usersService.findByUserLogin(login).getIdUsers());
-        studentsService.saveStudent(studentsEntity);}
-        catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }
-        return studentsEntity;
-    }
 
     @RequestMapping(value = "/getAllFaculties", method = RequestMethod.GET)
     @ResponseBody
     public List<FacultiesEntity> getAllFaculties() {
         return facultiesService.findAllFaculties();
     }
-
-    @RequestMapping(value = "/addreq", method = RequestMethod.POST)
-    public RequestsEntity addRequest(@RequestParam(value = "company", required = false) String compName,
-                                     @RequestParam(value = "dateFrom", required = false) String fromDate,
-                                     @RequestParam(value = "dateTo", required = false) String toDate,
-                                     @RequestParam(value = "idFac", required = false) String idFac,
-                                     @RequestParam(value = "idSpec", required = false) String idSpec,
-                                     @RequestParam(value = "quantity", required = false) String quantity,
-                                     @RequestParam(value = "minAvg", required = false) String minAvg){
-
-
-        RequestsEntity requestsEntity = new RequestsEntity();
-
-        try{
-        DateFormat format = new SimpleDateFormat("MM/dd/yy", Locale.ENGLISH);
-        try {
-            Date start = format.parse(fromDate);
-            requestsEntity.setDateFrom(start);
-            Date end = format.parse(toDate);
-            requestsEntity.setDateTo(end);
-        } catch (java.text.ParseException e) {
-            e.printStackTrace();
-        }
-        requestsEntity.setCompanyName(compName);
-        requestsEntity.setIdFaculty(Integer.parseInt(idFac));
-        requestsEntity.setIdSpec(Integer.parseInt(idSpec));
-        requestsEntity.setQuantity(Integer.parseInt(quantity));
-        requestsEntity.setMinAvg(Double.parseDouble(minAvg));
-        requestsService.save(requestsEntity);}
-        catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }
-
-        return requestsEntity;
-    }
-
-    @RequestMapping("/removeSpec/{id}")
-    public String removeSpec(@PathVariable("id") int id){
-        specialityService.deleteSpecialityById(id);
-
-        return "redirect:/admin";
-    }
-
-    @RequestMapping("/removeStudent/{id}")
-    public String removeStudent(@PathVariable("id") int id){
-        studentsService.deleteStudentById(id);
-        usersService.deleteUserById(id);
-
-        return "redirect:/admin";
-    }
-
-    @RequestMapping("/removeRequest/{id}")
-    public String removeRequest(@PathVariable("id") int id){
-        requestsService.deleteRequestById(id);
-
-        return "redirect:/admin";
-    }
-    @RequestMapping(value = "/testcb", method = RequestMethod.POST)
-    public String testCB(@RequestParam(value = "ids[]") String[] id){
-
-            studentsService.deleteStudentById(Integer.parseInt(id[0]));
-            studentsService.deleteStudentById(Integer.parseInt(id[0]));
-
-        return "redirect:/admin";
-    }
-
-    @RequestMapping("/profile/{id}")
-    public String studentData(@PathVariable("id") int id, Model model){
-        model.addAttribute("user",usersService.findById(id));
-        model.addAttribute("listFaculties", facultiesService.findAllFaculties());
-        model.addAttribute("student", studentsService.findById(id));
-        model.addAttribute("listFaculties", facultiesService.findAllFaculties());
-        model.addAttribute("listSpecialities", specialityService.findAllSpecialities());
-        model.addAttribute("listStudents",studentsService.findAllStudents());
-        model.addAttribute("listRequests",requestsService.findAllRequests());
-        return "profile";
-    }
-
 }

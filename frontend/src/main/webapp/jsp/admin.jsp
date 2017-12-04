@@ -71,6 +71,8 @@
 
 
         function init() {
+
+
             $('#faculty_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
@@ -152,7 +154,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
-                                            <form action="/addreq?${_csrf.parameterName}=${_csrf.token}" id="request_add" method="post" role="form"
+                                            <form action="/createRequest?${_csrf.parameterName}=${_csrf.token}" id="request_add" method="post" role="form"
                                                   class="form-horizontal"
                                                   data-fv-framework="bootstrap"
                                                   data-fv-icon-valid="glyphicon glyphicon-ok"
@@ -234,7 +236,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
-                                            <form action="/addstud?${_csrf.parameterName}=${_csrf.token}" id="student_add" method="post" role="form">
+                                            <form action="/createStudent?${_csrf.parameterName}=${_csrf.token}" id="student_add" method="post" role="form">
                                             <div class="row">
                                                 <div class="col-md-5"><label>First name</label></div>
                                                 <div class="col-md-5 col-md-offset-1 "><label>Last name</label></div>
@@ -345,7 +347,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
-                                            <form action="/adds?${_csrf.parameterName}=${_csrf.token}" id="speciality_add" method="post" role="form">
+                                            <form action="/createSpeciality?${_csrf.parameterName}=${_csrf.token}" id="speciality_add" method="post" role="form">
                                             <div class="row">
                                                 <div class="col-md-5"><label>available faculties</label></div>
                                                 <div class="col-md-5 col-md-offset-1"><label>spec name</label></div>
@@ -423,7 +425,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
-                                            <form action="/addf?${_csrf.parameterName}=${_csrf.token}" id="faculty_add" method="post" role="form">
+                                            <form action="/createFaculty?${_csrf.parameterName}=${_csrf.token}" id="faculty_add" method="post" role="form">
                                                 <div class="row">
                                                     <div class="col-md-5"><label>faculty name</label></div>
                                                     <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="fname"></div>
@@ -490,7 +492,7 @@
                                         <c:forEach items="${listStudents}" var="student" >
                                             <tr>
                                                 <td><div class="checkbox">
-                                                    <label><input type="checkbox" class="ids" name="ids[]" value="${student.idUser}"></label>
+                                                    <label><input type="checkbox" name="checkboxlist" value="${student.idUser}"></label>
                                                 </div></td>
                                                 <td>${student.firstName}</td>
                                                 <td>${student.lastName}</td>
@@ -630,8 +632,8 @@
                                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example4">
                                         <thead>
                                         <tr>
-                                            <th>FN</th>
-                                            <th>LN</th>
+                                            <th>First name</th>
+                                            <th>Last name</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -663,12 +665,12 @@
                     <div class="panel-body">
                         <p>
                         <div id="response"></div>
-                            <button type="button" class="btn btn-primary btn-lg" id="btnadd">Delete student</button>
+                            <button type="button" class="btnadd" id="btnadd">delete selected students</button>
                             <button type="button" class="btn btn-primary btn-lg">Assign student</button>
                             <button type="button" class="btn btn-primary btn-lg">Release student</button>
                         </p>
                     </div>
-                    <script>
+                 <%--   <script>
 
                         $('#btnadd').click(function() {
 
@@ -681,10 +683,9 @@
                                 }
                             });
 
-
                         });
-                    </script>
-                  <%--  <script type="text/javascript">
+                    </script>--%>
+                    <script type="text/javascript">
 
                         $(document).ready(function(){
                             $('.btnadd').click(function(){
@@ -693,17 +694,19 @@
                                     return $(this).val();
                                 }).get();
 
+
+
                                 $.ajax({
-                                    url: 'testcb',
-                                    type: 'post',
-                                    data: { 'ids[]': checkValues },
+                                    url: 'removeCheckedStudents?${_csrf.parameterName}=${_csrf.token}',
+                                    type: 'POST',
+                                    data: { 'id': checkValues },
                                     success:function(data){
                                     }
                                 });
                             });
                         });
 
-                    </script>--%>
+                    </script>
 
                 </div>
             </div>

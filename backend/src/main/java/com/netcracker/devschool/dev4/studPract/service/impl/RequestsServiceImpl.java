@@ -19,7 +19,7 @@ public class RequestsServiceImpl implements RequestsService{
     @Override
     public RequestsEntity save(RequestsEntity requestsEntity) {
             if(requestsEntity.getCompanyName().length() > 2 && requestsEntity.getDateFrom()!=null
-                    && requestsEntity.getDateTo().getDate() > requestsEntity.getDateFrom().getDate()&&
+                    && requestsEntity.getDateTo().getTime() > requestsEntity.getDateFrom().getTime()&&
                     requestsEntity.getIdFaculty()!= 0 && requestsEntity.getIdSpec()!=0&&
                     requestsEntity.getMinAvg() >= 4 && requestsEntity.getMinAvg() <=10 &&
                     requestsEntity.getQuantity() > 0)

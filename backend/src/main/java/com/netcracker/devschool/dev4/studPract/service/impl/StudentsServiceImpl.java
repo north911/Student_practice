@@ -2,7 +2,9 @@ package com.netcracker.devschool.dev4.studPract.service.impl;
 
 import com.netcracker.devschool.dev4.studPract.entity.StudentsEntity;
 import com.netcracker.devschool.dev4.studPract.repository.StudentsRepository;
+import com.netcracker.devschool.dev4.studPract.repository.UserRolesRepository;
 import com.netcracker.devschool.dev4.studPract.service.StudentsService;
+import com.netcracker.devschool.dev4.studPract.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,18 +18,19 @@ public class StudentsServiceImpl implements StudentsService{
  @Autowired
     StudentsRepository studentsRepository;
 
+ @Autowired
+    UsersService usersService;
+
     @Override
     public StudentsEntity saveStudent(StudentsEntity studentsEntity) {
 
-        if(studentsEntity.getAvgBall() > 4 && studentsEntity.getAvgBall() < 10 &&
-                studentsEntity.getIdSpec()!=0 && studentsEntity.getIdGroup() > 9999 &&
-                studentsEntity.getIdGroup()<=99999 && studentsEntity.getIdUser() != 0 )
         return studentsRepository.save(studentsEntity);
-        else return null;
+
     }
 
     @Override
     public void deleteStudentById(int id) {
+        usersService.deleteUserById(id);
         studentsRepository.delete(id);
     }
 
