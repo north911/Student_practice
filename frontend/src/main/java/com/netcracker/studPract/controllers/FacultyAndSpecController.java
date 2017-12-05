@@ -1,13 +1,18 @@
 package com.netcracker.studPract.controllers;
 
 
+import com.netcracker.devschool.dev4.studPract.FormValidators.FacultyValidator;
+import com.netcracker.devschool.dev4.studPract.FormValidators.SpecialityValidator;
 import com.netcracker.devschool.dev4.studPract.entity.FacultiesEntity;
 import com.netcracker.devschool.dev4.studPract.entity.SpecialityEntity;
 import com.netcracker.devschool.dev4.studPract.service.FacultiesService;
 import com.netcracker.devschool.dev4.studPract.service.SpecialityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 public class FacultyAndSpecController {
@@ -20,33 +25,32 @@ public class FacultyAndSpecController {
 
     @RequestMapping(value = "/createFaculty", method = RequestMethod.POST)
     @ResponseBody
-    public FacultiesEntity addFaculty(@RequestParam(value = "fname", required = false) String fname){
-        FacultiesEntity facultiesEntity = new FacultiesEntity();
+    public Object addFaculty(@Valid @ModelAttribute FacultyValidator facultyValidator, BindingResult result){
 
-        try{
-            facultiesEntity.setFacultyName(fname);
-            facultiesService.saveFaculty(facultiesEntity);}
-        catch (Exception e){
-            e.printStackTrace();
-            return null;
+
+        if (result.hasErrors()) {
+            return result.getAllErrors();
+        } else{
+            FacultiesEntity facultiesEntity = new FacultiesEntity();
+            facultiesEntity.setFacultyName(facultyValidator.getFacName());
+            facultiesService.saveFaculty(facultiesEntity);
+            return facultiesEntity;
         }
-        return facultiesEntity;
     }
 
     @RequestMapping(value = "/createSpeciality", method = RequestMethod.POST)
     @ResponseBody
-    public SpecialityEntity addSpeciality(@RequestParam(value = "sname", required = false) String sname,
-                                          @RequestParam(value = "facname", required = false)  int facname){
-        SpecialityEntity specialityEntity = new SpecialityEntity();
-        try{
-            specialityEntity.setIdFaculty(facultiesService.findFacultyById(facname).getIdFaculty());
-            specialityEntity.setNameSpec(sname);
-            specialityService.saveSpeciality(specialityEntity);}
-        catch (Exception e){
-            e.printStackTrace();
-            return null;
+    public Object addSpeciality(@Valid @ModelAttribute SpecialityValidator specialityValidator, BindingResult result){
+        if(result.hasErrors()){
+            return  result.getAllErrors();
         }
-        return specialityEntity;
+        else{
+            SpecialityEntity specialityEntity = new SpecialityEntity();
+            specialityEntity.setIdFaculty(facultiesService.findFacultyById(Integer.parseInt(specialityValidator.getFacultyId())).getIdFaculty());
+            specialityEntity.setNameSpec(specialityValidator.getSpecName());
+            specialityService.saveSpeciality(specialityEntity);
+            return specialityEntity;
+        }
     }
 
     @RequestMapping("/removeSpec/{id}")

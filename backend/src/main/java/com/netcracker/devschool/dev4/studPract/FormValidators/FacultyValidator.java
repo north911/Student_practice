@@ -8,4 +8,12 @@ public class FacultyValidator {
     @NotNull(message = "название не может отсутствовать")
     @Size(min = 2, max = 10,message = "от 2 до 10 символов")
     private String facName;
+
+    public String getFacName() {
+        return facName;
+    }
+
+    public void setFacName(String facName) {
+        this.facName = facName;
+    }
 }

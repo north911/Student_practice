@@ -7,20 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bc443cb-cf3d-4bb8-a271-e682dde8a8b6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/FacultyValidator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/RequestValidator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/SpecialityValidator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/StudentFormValidator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/FacultyAndSpecController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/HeadOfPracticeController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/RequestController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/StudentController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/HopValidator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/config/AuthSuccessHandler.java" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/config/AuthSuccessHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/service/impl/RequestsServiceImpl.java" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/service/impl/RequestsServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/service/impl/StudentsServiceImpl.java" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/service/impl/StudentsServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/service/impl/UsersServiceImpl.java" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/service/impl/UsersServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/AdminPageController.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/AdminPageController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/FacultyValidator.java" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/FacultyValidator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/SpecialityValidator.java" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/SpecialityValidator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/FacultyAndSpecController.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/FacultyAndSpecController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/HeadOfPracticeController.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/HeadOfPracticeController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
     </list>
@@ -52,101 +44,55 @@
       <file leaf-file-name="AdminPageController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/AdminPageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="52" column="121" lean-forward="false" selection-start-line="52" selection-start-column="121" selection-end-line="52" selection-end-column="121" />
+            <state relative-caret-position="170">
+              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2454#2455#0" expanded="true" />
-                <element signature="e#2512#2513#0" expanded="true" />
                 <marker date="1512380971443" expanded="true" signature="1809:2050" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="635" column="57" lean-forward="false" selection-start-line="635" selection-start-column="57" selection-end-line="635" selection-end-column="57" />
+            <state relative-caret-position="174">
+              <caret line="294" column="30" lean-forward="false" selection-start-line="294" selection-start-column="30" selection-end-line="294" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudentFormValidator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/StudentFormValidator.java">
+      <file leaf-file-name="HeadOfPracticeController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/HeadOfPracticeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="10" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#947#948#0" expanded="true" />
-                <element signature="e#975#976#0" expanded="true" />
-                <element signature="e#1017#1018#0" expanded="true" />
-                <element signature="e#1051#1052#0" expanded="true" />
-                <element signature="e#1086#1087#0" expanded="true" />
-                <element signature="e#1117#1118#0" expanded="true" />
-                <element signature="e#1165#1166#0" expanded="true" />
-                <element signature="e#1205#1206#0" expanded="true" />
-                <element signature="e#1241#1242#0" expanded="true" />
-                <element signature="e#1273#1274#0" expanded="true" />
-                <element signature="e#1323#1324#0" expanded="true" />
-                <element signature="e#1365#1366#0" expanded="true" />
-                <element signature="e#1400#1401#0" expanded="true" />
-                <element signature="e#1431#1432#0" expanded="true" />
-                <element signature="e#1479#1480#0" expanded="true" />
-                <element signature="e#1519#1520#0" expanded="true" />
-                <element signature="e#1550#1551#0" expanded="true" />
-                <element signature="e#1577#1578#0" expanded="true" />
-                <element signature="e#1617#1618#0" expanded="true" />
-                <element signature="e#1649#1650#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="408">
+              <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FacultyValidator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/FacultyValidator.java">
+      <file leaf-file-name="StudentEntityToViewModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/converters/StudentEntityToViewModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HopValidator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/HopValidator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SpecialityValidator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/SpecialityValidator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="42" lean-forward="false" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestValidator.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/RequestValidator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudentController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/StudentController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="58" column="17" lean-forward="false" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#808#809#0" expanded="true" />
+                <element signature="e#839#840#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -180,6 +126,7 @@
       <find>addf</find>
       <find>adds</find>
       <find>FN</find>
+      <find>createfac</find>
     </findStrings>
     <replaceStrings>
       <replace>FacultiesEntity</replace>
@@ -197,7 +144,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$USER_HOME$/AppData/Local/Temp/Temp1_ProselyteBookManager.zip/BookManager/src/main/webapp/WEB-INF/pages/books.jsp" />
         <option value="$PROJECT_DIR$/frontend/src/main/webapp/jsp/loginpage.jsp" />
         <option value="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/LoginController.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/entity/UserRoleEnum.java" />
@@ -238,16 +184,17 @@
         <option value="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/service/impl/RequestsServiceImpl.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/config/AppSecurityConfig.java" />
         <option value="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/StudentController.java" />
-        <option value="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/FacultyAndSpecController.java" />
         <option value="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/RequestController.java" />
-        <option value="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/HeadOfPracticeController.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/service/impl/UsersServiceImpl.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/service/impl/StudentsServiceImpl.java" />
         <option value="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/AdminPageController.java" />
-        <option value="$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp" />
         <option value="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/StudentFormValidator.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/FacultyValidator.java" />
+        <option value="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/FacultyAndSpecController.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/SpecialityValidator.java" />
+        <option value="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/HeadOfPracticeController.java" />
+        <option value="$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/HopValidator.java" />
+        <option value="$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp" />
       </list>
     </option>
   </component>
@@ -330,6 +277,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -382,37 +330,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="studPract" type="462c0819:PsiDirectoryNode" />
               <item name="FormValidators" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="student practice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="student practice" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="studPract" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="student practice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="student practice" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="studPract" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="student practice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="student practice" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="studPract" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="student practice" type="b2602c69:ProjectViewProjectNode" />
@@ -481,7 +398,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -838,7 +754,8 @@
       <workItem from="1512330855136" duration="92000" />
       <workItem from="1512371022092" duration="5096000" />
       <workItem from="1512379205042" duration="1841000" />
-      <workItem from="1512417707206" duration="938000" />
+      <workItem from="1512417707206" duration="1432000" />
+      <workItem from="1512485006147" duration="10814000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1507918416078</created>
@@ -1043,11 +960,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512314781005</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="now deleted students by checkboxes works, added first backend validation classes, last commit was joke(sorry)">
+      <created>1512418713542</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1512418713542</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="295409000" />
+    <option name="totallyTimeSpent" value="306717000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1064,32 +988,32 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.49676377" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.49546143" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3564815" sideWeight="0.52022654" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.49676377" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290469" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35300925" sideWeight="0.47977346" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.49676377" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3536184" sideWeight="0.47977346" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3398058" sideWeight="0.662037" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2815534" sideWeight="0.662037" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39802632" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.49546143" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32524273" sideWeight="0.33796296" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1102,8 +1026,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="еще что то попробывал сделать, и чудо, появились логауты" />
-    <MESSAGE value="nanochanges" />
     <MESSAGE value="added datepicker" />
     <MESSAGE value="added spring data and entities" />
     <MESSAGE value="fixed some bags" />
@@ -1127,7 +1049,9 @@
     <MESSAGE value="reworked req form front validation" />
     <MESSAGE value="table of hops, hop create form with validation" />
     <MESSAGE value="backend validation! i hope this is correct" />
-    <option name="LAST_COMMIT_MESSAGE" value="backend validation! i hope this is correct" />
+    <MESSAGE value="now deleted students by checkboxes works, added first backend validation classes, last commit was joke(sorry)" />
+    <MESSAGE value="some backend validation (w/o view alerts), tomorrow will continue" />
+    <option name="LAST_COMMIT_MESSAGE" value="some backend validation (w/o view alerts), tomorrow will continue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1143,13 +1067,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/entity/SpecialityEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/beans/SpecialityViewModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1251,13 +1168,6 @@
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/spring-core-4.3.12.RELEASE.jar!/org/springframework/core/env/Environment.class" />
-    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/converters/StudentEntityToViewModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="46" column="138" lean-forward="false" selection-start-line="46" selection-start-column="138" selection-end-line="46" selection-end-column="138" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/beans/HopViewModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1394,22 +1304,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/FacultyAndSpecController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="706">
-          <caret line="56" column="5" lean-forward="false" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/RequestController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="526">
           <caret line="61" column="5" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1438,33 +1338,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/AdminPageController.java">
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/RequestValidator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="52" column="121" lean-forward="false" selection-start-line="52" selection-start-column="121" selection-end-line="52" selection-end-column="121" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2454#2455#0" expanded="true" />
-            <element signature="e#2512#2513#0" expanded="true" />
-            <marker date="1512380971443" expanded="true" signature="1809:2050" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/HeadOfPracticeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="635" column="57" lean-forward="false" selection-start-line="635" selection-start-column="57" selection-end-line="635" selection-end-column="57" />
+        <state relative-caret-position="51">
+          <caret line="3" column="1" lean-forward="false" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1474,65 +1351,102 @@
         <state relative-caret-position="316">
           <caret line="58" column="17" lean-forward="false" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/StudentFormValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="10" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#947#948#0" expanded="true" />
-            <element signature="e#975#976#0" expanded="true" />
-            <element signature="e#1017#1018#0" expanded="true" />
-            <element signature="e#1051#1052#0" expanded="true" />
-            <element signature="e#1086#1087#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
-            <element signature="e#1165#1166#0" expanded="true" />
-            <element signature="e#1205#1206#0" expanded="true" />
-            <element signature="e#1241#1242#0" expanded="true" />
-            <element signature="e#1273#1274#0" expanded="true" />
-            <element signature="e#1323#1324#0" expanded="true" />
-            <element signature="e#1365#1366#0" expanded="true" />
-            <element signature="e#1400#1401#0" expanded="true" />
-            <element signature="e#1431#1432#0" expanded="true" />
-            <element signature="e#1479#1480#0" expanded="true" />
-            <element signature="e#1519#1520#0" expanded="true" />
-            <element signature="e#1550#1551#0" expanded="true" />
-            <element signature="e#1577#1578#0" expanded="true" />
-            <element signature="e#1617#1618#0" expanded="true" />
-            <element signature="e#1649#1650#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/FacultyValidator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+        <state relative-caret-position="119">
+          <caret line="7" column="4" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#395#396#0" expanded="true" />
+            <element signature="e#441#442#0" expanded="true" />
+            <element signature="e#479#480#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/StudentFormValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/SpecialityValidator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="42" lean-forward="false" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="43" />
+        <state relative-caret-position="137">
+          <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#415#416#0" expanded="true" />
+            <element signature="e#447#448#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#539#540#0" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#605#606#0" expanded="true" />
+            <element signature="e#653#654#0" expanded="true" />
+            <element signature="e#693#694#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/RequestValidator.java">
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/FacultyAndSpecController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        <state relative-caret-position="323">
+          <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="32" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/netcracker/devschool/dev4/studPract/FormValidators/HopValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#808#809#0" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/AdminPageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1512380971443" expanded="true" signature="1809:2050" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/HeadOfPracticeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/converters/StudentEntityToViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="294" column="30" lean-forward="false" selection-start-line="294" selection-start-column="30" selection-end-line="294" selection-end-column="30" />
           <folding />
         </state>
       </provider>

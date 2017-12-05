@@ -1,13 +1,17 @@
 package com.netcracker.studPract.controllers;
 
 
+import com.netcracker.devschool.dev4.studPract.FormValidators.HopValidator;
 import com.netcracker.devschool.dev4.studPract.entity.UserRolesEntity;
 import com.netcracker.devschool.dev4.studPract.entity.UsersEntity;
 import com.netcracker.devschool.dev4.studPract.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 public class HeadOfPracticeController {
@@ -17,22 +21,23 @@ public class HeadOfPracticeController {
 
     @RequestMapping(value = "/addhead", method = RequestMethod.POST)
     @ResponseBody
-    public UsersEntity addHead(@RequestParam(value = "firstName", required = false) String fname,
-                               @RequestParam(value = "lastName", required = false)  String lname,
-                               @RequestParam(value = "login", required = false)  String login,
-                               @RequestParam(value = "password", required = false)  String password){
+    public Object addHead(@Valid @ModelAttribute HopValidator hopValidator, BindingResult result){
 
+
+        if (result.hasErrors()) {
+            return result.getAllErrors();
+        } else{
         UsersEntity usersEntity = new UsersEntity();
         UserRolesEntity userRolesEntity = new UserRolesEntity();
-        usersEntity.setusername(login);
-        usersEntity.setFirstName(fname);
-        usersEntity.setLastName(lname);
+        usersEntity.setusername(hopValidator.getHopLogin());
+        usersEntity.setFirstName(hopValidator.getHopFirstName());
+        usersEntity.setLastName(hopValidator.getHopLastName());
         usersEntity.setEnabled(1);
-        usersEntity.setPassword(password);
+        usersEntity.setPassword(hopValidator.getHopPassword());
         userRolesEntity.setUserrole("ROLE_HEAD");
-        userRolesEntity.setusername(login);
+        userRolesEntity.setusername(hopValidator.getHopLogin());
         usersService.saveUser(usersEntity,userRolesEntity);
-        return usersEntity;
+        return usersEntity;}
     }
 
     @RequestMapping("/head/{id}")

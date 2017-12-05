@@ -293,50 +293,6 @@
                             </div>
                             <!-- /.modal-dialog -->
                         </div>
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
-                            Asign student
-                        </button>
-                        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                        <h4 class="modal-title" id="myModalLabel2">Asign student</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="container-fluid">
-                                            <div class="row">
-                                                <div class="col-md-4"><label>Faculty</label></div>
-                                                <div class="col-md-4"><label>Speciality</label></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4"><select class="form-control">
-                                                    <option>fkp</option>
-                                                    <option>fksis</option>
-                                                    <option>ief</option>
-                                                    <option>vf</option>
-                                                    <option>fre</option>
-                                                </select></div>
-                                                <div class="col-md-4"><select class="form-control">
-                                                    <option>fkp</option>
-                                                    <option>fksis</option>
-                                                    <option>ief</option>
-                                                    <option>vf</option>
-                                                    <option>fre</option>
-                                                </select></div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary">Create</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                                <!-- /.modal-content -->
-                            </div>
-                            <!-- /.modal-dialog -->
-                        </div>
                         <button type="button" class="btn btn-primary" data-target="#myModal5" data-toggle="modal">Create spec</button>
                         <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                             <div class="modal-dialog">
@@ -353,12 +309,12 @@
                                                 <div class="col-md-5 col-md-offset-1"><label>spec name</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-4"><select id="listFaculties" name="facname" class="form-control">
+                                                <div class="col-md-4"><select id="listFaculties" name="facultyId" class="form-control">
                                                     <c:forEach items="${listFaculties}" var="faculty">
                                                         <option value="${faculty.idFaculty}">${faculty.facultyName}</option>
                                                     </c:forEach>
                                                 </select></div>
-                                                <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="sname"></div>
+                                                <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="specName"></div>
                                             </div>
                                                 <button type="submit" class="btn btn-primary"  >Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -391,16 +347,16 @@
 
                                             </div>
                                                 <div class="row">
-                                                    <div class="col-md-5"><input class="form-control" name="firstName"></div>
-                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="lastName"></div>
+                                                    <div class="col-md-5"><input class="form-control" name="hopFirstName"></div>
+                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="hopLastName"></div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-5"><label>login</label></div>
                                                     <div class="col-md-5 col-md-offset-1 "><label>password</label></div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-5 "><input class="form-control" name="login"></div>
-                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="password"></div>
+                                                    <div class="col-md-5 "><input class="form-control" name="hopLogin"></div>
+                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="hopPassword"></div>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -424,11 +380,16 @@
                                         <h4 class="modal-title" id="myModalLabel6">Add faculty</h4>
                                     </div>
                                     <div class="modal-body">
+                                        <c:if test="${not empty result}">
+                                            <div class="alert alert-danger alert-dismissible">${result}</div>
+                                        </c:if>
                                         <div class="container-fluid">
                                             <form action="/createFaculty?${_csrf.parameterName}=${_csrf.token}" id="faculty_add" method="post" role="form">
                                                 <div class="row">
                                                     <div class="col-md-5"><label>faculty name</label></div>
-                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="fname"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="facName"></div>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
