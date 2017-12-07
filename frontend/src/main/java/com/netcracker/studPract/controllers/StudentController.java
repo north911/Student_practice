@@ -1,6 +1,7 @@
 package com.netcracker.studPract.controllers;
 
 
+import com.netcracker.devschool.dev4.studPract.FormValidators.StudentFormValidator;
 import com.netcracker.devschool.dev4.studPract.entity.StudentsEntity;
 import com.netcracker.devschool.dev4.studPract.entity.UserRolesEntity;
 import com.netcracker.devschool.dev4.studPract.entity.UsersEntity;
@@ -9,8 +10,10 @@ import com.netcracker.devschool.dev4.studPract.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -57,38 +60,29 @@ public class StudentController {
 
     @RequestMapping(value = "/createStudent", method = RequestMethod.POST)
     @ResponseBody
-    public StudentsEntity addStudent(@RequestParam(value = "firstName", required = false) String fname,
-                                     @RequestParam(value = "lastName", required = false) String lname,
-                                     @RequestParam(value = "speciality", required = false) String speciality,
-                                     @RequestParam(value = "facname", required = false) int fac,
-                                     @RequestParam(value = "avgB", required = false) int avgBall,
-                                     @RequestParam(value = "isBudget", required = false) String isBudget,
-                                     @RequestParam(value = "group", required = false) int group,
-                                     @RequestParam(value = "login", required = false)  String login,
-                                     @RequestParam(value = "pass", required = false) String pass){
-        StudentsEntity studentsEntity = new StudentsEntity();
-        UsersEntity usersEntity = new UsersEntity();
-        UserRolesEntity userRolesEntity = new UserRolesEntity();
-        try{
-            studentsEntity.setAvgBall(avgBall);
-            studentsEntity.setIdGroup(group);
-            studentsEntity.setIdSpec(Integer.parseInt(speciality));
-            if(isBudget.equals("budget"))
+    public Object addStudent(@Valid @ModelAttribute StudentFormValidator studentFormValidator, BindingResult result){
+
+        if (result.hasErrors()) {
+            return result.getAllErrors();
+        } else{
+            StudentsEntity studentsEntity = new StudentsEntity();
+            UsersEntity usersEntity = new UsersEntity();
+            UserRolesEntity userRolesEntity = new UserRolesEntity();
+            studentsEntity.setAvgBall(Integer.parseInt(studentFormValidator.getAvgBall()));
+            studentsEntity.setIdGroup(Integer.parseInt(studentFormValidator.getIdGroup()));
+            studentsEntity.setIdSpec(Integer.parseInt(studentFormValidator.getIdSpec()));
+            if(studentFormValidator.getAvgBall().equals("budget"))
                 studentsEntity.setIsBudget((byte)1);
-            usersEntity.setFirstName(fname);
-            usersEntity.setLastName(lname);
-            usersEntity.setusername(login);
-            usersEntity.setPassword(pass);
-            userRolesEntity.setusername(login);
+            usersEntity.setFirstName(studentFormValidator.getFirstName());
+            usersEntity.setLastName(studentFormValidator.getLastName());
+            usersEntity.setusername(studentFormValidator.getLogin());
+            usersEntity.setPassword(studentFormValidator.getPassword());
+            userRolesEntity.setusername(studentFormValidator.getLogin());
             userRolesEntity.setUserrole("ROLE_STUDENT");
             usersEntity.setEnabled(1);
             usersService.saveUser(usersEntity,userRolesEntity);
-            studentsEntity.setIdUser(usersService.findByUserLogin(login).getIdUsers());
-            studentsService.saveStudent(studentsEntity);}
-        catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }
-        return studentsEntity;
+            studentsEntity.setIdUser(usersService.findByUserLogin(studentFormValidator.getLogin()).getIdUsers());
+            studentsService.saveStudent(studentsEntity);
+        return studentsEntity;}
     }
 }

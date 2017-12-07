@@ -162,7 +162,7 @@
                                                   data-fv-icon-validating="glyphicon glyphicon-refresh">
                                             <div class="row">
                                                 <div class="col-md-8"><label>Company name</label></div>
-                                                <div class="col-md-8"><label><input id="cname" name="company" minlength="2" type="text" required="" aria-required="true" class="error" aria-invalid="true"></label></div>
+                                                <div class="col-md-8"><label><input id="cname" name="companyName" minlength="2" type="text" required="" aria-required="true" class="error" aria-invalid="true"></label></div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-4"><label>From</label></div>
@@ -191,7 +191,7 @@
                                                 <div class="col-md-6 col-md-offset-1"><label>specialities</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-4"><select id="faculties" name="idFac" class="form-control">
+                                                <div class="col-md-4"><select id="faculties" name="idFaculty" class="form-control">
                                                     <c:forEach items="${listFaculties}" var="faculty">
                                                         <option value="${faculty.idFaculty}">${faculty.facultyName}</option>
                                                     </c:forEach>
@@ -206,7 +206,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3"><input  id="quantity" name="quantity"></div>
-                                                <div class="col-md-6 col-md-offset-1"><input id="minAvg"  name="minAvg"></div>
+                                                <div class="col-md-6 col-md-offset-1"><input id="minAvg"  name="minAvgBall"></div>
                                             </div>
                                                 <div class="row">
                                                     <button type="submit" class="btn btn-primary">Create</button>
@@ -250,12 +250,12 @@
                                                 <div class="col-md-4"><label>Speciality</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-4"><select id="faculties1" name="facname" class="form-control">
+                                                <div class="col-md-4"><select id="faculties1" name="idFaculty" class="form-control">
                                                     <c:forEach items="${listFaculties}" var="faculty">
                                                         <option value="${faculty.idFaculty}">${faculty.facultyName}</option>
                                                     </c:forEach>
                                                 </select></div>
-                                                <div class="col-md-4"><select id="specs1" name="speciality" class="form-control">
+                                                <div class="col-md-4"><select id="specs1" name="idSpec" class="form-control">
                                                 </select>
                                                 </div>
                                             </div>
@@ -265,12 +265,12 @@
                                                 <div class="col-md-3 "><label>num group</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3"><input type="number" name="avgB"></div>
+                                                <div class="col-md-3"><input type="number" name="avgBall"></div>
                                                 <div class="col-md-3 col-md-offset-1"><select class="form-control" name="isBudget">
                                                     <option>budget</option>
                                                     <option>obligated</option>
                                                 </select></div>
-                                                <div class="col-md-3"><input type="number" name="group"></div>
+                                                <div class="col-md-3"><input type="number" name="idGroup"></div>
                                             </div>
                                                 <div class="row">
                                                     <div class="col-md-4 "><label>login</label></div>
@@ -278,7 +278,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-5"><input class="form-control" name="login"></div>
-                                                    <div class="col-md-5"><input class="form-control" name="pass"></div>
+                                                    <div class="col-md-5"><input class="form-control" name="password"></div>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -517,8 +517,8 @@
                                                 <td>${request.companyName}</td>
                                                 <td>${request.dateFrom.toString()}</td>
                                                 <td>${request.dateTo.toString()}</td>
-                                                <td><%--${listFaculties.stream().filter(FacultiesEntity -> FacultiesEntity.getIdFaculty()==request.getIdFaculty()).findFirst().get().getFacultyName()}--%></td>
-                                                <td><%--${listSpecialities.stream().filter(SpecialityEntity -> SpecialityEntity.getIdSpec()==request.getIdSpec()).findFirst().get().getNameSpec()}--%></td>
+                                                <td>${request.nameFaculty}</td>
+                                                <td>${request.nameSpec}</td>
                                                 <td>${request.minAvg}</td>
                                                 <td>${request.quantity}</td>
                                                 <td></td>
