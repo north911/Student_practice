@@ -62,12 +62,6 @@
                             <div class="col-sm-6">
                                 <div align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
 
-                                    <input id="profile-image-upload" class="hidden" type="file">
-                                    <div style="color:#999;">click here to change profile image</div>
-                                    <!--Upload Image Js And Css-->
-
-
-
                                 </div>
 
                                 <br>
@@ -75,18 +69,18 @@
                                 <!-- /input-group -->
                             </div>
                             <div class="col-sm-6">
-                                <h4 style="color:#00b1b1;">${user.firstName} ${user.lastName}</h4>
+                                <h4 style="color:#00b1b1;">${student.firstName} ${student.lastName}</h4>
                                 <span><p>Student</p></span>
                             </div>
                             <div class="clearfix"></div>
                             <hr style="margin:5px 0 5px 0;">
 
 
-                            <div class="col-sm-5 col-xs-6 tital ">First Name:</div><div class="col-sm-7 col-xs-6 ">${user.firstName}</div>
+                            <div class="col-sm-5 col-xs-6 tital ">First Name:</div><div class="col-sm-7 col-xs-6 ">${student.firstName}</div>
                             <div class="clearfix"></div>
                             <div class="bot-border"></div>
 
-                            <div class="col-sm-5 col-xs-6 tital ">Last Name:</div><div class="col-sm-7">${user.lastName}</div>
+                            <div class="col-sm-5 col-xs-6 tital ">Last Name:</div><div class="col-sm-7">${student.lastName}</div>
                             <div class="clearfix"></div>
                             <div class="bot-border"></div>
 
@@ -96,12 +90,12 @@
                             <div class="bot-border"></div>
 
 
-                            <div class="col-sm-5 col-xs-6 tital ">Faculty:</div><div class="col-sm-7">${listFaculties.stream().filter(FacultiesEntity -> FacultiesEntity.getIdFaculty()==(listSpecialities.stream().filter(SpecialityEntity -> SpecialityEntity.getIdSpec()==student.getIdSpec()).findFirst().get().getIdFaculty())).findFirst().get().getFacultyName()}</div>
+                            <div class="col-sm-5 col-xs-6 tital ">Faculty:</div><div class="col-sm-7">${student.facName}</div>
 
                             <div class="clearfix"></div>
                             <div class="bot-border"></div>
 
-                            <div class="col-sm-5 col-xs-6 tital ">Speciality:</div><div class="col-sm-7">${listSpecialities.stream().filter(SpecialityEntity -> SpecialityEntity.getIdSpec()==student.getIdSpec()).findFirst().get().getNameSpec()}</div>
+                            <div class="col-sm-5 col-xs-6 tital ">Speciality:</div><div class="col-sm-7">${student.specName}</div>
 
                             <div class="clearfix"></div>
                             <div class="bot-border"></div>

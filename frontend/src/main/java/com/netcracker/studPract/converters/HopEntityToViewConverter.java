@@ -18,19 +18,23 @@ public class HopEntityToViewConverter implements HopConverter {
     @Override
     public List<HopViewModel> convert(List<UsersEntity> usersEntities) {
         List<HopViewModel> hopViewModelList = new ArrayList<>();
-        HopEntityToViewConverter hopEntityToViewConverter = new HopEntityToViewConverter();
+        //HopEntityToViewConverter hopEntityToViewConverter = new HopEntityToViewConverter();
+
 
         for (UsersEntity usersEntity : usersEntities) {
-            hopViewModelList.add(hopEntityToViewConverter.soloConvert(usersEntity));
+            HopViewModel hopViewModel = new HopViewModel();
+            hopViewModel.setFirstName(usersEntity.getFirstName());
+            hopViewModel.setLastName(usersEntity.getLastName());
+            hopViewModelList.add(hopViewModel);
         }
 
         return hopViewModelList;
     }
 
-    public HopViewModel soloConvert(UsersEntity usersEntity){
+   /* public HopViewModel soloConvert(UsersEntity usersEntity){
         HopViewModel hopViewModel = new HopViewModel();
         hopViewModel.setFirstName(usersEntity.getFirstName());
         hopViewModel.setLastName(usersEntity.getLastName());
         return hopViewModel;
-    }
+    }*/
 }

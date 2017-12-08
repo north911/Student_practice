@@ -20,24 +20,33 @@ public class RequestEntityToViewConverter implements RequestConverter {
     @Autowired
     SpecialityService specialityService;
 
+
     @Override
     public List<RequestsViewModel> convert(List<RequestsEntity> requestsEntities) {
 
         List<RequestsViewModel> requestsViewModels = new ArrayList<>();
-        RequestEntityToViewConverter requestEntityToViewConverter = new RequestEntityToViewConverter();
-
+        //RequestEntityToViewConverter requestEntityToViewConverter = new RequestEntityToViewConverter();
 
         for (RequestsEntity requestsEntity : requestsEntities) {
-            requestsViewModels.add(requestEntityToViewConverter.soloConvert(requestsEntity,facultiesService,specialityService));
+            RequestsViewModel requestsViewModel = new RequestsViewModel();
+            requestsViewModel.setCompanyName(requestsEntity.getCompanyName());
+            requestsViewModel.setDateFrom(requestsEntity.getDateFrom().toString());
+            requestsViewModel.setDateTo(requestsEntity.getDateFrom().toString());
+            requestsViewModel.setIdRequest(Integer.toString(requestsEntity.getIdRequest()));
+            requestsViewModel.setMinAvg(Double.toString(requestsEntity.getMinAvg()));
+            requestsViewModel.setQuantity(Integer.toString(requestsEntity.getQuantity()));
+            requestsViewModel.setNameSpec(specialityService.findById(requestsEntity.getIdSpec()).getNameSpec());
+            requestsViewModel.setNameFaculty(facultiesService.findFacultyById(requestsEntity.getIdFaculty()).getFacultyName());
+            requestsViewModels.add(requestsViewModel);
         }
 
         return requestsViewModels;
     }
 
-    public RequestsViewModel soloConvert(RequestsEntity requestsEntity, FacultiesService facultiesService, SpecialityService specialityService){
+  /*  public RequestsViewModel soloConvert(RequestsEntity requestsEntity, FacultiesService facultiesService, SpecialityService specialityService){
 
-        RequestsViewModel requestsViewModel = new RequestsViewModel();
-        requestsViewModel.setCompanyName(requestsEntity.getCompanyName());
+        //RequestsViewModel requestsViewModel = new RequestsViewModel();
+        *//*requestsViewModel.setCompanyName(requestsEntity.getCompanyName());
         requestsViewModel.setDateFrom(requestsEntity.getDateFrom().toString());
         requestsViewModel.setDateTo(requestsEntity.getDateFrom().toString());
         requestsViewModel.setIdRequest(Integer.toString(requestsEntity.getIdRequest()));
@@ -46,6 +55,6 @@ public class RequestEntityToViewConverter implements RequestConverter {
         requestsViewModel.setNameSpec(specialityService.findById(requestsEntity.getIdSpec()).getNameSpec());
         requestsViewModel.setNameFaculty(facultiesService.findFacultyById(requestsEntity.getIdFaculty()).getFacultyName());
 
-        return requestsViewModel;
-    }
+        return requestsViewModel;*//*
+    }*/
 }

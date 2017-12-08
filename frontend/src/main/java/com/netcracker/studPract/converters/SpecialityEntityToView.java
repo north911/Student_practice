@@ -19,21 +19,23 @@ public class SpecialityEntityToView implements SpecialityConverter {
     @Override
     public List<SpecialityViewModel> convert(List<SpecialityEntity> specialityEntity){
 
-        List<SpecialityViewModel> specialityViewModel = new ArrayList<>();
-        SpecialityEntityToView specialityEntityToView = new SpecialityEntityToView();
+        List<SpecialityViewModel> specialityViewModels = new ArrayList<>();
+
 
         for (SpecialityEntity speciality : specialityEntity) {
-            specialityViewModel.add(specialityEntityToView.soloConverter(speciality,facultiesService));
+            SpecialityViewModel specialityViewModel = new SpecialityViewModel();
+            specialityViewModel.setNameFaculty(facultiesService.findFacultyById(speciality.getIdFaculty()).getFacultyName());
+            specialityViewModel.setNameSpec(speciality.getNameSpec());
+            specialityViewModel.setIdSpec(Integer.toString(speciality.getIdSpec()));
+            specialityViewModels.add(specialityViewModel);
         }
-        return specialityViewModel;
+        return specialityViewModels;
     }
 
-    public SpecialityViewModel soloConverter(SpecialityEntity specialityEntity, FacultiesService facultiesService){
-        SpecialityViewModel specialityViewModel = new SpecialityViewModel();
-        specialityViewModel.setNameFaculty(facultiesService.findAllFaculties().stream().filter(FacultiesEntity -> FacultiesEntity.getIdFaculty()== specialityEntity.getIdFaculty()).findFirst().get().getFacultyName());
-        specialityViewModel.setNameSpec(specialityEntity.getNameSpec());
-        specialityViewModel.setIdSpec(Integer.toString(specialityEntity.getIdSpec()));
+    /*public SpecialityViewModel soloConverter(SpecialityEntity specialityEntity, FacultiesService facultiesService){
+
+
         return specialityViewModel;
-    }
+    }*/
 
 }

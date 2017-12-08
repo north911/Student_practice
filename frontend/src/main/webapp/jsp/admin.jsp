@@ -209,7 +209,7 @@
                                                 <div class="col-md-6 col-md-offset-1"><input id="minAvg"  name="minAvgBall"></div>
                                             </div>
                                                 <div class="row">
-                                                    <button type="submit" class="btn btn-primary">Create</button>
+                                                 <button type="submit" class="btn btn-primary" onclick="myFunction()">Create</button>
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                 </div>
                                             </form>
@@ -280,7 +280,7 @@
                                                     <div class="col-md-5"><input class="form-control" name="login"></div>
                                                     <div class="col-md-5"><input class="form-control" name="password"></div>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">Create</button>
+                                                <button type="submit" class="btn btn-primary" onclick="myFunction()">Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             </form>
                                         </div>
@@ -316,7 +316,7 @@
                                                 </select></div>
                                                 <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="specName"></div>
                                             </div>
-                                                <button type="submit" class="btn btn-primary"  >Create</button>
+                                                <button type="submit" class="btn btn-primary" onclick="myFunction()">Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             </form>
                                         </div>
@@ -358,7 +358,7 @@
                                                     <div class="col-md-5 "><input class="form-control" name="hopLogin"></div>
                                                     <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="hopPassword"></div>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">Create</button>
+                                                <button type="submit" class="btn btn-primary" onclick="myFunction()">Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             </form>
                                         </div>
@@ -391,7 +391,7 @@
                                                 <div class="row">
                                                     <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="facName"></div>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">Create</button>
+                                                <button type="submit" class="btn btn-primary" onclick="myFunction()">Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             </form>
                                         </div>
@@ -483,7 +483,8 @@
                         <!-- /.col-lg-12 -->
                     </div>
                 </div>
-                <div class="tab-pane fade" id="profile">
+
+                <div class="tab-pane fade" id="profile" name="profile">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="panel panel-default">

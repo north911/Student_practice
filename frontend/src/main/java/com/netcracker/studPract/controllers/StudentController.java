@@ -7,6 +7,8 @@ import com.netcracker.devschool.dev4.studPract.entity.UserRolesEntity;
 import com.netcracker.devschool.dev4.studPract.entity.UsersEntity;
 import com.netcracker.devschool.dev4.studPract.service.StudentsService;
 import com.netcracker.devschool.dev4.studPract.service.UsersService;
+import com.netcracker.studPract.beans.StudentViewModel;
+import com.netcracker.studPract.converters.StudentConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -25,7 +28,8 @@ public class StudentController {
     @Autowired
     UsersService usersService;
 
-
+    @Autowired
+    StudentConverter studentConverter;
 
 
     @RequestMapping(value = "/removeCheckedStudents", method = RequestMethod.POST)
@@ -33,20 +37,16 @@ public class StudentController {
 
         for (String s : id) {
             studentsService.deleteStudentById(Integer.parseInt(s));
-
         }
         return "redirect:/admin";
     }
 
     @RequestMapping("/profile/{id}")
     public String studentData(@PathVariable("id") int id, Model model){
-     /*   model.addAttribute("user",usersService.findById(id));
-        model.addAttribute("listFaculties", facultiesService.findAllFaculties());
-        model.addAttribute("student", studentsService.findById(id));
-        model.addAttribute("listFaculties", facultiesService.findAllFaculties());
-        model.addAttribute("listSpecialities", specialityService.findAllSpecialities());
-        model.addAttribute("listStudents",studentsService.findAllStudents());
-        model.addAttribute("listRequests",requestsService.findAllRequests());*/
+
+        List<StudentsEntity> studentsEntities = new ArrayList<StudentsEntity>();
+        studentsEntities.add(studentsService.findById(id));
+        model.addAttribute("student",(studentConverter.convert(studentsEntities)).get(0));
         return "profile";
     }
 
