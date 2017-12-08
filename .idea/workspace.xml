@@ -8,16 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8bc443cb-cf3d-4bb8-a271-e682dde8a8b6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/AdminPageController.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/AdminPageController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/StudentController.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/controllers/StudentController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/converters/HopEntityToViewConverter.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/converters/HopEntityToViewConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/converters/RequestEntityToViewConverter.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/converters/RequestEntityToViewConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/converters/SpecialityEntityToView.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/converters/SpecialityEntityToView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/converters/StudentConverter.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/converters/StudentConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/converters/StudentEntityToViewModel.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/netcracker/studPract/converters/StudentEntityToViewModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/jsp/admin.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/webapp/jsp/profile.jsp" afterPath="$PROJECT_DIR$/frontend/src/main/webapp/jsp/profile.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/frontend/target/frontend-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
     </list>
     <ignored path="$PROJECT_DIR$/frontend/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -771,7 +761,7 @@
       <workItem from="1512661956081" duration="7029000" />
       <workItem from="1512716100400" duration="597000" />
       <workItem from="1512723446717" duration="7631000" />
-      <workItem from="1512764736361" duration="150000" />
+      <workItem from="1512764736361" duration="226000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1507918416078</created>
@@ -997,11 +987,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512669672839</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="some fixes in admin jsp, fixed converters, fixed profile jsp">
+      <created>1512764943464</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1512764943464</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="322918000" />
+    <option name="totallyTimeSpent" value="322994000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1056,7 +1053,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added spring data and entities" />
     <MESSAGE value="fixed some bags" />
     <MESSAGE value="changed entityes to imported from database. is this correct? IDK!" />
     <MESSAGE value="changed entityes to imported from database. is this correct? IDK!&#10;+services&#10;+repositories" />
@@ -1081,7 +1077,8 @@
     <MESSAGE value="now deleted students by checkboxes works, added first backend validation classes, last commit was joke(sorry)" />
     <MESSAGE value="some backend validation (w/o view alerts), tomorrow will continue" />
     <MESSAGE value="full backend validation, some fixes request view model" />
-    <option name="LAST_COMMIT_MESSAGE" value="full backend validation, some fixes request view model" />
+    <MESSAGE value="some fixes in admin jsp, fixed converters, fixed profile jsp" />
+    <option name="LAST_COMMIT_MESSAGE" value="some fixes in admin jsp, fixed converters, fixed profile jsp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
