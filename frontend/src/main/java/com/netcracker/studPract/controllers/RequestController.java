@@ -43,6 +43,7 @@ public class RequestController {
             requestsEntity.setIdSpec(Integer.parseInt(requestValidator.getIdSpec()));
             requestsEntity.setQuantity(requestValidator.getQuantity());
             requestsEntity.setMinAvg(requestValidator.getMinAvgBall());
+            requestsEntity.setIdHead(Integer.parseInt(requestValidator.getIdHead()));
             requestsService.save(requestsEntity);
             return requestsEntity;}
 

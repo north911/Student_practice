@@ -25,6 +25,7 @@ public class HopEntityToViewConverter implements HopConverter {
             HopViewModel hopViewModel = new HopViewModel();
             hopViewModel.setFirstName(usersEntity.getFirstName());
             hopViewModel.setLastName(usersEntity.getLastName());
+            hopViewModel.setIdHead(Integer.toString(usersEntity.getIdUsers()));
             hopViewModelList.add(hopViewModel);
         }
 

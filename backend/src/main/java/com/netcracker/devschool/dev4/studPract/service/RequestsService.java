@@ -9,4 +9,5 @@ public interface RequestsService {
     void deleteRequestById(int id);
     List<RequestsEntity> findAllRequests();
     List<RequestsEntity> findRequestByName(String name);
+    List<RequestsEntity> findByHeadOfPractice(int id);
 }

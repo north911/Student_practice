@@ -26,7 +26,7 @@ class AuthSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
         String targetUrl = "";
         if (role.contains("STUDENT")) {
             targetUrl = "/profile/" + usersService.findByUserLogin(auth.getName()).getIdUsers();
-        } else if (role.contains("HOP")) {
+        } else if (role.contains("HEAD")) {
             targetUrl = "/head/" + usersService.findByUserLogin(auth.getName()).getIdUsers();
         } else if (role.contains("ADMIN")) {
             targetUrl = "/admin";

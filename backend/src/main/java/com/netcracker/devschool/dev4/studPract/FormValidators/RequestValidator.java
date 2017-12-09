@@ -28,6 +28,9 @@ public class RequestValidator {
     private int quantity;
 
     @NotNull(message = "не может отсутствовать")
+    private String idHead;
+
+    @NotNull(message = "не может отсутствовать")
     @Min(4) @Max(10)
     private int minAvgBall;
 
@@ -85,5 +88,13 @@ public class RequestValidator {
 
     public void setMinAvgBall(int minAvgBall) {
         this.minAvgBall = minAvgBall;
+    }
+
+    public String getIdHead() {
+        return idHead;
+    }
+
+    public void setIdHead(String idHead) {
+        this.idHead = idHead;
     }
 }

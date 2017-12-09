@@ -4,6 +4,15 @@ public class HopViewModel {
 
     private String firstName;
     private String lastName;
+    private String idHead;
+
+    public String getIdHead() {
+        return idHead;
+    }
+
+    public void setIdHead(String idHead) {
+        this.idHead = idHead;
+    }
 
     public String getFirstName() {
         return firstName;

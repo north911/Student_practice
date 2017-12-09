@@ -3,8 +3,8 @@ package com.netcracker.devschool.dev4.studPract.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "requests_has_students", schema = "stpractice")
-public class RequestsHasStudentsEntity {
+@Table(name = "assigment", schema = "stpractice")
+public class AssigmentsEntity {
     @Id
     private int requestsIdRequest;
 
@@ -33,7 +33,7 @@ public class RequestsHasStudentsEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        RequestsHasStudentsEntity that = (RequestsHasStudentsEntity) o;
+        AssigmentsEntity that = (AssigmentsEntity) o;
 
         if (requestsIdRequest != that.requestsIdRequest) return false;
         if (studentsIdUser != that.studentsIdUser) return false;

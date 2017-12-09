@@ -161,9 +161,18 @@
                                                   data-fv-icon-invalid="glyphicon glyphicon-remove"
                                                   data-fv-icon-validating="glyphicon glyphicon-refresh">
                                             <div class="row">
-                                                <div class="col-md-8"><label>Company name</label></div>
-                                                <div class="col-md-8"><label><input id="cname" name="companyName" minlength="2" type="text" required="" aria-required="true" class="error" aria-invalid="true"></label></div>
+                                                <div class="col-md-5"><label>Company name</label></div>
+                                                <div class="col-md-5 "><label>Head of Practice</label></div>
+
                                             </div>
+                                                <div class="row">
+                                                    <div class="col-md-5"><label><input id="cname" name="companyName" minlength="2" type="text" required="" aria-required="true" class="error" aria-invalid="true"></label></div>
+                                                    <div class="col-md-5"><select id="listHops" name="idHead" class="form-control">
+                                                        <c:forEach items="${listHops}" var="head">
+                                                            <option value="${head.idHead}">${head.lastName}</option>
+                                                        </c:forEach>
+                                                    </select></div>
+                                                </div>
                                             <div class="row">
                                                 <div class="col-md-4"><label>From</label></div>
                                                 <div class="col-md-4"><label>To</label></div>

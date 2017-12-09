@@ -44,4 +44,9 @@ public class RequestsServiceImpl implements RequestsService{
     public List<RequestsEntity> findRequestByName(String name) {
         return null;
     }
+
+    @Override
+    public List<RequestsEntity> findByHeadOfPractice(int id) {
+        return requestsRepository.findAllByIdHead(id);
+    }
 }

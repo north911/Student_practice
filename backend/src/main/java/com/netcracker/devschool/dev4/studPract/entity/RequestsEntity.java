@@ -23,47 +23,7 @@ public class RequestsEntity {
 
     private double minAvg;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        RequestsEntity that = (RequestsEntity) o;
-
-        if (idRequest != that.idRequest) return false;
-        if (idSpec != that.idSpec) return false;
-        if (idFaculty != that.idFaculty) return false;
-        if (quantity != that.quantity) return false;
-        if (Double.compare(that.minAvg, minAvg) != 0) return false;
-        if (!companyName.equals(that.companyName)) return false;
-        if (!dateFrom.equals(that.dateFrom)) return false;
-        return dateTo.equals(that.dateTo);
-    }
-
-    @Override
-    public int hashCode() {
-        int result;
-        long temp;
-        result = idRequest;
-        result = 31 * result + companyName.hashCode();
-        result = 31 * result + dateFrom.hashCode();
-        result = 31 * result + dateTo.hashCode();
-        result = 31 * result + idSpec;
-        result = 31 * result + idFaculty;
-        result = 31 * result + quantity;
-        temp = Double.doubleToLongBits(minAvg);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        return result;
-    }
-
-    public double getMinAvg() {
-
-        return minAvg;
-    }
-
-    public void setMinAvg(double minAvg) {
-        this.minAvg = minAvg;
-    }
+    private int idHead;
 
     public int getIdRequest() {
         return idRequest;
@@ -119,5 +79,56 @@ public class RequestsEntity {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public double getMinAvg() {
+        return minAvg;
+    }
+
+    public void setMinAvg(double minAvg) {
+        this.minAvg = minAvg;
+    }
+
+    public int getIdHead() {
+        return idHead;
+    }
+
+    public void setIdHead(int idHead) {
+        this.idHead = idHead;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        RequestsEntity that = (RequestsEntity) o;
+
+        if (idRequest != that.idRequest) return false;
+        if (idSpec != that.idSpec) return false;
+        if (idFaculty != that.idFaculty) return false;
+        if (quantity != that.quantity) return false;
+        if (Double.compare(that.minAvg, minAvg) != 0) return false;
+        if (idHead != that.idHead) return false;
+        if (!companyName.equals(that.companyName)) return false;
+        if (!dateFrom.equals(that.dateFrom)) return false;
+        return dateTo.equals(that.dateTo);
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = idRequest;
+        result = 31 * result + companyName.hashCode();
+        result = 31 * result + dateFrom.hashCode();
+        result = 31 * result + dateTo.hashCode();
+        result = 31 * result + idSpec;
+        result = 31 * result + idFaculty;
+        result = 31 * result + quantity;
+        temp = Double.doubleToLongBits(minAvg);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + idHead;
+        return result;
     }
 }

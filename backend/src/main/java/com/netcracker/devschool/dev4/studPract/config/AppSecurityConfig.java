@@ -36,9 +36,10 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/head/**").access("hasRole('ROLE_HOP')")
+                .antMatchers("/head/**").access("hasRole('ROLE_HEAD')")
                 .antMatchers("/profile/**").access("hasRole('ROLE_STUDENT')")
-                .antMatchers("/profile/**").access("hasAnyRole('ROLE_STUDENT', 'ROLE_ADMIN')")
+                .antMatchers("/profile/**").access("hasAnyRole('ROLE_STUDENT', 'ROLE_ADMIN','ROLE_HEAD')")
+                .antMatchers("/head/**").access("hasRole('ROLE_ADMIN')")
                 .and()
                 .headers()
                 .frameOptions().sameOrigin().httpStrictTransportSecurity().disable().and()

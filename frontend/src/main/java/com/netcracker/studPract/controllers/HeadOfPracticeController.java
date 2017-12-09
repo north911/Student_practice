@@ -4,7 +4,13 @@ package com.netcracker.studPract.controllers;
 import com.netcracker.devschool.dev4.studPract.FormValidators.HopValidator;
 import com.netcracker.devschool.dev4.studPract.entity.UserRolesEntity;
 import com.netcracker.devschool.dev4.studPract.entity.UsersEntity;
-import com.netcracker.devschool.dev4.studPract.service.UsersService;
+import com.netcracker.devschool.dev4.studPract.service.*;
+import com.netcracker.studPract.beans.RequestsViewModel;
+import com.netcracker.studPract.beans.SpecialityViewModel;
+import com.netcracker.studPract.beans.StudentViewModel;
+import com.netcracker.studPract.converters.RequestConverter;
+import com.netcracker.studPract.converters.SpecialityConverter;
+import com.netcracker.studPract.converters.StudentConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,12 +18,36 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 
 @Controller
 public class HeadOfPracticeController {
 
     @Autowired
     UsersService usersService;
+
+    @Autowired
+    StudentConverter studentConverter;
+
+    @Autowired
+    StudentsService studentsService;
+
+    @Autowired
+    RequestConverter requestConverter;
+
+    @Autowired
+    RequestsService requestsService;
+
+    @Autowired
+    FacultiesService facultiesService;
+
+    @Autowired
+    SpecialityConverter specialityConverter;
+
+    @Autowired
+    SpecialityService specialityService;
+
+
 
     @RequestMapping(value = "/addhead", method = RequestMethod.POST)
     @ResponseBody
@@ -42,13 +72,12 @@ public class HeadOfPracticeController {
 
     @RequestMapping("/head/{id}")
     public String headData(@PathVariable("id") int id, Model model){
-       /* model.addAttribute("user",usersService.findById(id));
+
         model.addAttribute("listFaculties", facultiesService.findAllFaculties());
-        model.addAttribute("student", studentsService.findById(id));
-        model.addAttribute("listFaculties", facultiesService.findAllFaculties());
-        model.addAttribute("listSpecialities", specialityService.findAllSpecialities());
-        model.addAttribute("listStudents",studentsService.findAllStudents());
-        model.addAttribute("listRequests",requestsService.findAllRequests());*/
+        model.addAttribute("listSpecialities",new ArrayList<SpecialityViewModel>(specialityConverter.convert(specialityService.findAllSpecialities())));
+        model.addAttribute("user", usersService.findById(id));
+        model.addAttribute("listStudents",new ArrayList<StudentViewModel>(studentConverter.convert(studentsService.findAllStudents())));
+        model.addAttribute("listRequests",new ArrayList<RequestsViewModel>(requestConverter.convert(requestsService.findByHeadOfPractice(id))));
         return "head";
     }
 }
