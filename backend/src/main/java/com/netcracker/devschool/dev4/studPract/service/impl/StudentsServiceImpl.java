@@ -3,12 +3,14 @@ package com.netcracker.devschool.dev4.studPract.service.impl;
 import com.netcracker.devschool.dev4.studPract.entity.StudentsEntity;
 import com.netcracker.devschool.dev4.studPract.repository.StudentsRepository;
 import com.netcracker.devschool.dev4.studPract.repository.UserRolesRepository;
+import com.netcracker.devschool.dev4.studPract.repository.UsersRepository;
 import com.netcracker.devschool.dev4.studPract.service.StudentsService;
 import com.netcracker.devschool.dev4.studPract.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Transactional
@@ -19,7 +21,7 @@ public class StudentsServiceImpl implements StudentsService{
     StudentsRepository studentsRepository;
 
  @Autowired
-    UsersService usersService;
+    UsersRepository usersRepository;
 
     @Override
     public StudentsEntity saveStudent(StudentsEntity studentsEntity) {
@@ -30,7 +32,7 @@ public class StudentsServiceImpl implements StudentsService{
 
     @Override
     public void deleteStudentById(int id) {
-        usersService.deleteUserById(id);
+        usersRepository.delete(id);
         studentsRepository.delete(id);
     }
 
@@ -47,5 +49,10 @@ public class StudentsServiceImpl implements StudentsService{
     @Override
     public StudentsEntity findById(int id) {
         return studentsRepository.findOne(id);
+    }
+
+    @Override
+    public List<StudentsEntity> findForRequest(double minAvg, int idSpec, Date startdate, Date enddate, byte isBudget) {
+        return studentsRepository.findStudentsForRequest(minAvg, idSpec, startdate, enddate, isBudget);
     }
 }

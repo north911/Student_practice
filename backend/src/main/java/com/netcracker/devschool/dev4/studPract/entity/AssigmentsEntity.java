@@ -6,26 +6,35 @@ import javax.persistence.*;
 @Table(name = "assigment", schema = "stpractice")
 public class AssigmentsEntity {
     @Id
-    private int requestsIdRequest;
+    private int idRequest;
 
 
-    private int studentsIdUser;
+    private int idUser;
 
-    public int getRequestsIdRequest() {
-        return requestsIdRequest;
+    private int idHead;
+
+    public int getIdHead() {
+        return idHead;
     }
 
-    public void setRequestsIdRequest(int requestsIdRequest) {
-        this.requestsIdRequest = requestsIdRequest;
+    public void setIdHead(int idHead) {
+        this.idHead = idHead;
     }
 
-
-    public int getStudentsIdUser() {
-        return studentsIdUser;
+    public int getIdRequest() {
+        return idRequest;
     }
 
-    public void setStudentsIdUser(int studentsIdUser) {
-        this.studentsIdUser = studentsIdUser;
+    public void setIdRequest(int idRequest) {
+        this.idRequest = idRequest;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     @Override
@@ -35,16 +44,14 @@ public class AssigmentsEntity {
 
         AssigmentsEntity that = (AssigmentsEntity) o;
 
-        if (requestsIdRequest != that.requestsIdRequest) return false;
-        if (studentsIdUser != that.studentsIdUser) return false;
-
-        return true;
+        if (idRequest != that.idRequest) return false;
+        return idUser == that.idUser;
     }
 
     @Override
     public int hashCode() {
-        int result = requestsIdRequest;
-        result = 31 * result + studentsIdUser;
+        int result = idRequest;
+        result = 31 * result + idUser;
         return result;
     }
 }

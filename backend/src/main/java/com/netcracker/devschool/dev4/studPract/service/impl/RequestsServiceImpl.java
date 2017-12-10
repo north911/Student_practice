@@ -49,4 +49,9 @@ public class RequestsServiceImpl implements RequestsService{
     public List<RequestsEntity> findByHeadOfPractice(int id) {
         return requestsRepository.findAllByIdHead(id);
     }
+
+    @Override
+    public RequestsEntity findRequestById(int id) {
+        return requestsRepository.findOne(id);
+    }
 }

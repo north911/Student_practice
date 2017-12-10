@@ -163,7 +163,6 @@
                                             <div class="row">
                                                 <div class="col-md-5"><label>Company name</label></div>
                                                 <div class="col-md-5 "><label>Head of Practice</label></div>
-
                                             </div>
                                                 <div class="row">
                                                     <div class="col-md-5"><label><input id="cname" name="companyName" minlength="2" type="text" required="" aria-required="true" class="error" aria-invalid="true"></label></div>
@@ -211,11 +210,16 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3 "><label>Quantity</label></div>
-                                                <div class="col-md-6 col-md-offset-1"><label>Min avg ball</label></div>
+                                                <div class="col-md-3 col-md-offset-1"><label>Min avg ball</label></div>
+                                                <div class="col-md-5 col-md-offset-1"><label>status</label></div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3"><input  id="quantity" name="quantity"></div>
-                                                <div class="col-md-6 col-md-offset-1"><input id="minAvg"  name="minAvgBall"></div>
+                                                <div class="col-md-3 col-md-offset-1"><input id="minAvg"  name="minAvgBall"></div>
+                                                <div class="col-md-5 col-md-offset-1"><select class="form-control" name="isBudget">
+                                                    <option value="1">budget</option>
+                                                    <option value="0">obligated</option>
+                                                </select></div>
                                             </div>
                                                 <div class="row">
                                                  <button type="submit" class="btn btn-primary" onclick="myFunction()">Create</button>
@@ -664,7 +668,6 @@
                                 {
                                     return $(this).val();
                                 }).get();
-
 
 
                                 $.ajax({

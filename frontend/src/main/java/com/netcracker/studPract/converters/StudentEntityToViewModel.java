@@ -36,7 +36,7 @@ public class StudentEntityToViewModel implements StudentConverter{
             StudentViewModel studentViewModel = new StudentViewModel();
             studentViewModel.setFirstName(usersService.findById(studentsEntity.getIdUser()).getFirstName());
             studentViewModel.setLastName(usersService.findById(studentsEntity.getIdUser()).getLastName());
-            studentViewModel.setAvgBall(Integer.toString(studentsEntity.getAvgBall()));
+            studentViewModel.setAvgBall(Double.toString(studentsEntity.getAvgBall()));
             studentViewModel.setIsBudget(Byte.toString(studentsEntity.getIsBudget()));
             studentViewModel.setIdGroup(Integer.toString(studentsEntity.getIdGroup()));
             studentViewModel.setSpecName(specialityService.findById(studentsEntity.getIdSpec()).getNameSpec());

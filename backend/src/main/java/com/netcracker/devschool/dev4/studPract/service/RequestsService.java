@@ -10,4 +10,5 @@ public interface RequestsService {
     List<RequestsEntity> findAllRequests();
     List<RequestsEntity> findRequestByName(String name);
     List<RequestsEntity> findByHeadOfPractice(int id);
+    RequestsEntity findRequestById(int id);
 }

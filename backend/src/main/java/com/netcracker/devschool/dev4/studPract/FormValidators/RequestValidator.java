@@ -30,6 +30,9 @@ public class RequestValidator {
     @NotNull(message = "не может отсутствовать")
     private String idHead;
 
+    @NotNull
+    private String isBudget;
+
     @NotNull(message = "не может отсутствовать")
     @Min(4) @Max(10)
     private int minAvgBall;
@@ -96,5 +99,13 @@ public class RequestValidator {
 
     public void setIdHead(String idHead) {
         this.idHead = idHead;
+    }
+
+    public String getIsBudget() {
+        return isBudget;
+    }
+
+    public void setIsBudget(String isBudget) {
+        this.isBudget = isBudget;
     }
 }

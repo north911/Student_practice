@@ -75,7 +75,7 @@ public class HeadOfPracticeController {
 
         model.addAttribute("listFaculties", facultiesService.findAllFaculties());
         model.addAttribute("listSpecialities",new ArrayList<SpecialityViewModel>(specialityConverter.convert(specialityService.findAllSpecialities())));
-        model.addAttribute("user", usersService.findById(id));
+        model.addAttribute("hop", usersService.findById(id));
         model.addAttribute("listStudents",new ArrayList<StudentViewModel>(studentConverter.convert(studentsService.findAllStudents())));
         model.addAttribute("listRequests",new ArrayList<RequestsViewModel>(requestConverter.convert(requestsService.findByHeadOfPractice(id))));
         return "head";

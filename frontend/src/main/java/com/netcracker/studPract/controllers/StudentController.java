@@ -32,14 +32,7 @@ public class StudentController {
     StudentConverter studentConverter;
 
 
-    @RequestMapping(value = "/removeCheckedStudents", method = RequestMethod.POST)
-    public String testCB(@RequestParam(value = "id[]",required = false)List<String> id){
 
-        for (String s : id) {
-            studentsService.deleteStudentById(Integer.parseInt(s));
-        }
-        return "redirect:/admin";
-    }
 
     @RequestMapping("/profile/{id}")
     public String studentData(@PathVariable("id") int id, Model model){
@@ -58,6 +51,15 @@ public class StudentController {
         return "redirect:/admin";
     }
 
+    @RequestMapping(value = "/removeCheckedStudents", method = RequestMethod.POST)
+    public String removeCheckedStudents(@RequestParam(value = "id[]",required = false)List<String> id){
+
+        for (String s : id) {
+            studentsService.deleteStudentById(Integer.parseInt(s));
+        }
+        return "redirect:/admin";
+    }
+
     @RequestMapping(value = "/createStudent", method = RequestMethod.POST)
     @ResponseBody
     public Object addStudent(@Valid @ModelAttribute StudentFormValidator studentFormValidator, BindingResult result){
@@ -68,7 +70,7 @@ public class StudentController {
             StudentsEntity studentsEntity = new StudentsEntity();
             UsersEntity usersEntity = new UsersEntity();
             UserRolesEntity userRolesEntity = new UserRolesEntity();
-            studentsEntity.setAvgBall(Integer.parseInt(studentFormValidator.getAvgBall()));
+            studentsEntity.setAvgBall(Double.parseDouble(studentFormValidator.getAvgBall()));
             studentsEntity.setIdGroup(Integer.parseInt(studentFormValidator.getIdGroup()));
             studentsEntity.setIdSpec(Integer.parseInt(studentFormValidator.getIdSpec()));
             if(studentFormValidator.getAvgBall().equals("budget"))

@@ -4,13 +4,11 @@
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Head of practice page</title>
-    <jsp:include page="/jsp/blocks/header.jsp"/>
 
-    <title>Admin page</title>
+    <jsp:include page="/jsp/blocks/header.jsp"/>
 
     <link href="../resources/css/metisMenu.min.css" rel="stylesheet">
 
@@ -34,15 +32,12 @@
             $('#faculties').on('change', function () {
                 refreshSpecialities(this.value, 0);
             })
-            $('#faculties1').on('change', function () {
-                refreshSpecialities(this.value, 0);
-            })
         });
 
 
         function refreshSpecialities(id, val) {
             $.ajax({
-                url: 'getSpecialitiesByFacultyId/' + id,
+                url: '/getSpecialitiesByFacultyId/' + id,
                 dataType: 'json',
                 success: function (data) {
                     $('#specs').find('option').remove();
@@ -50,16 +45,7 @@
                     $.each(data, function (index, value) {
                         options += '<option value="' + value.idSpec + '">' + value.nameSpec + '</option>';
                     });
-                    $('#specs1').find('option').remove();
-                    var options = "";
-                    $.each(data, function (index, value) {
-                        options += '<option value="' + value.idSpec + '">' + value.nameSpec + '</option>';
-                    });
                     $('#specs').html(options);
-                    if (val) {
-                        $('#specs').val(val);
-                    }
-                    $('#specs1').html(options);
                     if (val) {
                         $('#specs').val(val);
                     }
@@ -69,36 +55,9 @@
 
         }
 
-
         function init() {
 
-
-            $('#faculty_add').ajaxForm({
-                dataType: 'json',
-                success: function (data) {
-
-                }
-            });
-            $('#speciality_add').ajaxForm({
-                dataType: 'json',
-                success: function (data) {
-
-                }
-            });
-            $('#student_add').ajaxForm({
-                dataType: 'json',
-                success: function (data) {
-
-                }
-            });
-
             $('#request_add').ajaxForm({
-                dataType: 'json',
-                success: function (data) {
-
-                }
-            });
-            $('#head_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
 
@@ -108,9 +67,6 @@
             $('#faculties').val(data.idFaculty);
             $('#faculties1').val(data.idFaculty);
             refreshSpecialities(data.idFaculty, data.idSpec);
-            $.validate({
-                lang: 'ru'
-            });
         }
         function myFunction() {
             location.reload();
@@ -162,12 +118,10 @@
                                       data-fv-icon-validating="glyphicon glyphicon-refresh">
                                     <div class="row">
                                         <div class="col-md-5"><label>Company name</label></div>
-                                        <div class="col-md-5 "><label>Head of Practice</label></div>
-
                                     </div>
                                     <div class="row">
                                         <div class="col-md-5"><label><input id="cname" name="companyName" minlength="2" type="text" required="" aria-required="true" class="error" aria-invalid="true"></label></div>
-                                        <div class="col-md-5"><label> <input name="idHead" style="visibility: hidden" value="{user.idUser}"></label></div>
+                                        <div class="col-md-5"><label> <input name="idHead" style="visibility: hidden" value="${hop.idUsers}"></label></div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4"><label>From</label></div>
@@ -207,14 +161,19 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-3 "><label>Quantity</label></div>
-                                        <div class="col-md-6 col-md-offset-1"><label>Min avg ball</label></div>
+                                        <div class="col-md-3 col-md-offset-1"><label>Min avg ball</label></div>
+                                        <div class="col-md-5 col-md-offset-1"><label>status</label></div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-3"><input  id="quantity" name="quantity"></div>
-                                        <div class="col-md-6 col-md-offset-1"><input id="minAvg"  name="minAvgBall"></div>
+                                        <div class="col-md-3 col-md-offset-1"><input id="minAvg"  name="minAvgBall"></div>
+                                        <div class="col-md-5 col-md-offset-1"><select class="form-control" name="isBudget">
+                                            <option value="1">budget</option>
+                                            <option value="0">obligated</option>
+                                        </select></div>
                                     </div>
                                     <div class="row">
-                                        <button type="submit" class="btn btn-primary" onclick="myFunction()">Create</button>
+                                        <button type="submit" class="btn btn-primary" >Create</button>
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     </div>
                                 </form>
@@ -249,6 +208,7 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                     <tr>
+                                        <th></th>
                                         <th>First name</th>
                                         <th>Last name</th>
                                         <th>Faculty</th>
@@ -266,6 +226,9 @@
                                     <tbody>
                                     <c:forEach items="${listStudents}" var="student" >
                                         <tr>
+                                            <td><div class="checkbox">
+                                                <label><input type="checkbox" name="checkboxlist" value="${student.idUser}"></label>
+                                            </div></td>
                                             <td>${student.firstName}</td>
                                             <td>${student.lastName}</td>
                                             <td>${student.facName}</td>
@@ -315,6 +278,7 @@
                                         <th>Total quantity</th>
                                         <th>Available quantity</th>
                                         <th></th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -333,6 +297,7 @@
                                             <td>${request.quantity}</td>
                                             <td></td>
                                             <td><a href="<c:url value='/removeRequest/${request.idRequest}'/>"><button>delete</button></a></td>
+                                            <td><a href="<c:url value='/findForRequest/${request.idRequest}'/>"><button>assign</button></a></td>
                                         </tr>
                                     </c:forEach>
 
@@ -359,6 +324,28 @@
 <script src="../resources/js/dataTables.bootstrap.min.js"></script>
 <script src="../resources/js/dataTables.responsive.js"></script>
 <script src="../resources/js/datepicker.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('.btnadd').click(function(){
+            var checkValues = $('input[name=checkboxlist]:checked').map(function()
+            {
+                return $(this).val();
+            }).get();
+
+
+            $.ajax({
+                url: 'removeCheckedStudents?${_csrf.parameterName}=${_csrf.token}',
+                type: 'POST',
+                data: { 'id': checkValues },
+                success:function(data){
+                }
+            });
+        });
+    });
+
+</script>
 
 <script>
     $(document).ready(function() {

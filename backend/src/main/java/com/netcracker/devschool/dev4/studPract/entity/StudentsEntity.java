@@ -9,7 +9,7 @@ public class StudentsEntity {
     @Id
     private int idUser;
 
-    private int avgBall;
+    private double avgBall;
 
     private byte isBudget;
 
@@ -27,14 +27,13 @@ public class StudentsEntity {
     }
 
 
-    public int getAvgBall() {
+    public double getAvgBall() {
         return avgBall;
     }
 
-    public void setAvgBall(int avgBall) {
+    public void setAvgBall(double avgBall) {
         this.avgBall = avgBall;
     }
-
 
     public byte getIsBudget() {
         return isBudget;
@@ -80,12 +79,14 @@ public class StudentsEntity {
 
     @Override
     public int hashCode() {
-        int result = idUser;
-        result = 31 * result + avgBall;
+        int result;
+        long temp;
+        result = idUser;
+        temp = Double.doubleToLongBits(avgBall);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (int) isBudget;
         result = 31 * result + idGroup;
         result = 31 * result + idSpec;
         return result;
     }
-
 }

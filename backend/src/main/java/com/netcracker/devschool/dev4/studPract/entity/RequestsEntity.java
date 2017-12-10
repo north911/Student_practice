@@ -25,6 +25,16 @@ public class RequestsEntity {
 
     private int idHead;
 
+    private byte isBudget;
+
+    public byte getIsBudget() {
+        return isBudget;
+    }
+
+    public void setIsBudget(byte isBudget) {
+        this.isBudget = isBudget;
+    }
+
     public int getIdRequest() {
         return idRequest;
     }
