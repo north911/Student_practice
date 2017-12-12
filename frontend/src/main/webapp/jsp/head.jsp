@@ -10,17 +10,17 @@
 
     <jsp:include page="/jsp/blocks/header.jsp"/>
 
-    <link href="../resources/css/metisMenu.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/metisMenu.min.css" rel="stylesheet">
 
-    <link href="../resources/css/sb-admin-2.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.css" rel="stylesheet">
 
-    <link href="../resources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link href="../resources/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- DataTables Responsive CSS -->
-    <link href="../resources/css/dataTables.responsive.css" rel="stylesheet">
-    <link href="../resources/css/datepicker.css">
+    <link href="${pageContext.request.contextPath}/resources/css/dataTables.responsive.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/datepicker.css">
 
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -297,7 +297,7 @@
                                             <td>${request.quantity}</td>
                                             <td></td>
                                             <td><a href="<c:url value='/removeRequest/${request.idRequest}'/>"><button>delete</button></a></td>
-                                            <td><a href="<c:url value='/findForRequest/${request.idRequest}'/>"><button>assign</button></a></td>
+                                            <td><a href="<c:url value='/findForRequest/${hopId}/${request.idRequest}'/>"><button>assign</button></a></td>
                                         </tr>
                                     </c:forEach>
 
@@ -311,6 +311,38 @@
                         <!-- /.panel -->
                     </div>
                     <!-- /.col-lg-12 -->
+
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p>
+                        <div id="response"></div>
+                        <button type="button" class="btnadd" id="btnadd">assign</button>
+
+                        </p>
+                    </div>
+                    <%--   <script>
+
+                           $('#btnadd').click(function() {
+
+                               $.ajax({
+                                   url: "testcb",
+                                   type: "post",
+                                   data: $('.ids:checked').serialize(),
+                                   success: function(data) {
+                                       $('#response').html(data);
+                                   }
+                               });
+
+                           });
+                       </script>--%>
+
+
                 </div>
             </div>
         </div>
@@ -334,9 +366,8 @@
                 return $(this).val();
             }).get();
 
-
             $.ajax({
-                url: 'removeCheckedStudents?${_csrf.parameterName}=${_csrf.token}',
+                url: '/findForRequest/${headId}/assignRequest/${requestId}?${_csrf.parameterName}=${_csrf.token}',
                 type: 'POST',
                 data: { 'id': checkValues },
                 success:function(data){

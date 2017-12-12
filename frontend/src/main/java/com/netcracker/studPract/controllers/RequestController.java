@@ -2,7 +2,9 @@ package com.netcracker.studPract.controllers;
 
 
 import com.netcracker.devschool.dev4.studPract.FormValidators.RequestValidator;
+import com.netcracker.devschool.dev4.studPract.entity.AssigmentsEntity;
 import com.netcracker.devschool.dev4.studPract.entity.RequestsEntity;
+import com.netcracker.devschool.dev4.studPract.service.AssigmentsService;
 import com.netcracker.devschool.dev4.studPract.service.RequestsService;
 import com.netcracker.devschool.dev4.studPract.service.StudentsService;
 import com.netcracker.studPract.beans.StudentViewModel;
@@ -32,6 +34,9 @@ public class RequestController {
 
     @Autowired
     StudentConverter studentConverter;
+
+    @Autowired
+    AssigmentsService assigmentsService;
 
     @RequestMapping(value = "/createRequest", method = RequestMethod.POST)
     @ResponseBody
@@ -68,26 +73,35 @@ public class RequestController {
 
         return "redirect:/admin";
     }
-    @RequestMapping("/findForRequest/{id}")
-    public ModelAndView assignRequest(@PathVariable("id") int id){
+    @RequestMapping("/findForRequest/{idH}/{idR}")
+    public ModelAndView assignRequest(@PathVariable("idH") int idH,
+                                      @PathVariable("idR") int idR){
 
         ModelAndView model = new ModelAndView("head");
         model.addObject("listStudents" , new ArrayList<StudentViewModel>(studentConverter.convert(studentsService.findForRequest(
-                requestsService.findRequestById(id).getMinAvg(),
-                requestsService.findRequestById(id).getIdSpec(),
-                requestsService.findRequestById(id).getDateFrom(),
-                requestsService.findRequestById(id).getDateTo(),
-                requestsService.findRequestById(id).getIsBudget()))));
+                requestsService.findRequestById(idR).getMinAvg(),
+                requestsService.findRequestById(idR).getIdSpec(),
+                requestsService.findRequestById(idR).getDateFrom(),
+                requestsService.findRequestById(idR).getDateTo(),
+                requestsService.findRequestById(idR).getIsBudget()))));
+        model.addObject("requestId", idR);
+        model.addObject("headId", idH);
         return model ;
     }
 
-    @RequestMapping(value = "/assignRequest", method = RequestMethod.POST)
-    public String assignRequest(@RequestParam(value = "id[]",required = false)List<String> id){
+    @RequestMapping(value = "findForRequest/{idh}/assignRequest/{ida}", method = RequestMethod.POST)
+    @ResponseBody
+    public String assignRequest(@PathVariable("ida") int ida,
+                                @PathVariable("idh") int idh,
+            @RequestParam(value = "id[]",required = false)List<String> ids){
 
-
+        AssigmentsEntity assigmentsEntity = new AssigmentsEntity();
+        for (String s : ids) {
+            assigmentsEntity.setIdUser(Integer.parseInt(s));
+            assigmentsEntity.setIdRequest(ida);
+            assigmentsEntity.setIdHead(idh);
+            assigmentsService.saveAssigment(assigmentsEntity);
+        }
      return "redirect:/head";}
-
-
-
 
 }

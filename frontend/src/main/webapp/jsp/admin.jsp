@@ -63,7 +63,6 @@
                     if (val) {
                         $('#specs').val(val);
                     }
-
                 }
             });
 
@@ -76,8 +75,9 @@
             $('#faculty_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
-
+                    myFunction();
                 }
+
             });
             $('#speciality_add').ajaxForm({
                 dataType: 'json',
@@ -393,9 +393,6 @@
                                         <h4 class="modal-title" id="myModalLabel6">Add faculty</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <c:if test="${not empty result}">
-                                            <div class="alert alert-danger alert-dismissible">${result}</div>
-                                        </c:if>
                                         <div class="container-fluid">
                                             <form action="/createFaculty?${_csrf.parameterName}=${_csrf.token}" id="faculty_add" method="post" role="form">
                                                 <div class="row">
@@ -404,7 +401,7 @@
                                                 <div class="row">
                                                     <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="facName"></div>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary" onclick="myFunction()">Create</button>
+                                                <button type="submit" class="btn btn-primary">Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             </form>
                                         </div>
@@ -660,27 +657,7 @@
 
                         });
                     </script>--%>
-                    <script type="text/javascript">
 
-                        $(document).ready(function(){
-                            $('.btnadd').click(function(){
-                                var checkValues = $('input[name=checkboxlist]:checked').map(function()
-                                {
-                                    return $(this).val();
-                                }).get();
-
-
-                                $.ajax({
-                                    url: 'removeCheckedStudents?${_csrf.parameterName}=${_csrf.token}',
-                                    type: 'POST',
-                                    data: { 'id': checkValues },
-                                    success:function(data){
-                                    }
-                                });
-                            });
-                        });
-
-                    </script>
 
                 </div>
             </div>
@@ -697,6 +674,29 @@
 <script src="../resources/js/dataTables.responsive.js"></script>
 <script src="../resources/js/datepicker.js"></script>
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('.btnadd').click(function(){
+            var checkValues = $('input[name=checkboxlist]:checked').map(function()
+            {
+                return $(this).val();
+            }).get();
+
+
+            $.ajax({
+                url: 'removeCheckedStudents?${_csrf.parameterName}=${_csrf.token}',
+                type: 'POST',
+                data: { 'id': checkValues },
+                success:function(data){
+                }
+            });
+        });
+    });
+
+</script>
+
 <script>
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
@@ -785,7 +785,7 @@
         }
     });
 
-    $( "#speciality_add" ).validate({
+    $("#speciality_add" ).validate({
         rules: {
             sname: {
                 required: true,
@@ -796,7 +796,7 @@
 
     $( "#faculty_add" ).validate({
         rules: {
-            fname: {
+            facName: {
                 required: true,
                 minlength: 2
             }

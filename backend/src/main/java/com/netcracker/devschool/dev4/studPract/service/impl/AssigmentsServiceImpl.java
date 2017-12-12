@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Transactional
 @Service
 public class AssigmentsServiceImpl implements AssigmentsService {
@@ -17,5 +19,10 @@ public class AssigmentsServiceImpl implements AssigmentsService {
     @Override
     public AssigmentsEntity saveAssigment(AssigmentsEntity assigmentsEntity) {
         return assigmentsRepository.save(assigmentsEntity);
+    }
+
+    @Override
+    public Iterable<AssigmentsEntity> saveListAssigments(List<AssigmentsEntity> assigmentsEntities){
+        return assigmentsRepository.save(assigmentsEntities);
     }
 }
