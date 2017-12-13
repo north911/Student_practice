@@ -55,4 +55,5 @@ public class StudentsServiceImpl implements StudentsService{
     public List<StudentsEntity> findForRequest(double minAvg, int idSpec, Date startdate, Date enddate, byte isBudget) {
         return studentsRepository.findStudentsForRequest(minAvg, idSpec, startdate, enddate, isBudget);
     }
+
 }

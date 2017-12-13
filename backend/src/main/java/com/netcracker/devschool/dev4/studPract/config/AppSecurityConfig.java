@@ -28,7 +28,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
                 .usersByUsernameQuery(
                         "select username,password, enabled from users where username=?")
                 .authoritiesByUsernameQuery(
-                        "select username, role from user_roles where username=?");
+                        "select username, role from user_roles where username=?").passwordEncoder(new ShaPasswordEncoder(256));
     }
 
     @Override

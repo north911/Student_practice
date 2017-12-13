@@ -78,7 +78,7 @@ public class StudentController {
             usersEntity.setFirstName(studentFormValidator.getFirstName());
             usersEntity.setLastName(studentFormValidator.getLastName());
             usersEntity.setusername(studentFormValidator.getLogin());
-            usersEntity.setPassword(studentFormValidator.getPassword());
+            usersEntity.setPassword( org.apache.commons.codec.digest.DigestUtils.sha256Hex(studentFormValidator.getPassword()));
             userRolesEntity.setusername(studentFormValidator.getLogin());
             userRolesEntity.setUserrole("ROLE_STUDENT");
             usersEntity.setEnabled(1);

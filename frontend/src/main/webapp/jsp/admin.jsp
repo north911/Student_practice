@@ -207,14 +207,14 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3 "><label>Quantity</label></div>
-                                                <div class="col-md-3 col-md-offset-1"><label>Min avg ball</label></div>
-                                                <div class="col-md-5 col-md-offset-1"><label>status</label></div>
+                                                <div class="col-md-3"><label>Quantity</label></div>
+                                                <div class="col-md-3"><label>Min avg ball</label></div>
+                                                <div class="col-md-5"><label>status</label></div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3"><input  id="quantity" name="quantity"></div>
-                                                <div class="col-md-3 col-md-offset-1"><input id="minAvg"  name="minAvgBall"></div>
-                                                <div class="col-md-5 col-md-offset-1"><select class="form-control" name="isBudget">
+                                                <div class="col-md-3"><input id="minAvg"  name="minAvgBall"></div>
+                                                <div class="col-md-3"><select class="form-control" name="isBudget">
                                                     <option value="1">budget</option>
                                                     <option value="0">obligated</option>
                                                 </select></div>
@@ -739,10 +739,19 @@
                 required: true,
                 range: [1, 15]
             },
-            minAvg: {
+            minAvgBall: {
                 required: true,
                 range: [4, 10],
                 number: true
+            },
+            dateFrom:{
+                required: true
+            },
+            dateTo:{
+                required: true
+            },
+            idSpec:{
+                required: true
             }
 
         }
@@ -759,10 +768,10 @@
                 required: true,
                 minlength: 2
             },
-            speciality: {
+            idSpec: {
             required: true
             },
-            avgB: {
+            avgBall: {
                 required: true,
                 range: [4, 10],
                 number: true
@@ -771,11 +780,11 @@
                 required: true,
                 minlength: 5
             },
-            pass: {
+            password: {
                 required: true,
                 minlength: 5
             },
-            group: {
+            idGroup: {
                 required: true,
                 minlength: 6,
                 maxlength: 6
@@ -785,7 +794,7 @@
 
     $("#speciality_add" ).validate({
         rules: {
-            sname: {
+            specName: {
                 required: true,
                 minlength: 2
             }
@@ -803,19 +812,19 @@
 
     $( "#head_add" ).validate({
         rules: {
-            firstName: {
+            hopFirstName: {
                 required: true,
                 minlength: 2
             },
-            lastName: {
+            hopLastName: {
                 required: true,
                 minlength: 2
             },
-            login: {
+            hopLogin: {
                 required: true,
                 minlength: 5
             },
-            password: {
+            hopPassword: {
                 required: true,
                 minlength: 5
             }

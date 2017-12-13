@@ -18,4 +18,5 @@ public interface StudentsRepository extends CrudRepository<StudentsEntity,Intege
                                                 @Param("start") Date start,
                                                 @Param("endd") Date end,
                                                 @Param("isBudget") byte isBudget);
+
 }

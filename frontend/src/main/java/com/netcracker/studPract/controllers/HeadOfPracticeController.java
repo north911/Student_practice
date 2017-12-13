@@ -63,7 +63,7 @@ public class HeadOfPracticeController {
         usersEntity.setFirstName(hopValidator.getHopFirstName());
         usersEntity.setLastName(hopValidator.getHopLastName());
         usersEntity.setEnabled(1);
-        usersEntity.setPassword(hopValidator.getHopPassword());
+        usersEntity.setPassword( org.apache.commons.codec.digest.DigestUtils.sha256Hex( hopValidator.getHopPassword()));
         userRolesEntity.setUserrole("ROLE_HEAD");
         userRolesEntity.setusername(hopValidator.getHopLogin());
         usersService.saveUser(usersEntity,userRolesEntity);

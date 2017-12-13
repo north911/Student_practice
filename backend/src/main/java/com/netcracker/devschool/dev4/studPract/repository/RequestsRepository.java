@@ -8,4 +8,5 @@ import java.util.List;
 public interface RequestsRepository extends CrudRepository<RequestsEntity,Integer> {
 
     List<RequestsEntity> findAllByIdHead(int id);
+
 }
