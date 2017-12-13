@@ -5,20 +5,22 @@ import javax.persistence.*;
 @Entity
 @Table(name = "assigment", schema = "stpractice")
 public class AssigmentsEntity {
-    @Id
+
     private int idRequest;
 
 
     private int idUser;
 
-    private int idHead;
+    @Id
+    @GeneratedValue
+    private int id;
 
-    public int getIdHead() {
-        return idHead;
+    public int getId() {
+        return id;
     }
 
-    public void setIdHead(int idHead) {
-        this.idHead = idHead;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getIdRequest() {

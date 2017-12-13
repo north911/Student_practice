@@ -82,35 +82,33 @@
             $('#speciality_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
-
+                    myFunction();
                 }
             });
             $('#student_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
-
+                    myFunction();
                 }
             });
 
             $('#request_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
-
+                    myFunction();
                 }
             });
             $('#head_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
-
+                    myFunction();
                 }
             });
 
             $('#faculties').val(data.idFaculty);
             $('#faculties1').val(data.idFaculty);
             refreshSpecialities(data.idFaculty, data.idSpec);
-            $.validate({
-                lang: 'ru'
-            });
+
         }
         function myFunction() {
             location.reload();
@@ -222,7 +220,7 @@
                                                 </select></div>
                                             </div>
                                                 <div class="row">
-                                                 <button type="submit" class="btn btn-primary" onclick="myFunction()">Create</button>
+                                                 <button type="submit" class="btn btn-primary">Create</button>
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                 </div>
                                             </form>
@@ -293,7 +291,7 @@
                                                     <div class="col-md-5"><input class="form-control" name="login"></div>
                                                     <div class="col-md-5"><input class="form-control" name="password"></div>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary" onclick="myFunction()">Create</button>
+                                                <button type="submit" class="btn btn-primary">Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             </form>
                                         </div>
@@ -329,7 +327,7 @@
                                                 </select></div>
                                                 <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="specName"></div>
                                             </div>
-                                                <button type="submit" class="btn btn-primary" onclick="myFunction()">Create</button>
+                                                <button type="submit" class="btn btn-primary">Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             </form>
                                         </div>
@@ -371,7 +369,7 @@
                                                     <div class="col-md-5 "><input class="form-control" name="hopLogin"></div>
                                                     <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="hopPassword"></div>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary" onclick="myFunction()">Create</button>
+                                                <button type="submit" class="btn btn-primary">Create</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             </form>
                                         </div>

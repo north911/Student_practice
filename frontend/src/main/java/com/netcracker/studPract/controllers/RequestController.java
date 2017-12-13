@@ -73,9 +73,8 @@ public class RequestController {
 
         return "redirect:/admin";
     }
-    @RequestMapping("/findForRequest/{idH}/{idR}")
-    public ModelAndView assignRequest(@PathVariable("idH") int idH,
-                                      @PathVariable("idR") int idR){
+    @RequestMapping("/findForRequest/{idR}")
+    public ModelAndView assignRequest(@PathVariable("idR") int idR){
 
         ModelAndView model = new ModelAndView("head");
         model.addObject("listStudents" , new ArrayList<StudentViewModel>(studentConverter.convert(studentsService.findForRequest(
@@ -85,23 +84,22 @@ public class RequestController {
                 requestsService.findRequestById(idR).getDateTo(),
                 requestsService.findRequestById(idR).getIsBudget()))));
         model.addObject("requestId", idR);
-        model.addObject("headId", idH);
+        model.addObject("visible", "visible");
         return model ;
     }
 
-    @RequestMapping(value = "findForRequest/{idh}/assignRequest/{ida}", method = RequestMethod.POST)
-    @ResponseBody
-    public String assignRequest(@PathVariable("ida") int ida,
-                                @PathVariable("idh") int idh,
+    @RequestMapping(value = "/assignRequest/{id}", method = RequestMethod.POST)
+    public String assignRequest(@PathVariable("id") int ida,
             @RequestParam(value = "id[]",required = false)List<String> ids){
 
-        AssigmentsEntity assigmentsEntity = new AssigmentsEntity();
+        List<AssigmentsEntity> assigmentsEntityList = new ArrayList<>();
+
         for (String s : ids) {
+            AssigmentsEntity assigmentsEntity = new AssigmentsEntity();
             assigmentsEntity.setIdUser(Integer.parseInt(s));
             assigmentsEntity.setIdRequest(ida);
-            assigmentsEntity.setIdHead(idh);
-            assigmentsService.saveAssigment(assigmentsEntity);
+            assigmentsEntityList.add(assigmentsEntity);
         }
+        assigmentsService.saveListAssigments(assigmentsEntityList);
      return "redirect:/head";}
-
 }

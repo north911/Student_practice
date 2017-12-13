@@ -2,6 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="visibility" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -60,7 +61,7 @@
             $('#request_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
-
+                    myFunction();
                 }
             });
 
@@ -297,7 +298,7 @@
                                             <td>${request.quantity}</td>
                                             <td></td>
                                             <td><a href="<c:url value='/removeRequest/${request.idRequest}'/>"><button>delete</button></a></td>
-                                            <td><a href="<c:url value='/findForRequest/${hopId}/${request.idRequest}'/>"><button>assign</button></a></td>
+                                            <td><a href="<c:url value='/findForRequest/${request.idRequest}'/>"><button>assign</button></a></td>
                                         </tr>
                                     </c:forEach>
 
@@ -322,7 +323,7 @@
                     <div class="panel-body">
                         <p>
                         <div id="response"></div>
-                        <button type="button" class="btnadd" id="btnadd">assign</button>
+                        <button type="button" class="btnadd" id="btnadd" visibility:visibility: ${visible}>assign to practice</button>
 
                         </p>
                     </div>
@@ -367,10 +368,11 @@
             }).get();
 
             $.ajax({
-                url: '/findForRequest/${headId}/assignRequest/${requestId}?${_csrf.parameterName}=${_csrf.token}',
+                url: '/assignRequest/${requestId}?${_csrf.parameterName}=${_csrf.token}',
                 type: 'POST',
                 data: { 'id': checkValues },
                 success:function(data){
+                    myFunction();
                 }
             });
         });
