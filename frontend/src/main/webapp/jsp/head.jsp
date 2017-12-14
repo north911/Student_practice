@@ -219,7 +219,6 @@
                                         <th>Status</th>
                                         <th>Company</th>
                                         <th>Period</th>
-                                        <th></th>
                                         <th>show info</th>
                                     </tr>
                                     </thead>
@@ -236,10 +235,9 @@
                                             <td>${student.idGroup}</td>
                                             <td>${student.isBudget}</td>
                                             <td>${student.avgBall}</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td><a href="<c:url value='/removeStudent/${student.idUser}'/>"><button>delete</button></a></td>
+                                            <td>${student.status}</td>
+                                            <td>${student.companyName}</td>
+                                            <td>${student.period}</td>
                                             <td><a href="/profile/${student.idUser}" target="_blank"><button>show</button></a></td>
                                         </tr>
                                     </c:forEach>
@@ -295,7 +293,7 @@
                                             <td>${request.nameSpec}</td>
                                             <td>${request.minAvg}</td>
                                             <td>${request.quantity}</td>
-                                            <td></td>
+                                            <td>${request.availableQuantity}</td>
                                             <td><a href="<c:url value='/removeRequest/${request.idRequest}'/>"><button>delete</button></a></td>
                                             <td><a href="<c:url value='/findForRequest/${request.idRequest}'/>"><button>assign</button></a></td>
                                         </tr>

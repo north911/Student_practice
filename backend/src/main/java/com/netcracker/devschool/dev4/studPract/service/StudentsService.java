@@ -13,4 +13,5 @@ public interface StudentsService {
     List<StudentsEntity> findStudentByName(String name);
     StudentsEntity findById(int id);
     List<StudentsEntity> findForRequest(double minAvg, int idSpec, Date startdate, Date enddate, byte isBudget);
+    List<StudentsEntity> findForIdHead(int idHEad);
 }

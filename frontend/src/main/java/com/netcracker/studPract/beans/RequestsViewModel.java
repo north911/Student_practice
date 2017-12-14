@@ -10,6 +10,15 @@ public class RequestsViewModel {
     private String nameFaculty;
     private String quantity;
     private String minAvg;
+    private String availableQuantity;
+
+    public String getAvailableQuantity() {
+        return availableQuantity;
+    }
+
+    public void setAvailableQuantity(String availableQuantity) {
+        this.availableQuantity = availableQuantity;
+    }
 
     public String getCompanyName() {
         return companyName;

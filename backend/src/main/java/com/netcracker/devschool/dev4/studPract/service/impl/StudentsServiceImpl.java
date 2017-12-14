@@ -56,4 +56,8 @@ public class StudentsServiceImpl implements StudentsService{
         return studentsRepository.findStudentsForRequest(minAvg, idSpec, startdate, enddate, isBudget);
     }
 
+    @Override
+    public List<StudentsEntity> findForIdHead(int idHEad) {
+        return studentsRepository.findStudentsForHead(idHEad);
+    }
 }

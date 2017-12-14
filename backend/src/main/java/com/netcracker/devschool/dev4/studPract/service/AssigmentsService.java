@@ -7,5 +7,10 @@ import java.util.List;
 public interface AssigmentsService {
 
     AssigmentsEntity saveAssigment(AssigmentsEntity assigmentsEntity);
-    public Iterable<AssigmentsEntity> saveListAssigments(List<AssigmentsEntity> assigmentsEntities);
+
+    Iterable<AssigmentsEntity> saveListAssigments(List<AssigmentsEntity> assigmentsEntities);
+    List<AssigmentsEntity> findByIdRequest(int id);
+    List<AssigmentsEntity> findByIdUser(int id);
+    AssigmentsEntity findCurrentPracticeByIdUser (int id);
+
 }

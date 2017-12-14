@@ -19,4 +19,7 @@ public interface StudentsRepository extends CrudRepository<StudentsEntity,Intege
                                                 @Param("endd") Date end,
                                                 @Param("isBudget") byte isBudget);
 
+    @Query("select l from StudentsEntity  l where l.idUser in (select a.idUser from AssigmentsEntity a where a.idUser = l.idUser and a.idRequest in " +
+            "(select p.idRequest from RequestsEntity p where p.idHead=:idHead))")
+    List<StudentsEntity> findStudentsForHead(@Param("idHead") int idHEad);
 }
