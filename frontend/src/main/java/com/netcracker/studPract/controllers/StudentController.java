@@ -5,9 +5,11 @@ import com.netcracker.devschool.dev4.studPract.FormValidators.StudentFormValidat
 import com.netcracker.devschool.dev4.studPract.entity.StudentsEntity;
 import com.netcracker.devschool.dev4.studPract.entity.UserRolesEntity;
 import com.netcracker.devschool.dev4.studPract.entity.UsersEntity;
+import com.netcracker.devschool.dev4.studPract.service.RequestsService;
 import com.netcracker.devschool.dev4.studPract.service.StudentsService;
 import com.netcracker.devschool.dev4.studPract.service.UsersService;
 import com.netcracker.studPract.beans.StudentViewModel;
+import com.netcracker.studPract.converters.RequestConverter;
 import com.netcracker.studPract.converters.StudentConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +33,11 @@ public class StudentController {
     @Autowired
     StudentConverter studentConverter;
 
+    @Autowired
+    RequestsService requestsService;
 
+    @Autowired
+    RequestConverter requestConverter;
 
 
     @RequestMapping("/profile/{id}")
@@ -40,6 +46,7 @@ public class StudentController {
         List<StudentsEntity> studentsEntities = new ArrayList<StudentsEntity>();
         studentsEntities.add(studentsService.findById(id));
         model.addAttribute("student",(studentConverter.convert(studentsEntities)).get(0));
+        model.addAttribute("listPractices", requestConverter.convert(requestsService.findByIdStudent(id)));
         return "profile";
     }
 

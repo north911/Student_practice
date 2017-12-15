@@ -51,10 +51,10 @@ public class AdminPageController {
     public String listAllTables(Model model){
 
         model.addAttribute("listFaculties", facultiesService.findAllFaculties());
-        model.addAttribute("listSpecialities",new ArrayList<SpecialityViewModel>(specialityConverter.convert(specialityService.findAllSpecialities())));
-        model.addAttribute("listStudents",new ArrayList<StudentViewModel>(studentConverter.convert(studentsService.findAllStudents())));
-        model.addAttribute("listRequests",new ArrayList<RequestsViewModel>(requestConverter.convert(requestsService.findAllRequests())));
-        model.addAttribute("listHops",new ArrayList<HopViewModel>(hopConverter.convert(usersService.findByRole("ROLE_HEAD"))));
+        model.addAttribute("listSpecialities",specialityConverter.convert(specialityService.findAllSpecialities()));
+        model.addAttribute("listStudents",studentConverter.convert(studentsService.findAllStudents()));
+        model.addAttribute("listRequests",requestConverter.convert(requestsService.findAllRequests()));
+        model.addAttribute("listHops",hopConverter.convert(usersService.findByRole("ROLE_HEAD")));
         return "/admin";
     }
 

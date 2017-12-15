@@ -66,8 +66,4 @@ public class StudentEntityToViewModel implements StudentConverter{
         return studentViewModels;
     }
 
-   /* public StudentViewModel soloConvert(StudentsEntity studentsEntity, FacultiesService facultiesService, SpecialityService specialityService){
-
-        return studentViewModel;
-    }*/
 }

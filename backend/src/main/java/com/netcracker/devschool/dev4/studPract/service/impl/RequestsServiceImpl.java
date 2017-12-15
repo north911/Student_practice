@@ -51,6 +51,11 @@ public class RequestsServiceImpl implements RequestsService{
     }
 
     @Override
+    public List<RequestsEntity> findByIdStudent(int id) {
+        return requestsRepository.findAllByIdUser(id);
+    }
+
+    @Override
     public RequestsEntity findRequestById(int id) {
         return requestsRepository.findOne(id);
     }

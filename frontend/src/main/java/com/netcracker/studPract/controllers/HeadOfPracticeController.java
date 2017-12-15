@@ -77,8 +77,8 @@ public class HeadOfPracticeController {
         model.addAttribute("listSpecialities",new ArrayList<SpecialityViewModel>(specialityConverter.convert(specialityService.findAllSpecialities())));
         model.addAttribute("hop", usersService.findById(id));
         model.addAttribute("visible", "hidden");
-        model.addAttribute("listStudents",new ArrayList<StudentViewModel>(studentConverter.convert(studentsService.findForIdHead(id))));
-        model.addAttribute("listRequests",new ArrayList<RequestsViewModel>(requestConverter.convert(requestsService.findByHeadOfPractice(id))));
+        model.addAttribute("listStudents",studentConverter.convert(studentsService.findForIdHead(id)));
+        model.addAttribute("listRequests",requestConverter.convert(requestsService.findByHeadOfPractice(id)));
         return "head";
     }
 }

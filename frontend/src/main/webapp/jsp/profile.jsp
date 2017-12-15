@@ -124,11 +124,11 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#home" data-toggle="tab" aria-expanded="false">About</a>
                         </li>
-                        <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false">Rating</a>
+                        <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false">My practices</a>
                         </li>
                         <li class=""><a href="#messages" data-toggle="tab" aria-expanded="true">Science</a>
                         </li>
-                        <li class=""><a href="#settings" data-toggle="tab" aria-expanded="false">Practice info</a>
+                        <li class=""><a href="#settings" data-toggle="tab" aria-expanded="false">Practice status</a>
                         </li>
                     </ul>
 
@@ -144,31 +144,19 @@
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
+                                        <th>Company name</th>
+                                        <th>Date from</th>
+                                        <th>Date to</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
+                                    <c:forEach items="${listPractices}" var="practice" >
+                                        <tr>
+                                            <td>${practice.companyName}</td>
+                                            <td>${practice.dateFrom}</td>
+                                            <td>${practice.dateTo}</td>
+                                        </tr>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
