@@ -207,16 +207,16 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3"><label>Quantity</label></div>
-                                                <div class="col-md-3"><label>Min avg ball</label></div>
-                                                <div class="col-md-5"><label>status</label></div>
+                                                <div class="col-md-4"><label>Quantity</label></div>
+                                                <div class="col-md-4"><label>Min avg ball</label></div>
+                                                <div class="col-md-4"><label>status</label></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3"><input  id="quantity" name="quantity"></div>
-                                                <div class="col-md-3"><input id="minAvg"  name="minAvgBall"></div>
-                                                <div class="col-md-3"><select class="form-control" name="isBudget">
-                                                    <option value="1">budget</option>
-                                                    <option value="0">obligated</option>
+                                                <div class="col-md-4"><input  id="quantity" name="quantity"></div>
+                                                <div class="col-md-4"><input id="minAvg"  name="minAvgBall"></div>
+                                                <div class="col-md-4"><select class="form-control" name="isBudget">
+                                                    <option value="1">бюджет</option>
+                                                    <option value="0">платное</option>
                                                 </select></div>
                                             </div>
                                                 <div class="row">
@@ -250,7 +250,7 @@
                                             <form action="/createStudent?${_csrf.parameterName}=${_csrf.token}" id="student_add" method="post" role="form">
                                             <div class="row">
                                                 <div class="col-md-5"><label>First name</label></div>
-                                                <div class="col-md-5 col-md-offset-1 "><label>Last name</label></div>
+                                                <div class="col-md-5 col-md-offset-1"><label>Last name</label></div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-5"><input class="form-control" name="firstName"></div>
@@ -278,8 +278,8 @@
                                             <div class="row">
                                                 <div class="col-md-3"><input type="number" name="avgBall"></div>
                                                 <div class="col-md-3 col-md-offset-1"><select class="form-control" name="isBudget">
-                                                    <option>budget</option>
-                                                    <option>obligated</option>
+                                                    <option value="1">budget</option>
+                                                    <option value="2">obligated</option>
                                                 </select></div>
                                                 <div class="col-md-3"><input type="number" name="idGroup"></div>
                                             </div>

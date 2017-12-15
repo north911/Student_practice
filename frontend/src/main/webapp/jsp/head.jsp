@@ -82,7 +82,7 @@
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
 
         <div class="nav navbar-bot-links navbar-right" style="margin: 5px">
-
+            <p>loggined as ${currentAuth.lastName}</p>
             <a href="/logout" class="btn btn-primary btn-block"><b>Выйти</b></a>
         </div>
 

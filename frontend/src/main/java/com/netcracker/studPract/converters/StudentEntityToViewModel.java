@@ -54,7 +54,7 @@ public class StudentEntityToViewModel implements StudentConverter{
             AssigmentsEntity assigmentsEntity = assigmentsService.findCurrentPracticeByIdUser(studentsEntity.getIdUser());
             if(assigmentsEntity!=null){
                 studentViewModel.setCompanyName(requestsService.findRequestById(assigmentsEntity.getIdRequest()).getCompanyName());
-                studentViewModel.setStatus("is on practice");
+                studentViewModel.setStatus("on practice");
                 studentViewModel.setPeriod("from "+simpleDateFormat.format(requestsService.findRequestById( assigmentsEntity.getIdRequest()).getDateFrom())+ " to "
                         + simpleDateFormat.format(requestsService.findRequestById(assigmentsEntity.getIdRequest()).getDateTo()));
             }

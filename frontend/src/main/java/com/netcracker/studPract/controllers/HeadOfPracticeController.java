@@ -12,6 +12,8 @@ import com.netcracker.studPract.converters.RequestConverter;
 import com.netcracker.studPract.converters.SpecialityConverter;
 import com.netcracker.studPract.converters.StudentConverter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -73,6 +75,9 @@ public class HeadOfPracticeController {
     @RequestMapping("/head/{id}")
     public String headData(@PathVariable("id") int id, Model model){
 
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        model.addAttribute("currentAuth", usersService.findByUserLogin(name));
         model.addAttribute("listFaculties", facultiesService.findAllFaculties());
         model.addAttribute("listSpecialities",new ArrayList<SpecialityViewModel>(specialityConverter.convert(specialityService.findAllSpecialities())));
         model.addAttribute("hop", usersService.findById(id));
