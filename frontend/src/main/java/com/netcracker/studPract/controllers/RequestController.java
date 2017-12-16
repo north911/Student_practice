@@ -7,7 +7,9 @@ import com.netcracker.devschool.dev4.studPract.entity.RequestsEntity;
 import com.netcracker.devschool.dev4.studPract.service.AssigmentsService;
 import com.netcracker.devschool.dev4.studPract.service.RequestsService;
 import com.netcracker.devschool.dev4.studPract.service.StudentsService;
+import com.netcracker.studPract.beans.RequestsViewModel;
 import com.netcracker.studPract.beans.StudentViewModel;
+import com.netcracker.studPract.converters.RequestConverter;
 import com.netcracker.studPract.converters.StudentConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,6 +39,9 @@ public class RequestController {
 
     @Autowired
     AssigmentsService assigmentsService;
+
+    @Autowired
+    RequestConverter requestConverter;
 
     @RequestMapping(value = "/createRequest", method = RequestMethod.POST)
     @ResponseBody
@@ -77,6 +82,7 @@ public class RequestController {
     public ModelAndView assignRequest(@PathVariable("idR") int idR){
 
         ModelAndView model = new ModelAndView("head");
+        List<RequestsEntity> requestsEntities=new ArrayList<>();
         model.addObject("listStudents" , new ArrayList<StudentViewModel>(studentConverter.convert(studentsService.findForRequest(
                 requestsService.findRequestById(idR).getMinAvg(),
                 requestsService.findRequestById(idR).getIdSpec(),
@@ -85,6 +91,8 @@ public class RequestController {
                 requestsService.findRequestById(idR).getIsBudget()))));
         model.addObject("requestId", idR);
         model.addObject("visible", "visible");
+        requestsEntities.add(requestsService.findRequestById(idR));
+        model.addObject("availableQ",requestConverter.convert(requestsEntities).get(0).getAvailableQuantity());
         return model ;
     }
 

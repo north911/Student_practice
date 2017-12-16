@@ -364,14 +364,16 @@
                 return $(this).val();
             }).get();
 
+            if((checkValues.length > 0) && (checkValues.length <= ${availableQ})){
             $.ajax({
                 url: '/assignRequest/${requestId}?${_csrf.parameterName}=${_csrf.token}',
                 type: 'POST',
                 data: { 'id': checkValues },
                 success:function(data){
-                    myFunction();
+                    window.history.go(-1);
                 }
-            });
+            });}
+            else alert("не выбраны студенты, либо превышает доступное количество");
         });
     });
 
