@@ -2,6 +2,7 @@ package com.netcracker.devschool.dev4.studPract.service.impl;
 
 import com.netcracker.devschool.dev4.studPract.entity.SpecialityEntity;
 import com.netcracker.devschool.dev4.studPract.repository.SpecialityRepository;
+import com.netcracker.devschool.dev4.studPract.service.RequestsService;
 import com.netcracker.devschool.dev4.studPract.service.SpecialityService;
 import com.netcracker.devschool.dev4.studPract.service.StudentsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class SpecialityServiceImpl implements SpecialityService{
     @Autowired
     StudentsService studentsService;
 
+    @Autowired
+    RequestsService requestsService;
+
     @Override
     public SpecialityEntity saveSpeciality(SpecialityEntity specialityEntity) {
 
@@ -33,6 +37,7 @@ public class SpecialityServiceImpl implements SpecialityService{
         if(!studentsService.findAllByIdSpec(id).isEmpty())
             studentsService.deleteByIdSpec(id);
         specialityRepository.delete(id);
+
     }
 
     @Override

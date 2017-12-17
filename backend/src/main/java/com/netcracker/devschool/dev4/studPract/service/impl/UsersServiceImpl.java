@@ -39,8 +39,10 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public UsersEntity saveUser(UsersEntity user, UserRolesEntity userRole) {
 
+        if(userRolesRepository.findByUsername(user.getusername())!=null){
         userRolesRepository.save(userRole);
-        return usersRepository.save(user);
+        return usersRepository.save(user);}
+        else return null;
 
     }
 

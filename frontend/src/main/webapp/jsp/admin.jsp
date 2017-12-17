@@ -274,7 +274,7 @@
                                                 <div class="col-md-3"><input type="number" name="avgBall"></div>
                                                 <div class="col-md-3 col-md-offset-1"><select class="form-control" name="isBudget">
                                                     <option value="1">budget</option>
-                                                    <option value="2">obligated</option>
+                                                    <option value="0">obligated</option>
                                                 </select></div>
                                                 <div class="col-md-3"><input type="number" name="idGroup"></div>
                                             </div>
