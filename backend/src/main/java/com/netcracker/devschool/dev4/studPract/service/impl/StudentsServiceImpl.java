@@ -1,9 +1,11 @@
 package com.netcracker.devschool.dev4.studPract.service.impl;
 
 import com.netcracker.devschool.dev4.studPract.entity.StudentsEntity;
+import com.netcracker.devschool.dev4.studPract.repository.AssigmentsRepository;
 import com.netcracker.devschool.dev4.studPract.repository.StudentsRepository;
 import com.netcracker.devschool.dev4.studPract.repository.UserRolesRepository;
 import com.netcracker.devschool.dev4.studPract.repository.UsersRepository;
+import com.netcracker.devschool.dev4.studPract.service.AssigmentsService;
 import com.netcracker.devschool.dev4.studPract.service.StudentsService;
 import com.netcracker.devschool.dev4.studPract.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +17,17 @@ import java.util.List;
 
 @Transactional
 @Service
-public class StudentsServiceImpl implements StudentsService{
+public class StudentsServiceImpl implements StudentsService {
 
- @Autowired
+    @Autowired
     StudentsRepository studentsRepository;
 
- @Autowired
+    @Autowired
     UsersRepository usersRepository;
+
+    @Autowired
+    AssigmentsService assigmentsService;
+
 
     @Override
     public StudentsEntity saveStudent(StudentsEntity studentsEntity) {
@@ -34,6 +40,8 @@ public class StudentsServiceImpl implements StudentsService{
     public void deleteStudentById(int id) {
         usersRepository.delete(id);
         studentsRepository.delete(id);
+        if(!assigmentsService.findByIdUser(id).isEmpty())
+        assigmentsService.deleteByIdUser(id);
     }
 
     @Override

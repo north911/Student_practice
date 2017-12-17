@@ -152,12 +152,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
-                                            <form action="/createRequest?${_csrf.parameterName}=${_csrf.token}" id="request_add" method="post" role="form"
-                                                  class="form-horizontal"
-                                                  data-fv-framework="bootstrap"
-                                                  data-fv-icon-valid="glyphicon glyphicon-ok"
-                                                  data-fv-icon-invalid="glyphicon glyphicon-remove"
-                                                  data-fv-icon-validating="glyphicon glyphicon-refresh">
+                                            <form action="/createRequest?${_csrf.parameterName}=${_csrf.token}" id="request_add" method="post" role="form">
                                             <div class="row">
                                                 <div class="col-md-5"><label>Company name</label></div>
                                                 <div class="col-md-5 "><label>Head of Practice</label></div>

@@ -43,6 +43,11 @@ public class AssigmentsServiceImpl implements AssigmentsService {
     }
 
     @Override
+    public void deleteByIdUser(int id) {
+        assigmentsRepository.deleteByIdUser(id);
+    }
+
+    @Override
     public AssigmentsEntity findCurrentPracticeByIdUser(int id) {
 
         List<AssigmentsEntity> assigmentsEntities = assigmentsRepository.findAllByIdUser(id);
@@ -56,5 +61,10 @@ public class AssigmentsServiceImpl implements AssigmentsService {
             }
         }
         return null;
+    }
+
+    @Override
+    public void deleteByIdRequest(int id) {
+        assigmentsRepository.deleteByIdRequest(id);
     }
 }

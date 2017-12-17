@@ -12,5 +12,7 @@ public interface AssigmentsService {
     List<AssigmentsEntity> findByIdRequest(int id);
     List<AssigmentsEntity> findByIdUser(int id);
     AssigmentsEntity findCurrentPracticeByIdUser (int id);
+    void deleteByIdUser(int id);
+    void deleteByIdRequest(int id);
 
 }

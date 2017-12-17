@@ -1,7 +1,9 @@
 package com.netcracker.devschool.dev4.studPract.service.impl;
 
 import com.netcracker.devschool.dev4.studPract.entity.RequestsEntity;
+import com.netcracker.devschool.dev4.studPract.repository.AssigmentsRepository;
 import com.netcracker.devschool.dev4.studPract.repository.RequestsRepository;
+import com.netcracker.devschool.dev4.studPract.service.AssigmentsService;
 import com.netcracker.devschool.dev4.studPract.service.RequestsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +15,11 @@ import java.util.List;
 @Service
 public class RequestsServiceImpl implements RequestsService{
 
-@Autowired
+    @Autowired
     RequestsRepository requestsRepository;
+
+    @Autowired
+    AssigmentsService assigmentsService;
 
     @Override
     public RequestsEntity save(RequestsEntity requestsEntity) {
@@ -30,7 +35,8 @@ public class RequestsServiceImpl implements RequestsService{
 
     @Override
     public void deleteRequestById(int id) {
-
+        if(!assigmentsService.findByIdRequest(id).isEmpty())
+        assigmentsService.deleteByIdRequest(id);
         requestsRepository.delete(id);
 
     }
