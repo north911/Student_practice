@@ -23,7 +23,11 @@
 
     <script src="../https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
-
+<script>
+    function myFunction() {
+        location.reload();
+    }
+</script>
 </head>
 <body>
 
@@ -165,31 +169,10 @@
 
                                         </tr>
                                     </c:forEach>
-                                    <button class="btn123">remove from checked</button>
-                                    <script type="text/javascript">
 
-                                        $(document).ready(function(){
-
-                                            $('.btn123').click(function(){
-                                                var checkValues = $('input[name=checkboxlist]:checked').map(function()
-                                                {
-                                                    return $(this).val();
-                                                }).get();
-
-                                                $.ajax({
-                                                    url: '/removeStudentFromPractice?${_csrf.parameterName}=${_csrf.token}',
-                                                    type: 'POST',
-                                                    data: { 'id': checkValues,
-                                                        'id2': ${student.idUser}},
-                                                    success:function(data){
-                                                    }
-                                                });
-                                            });
-                                        });
-
-                                    </script>
                                     </tbody>
                                 </table>
+                                <button class="btn123">remove from checked</button>
                             </div>
                         </div>
                         <div class="tab-pane fade active in" id="messages">
@@ -201,7 +184,6 @@
                             <p>today is ${student.status}</p>
                             <p>${student.companyName}</p>
                             <p>${student.period}</p>
-                            <button type="button" class="btn btn-success">Remove from practice</button>
                         </div>
                     </div>
                 </div>
@@ -215,6 +197,29 @@
 
 </div>
 
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+        $('.btn123').click(function(){
+            var checkValues = $('input[name=checkboxlist]:checked').map(function()
+            {
+                return $(this).val();
+            }).get();
+
+            $.ajax({
+                url: '/removeStudentFromPractice?${_csrf.parameterName}=${_csrf.token}',
+                type: 'POST',
+                data: { 'id': checkValues,
+                    'id2': ${student.idUser}},
+                success:function(data){
+                    myFunction();
+                }
+            });
+        });
+    });
+
+</script>
 <script src="../resources/js/libs/jquery-3.2.1.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->

@@ -13,6 +13,7 @@ import com.netcracker.studPract.beans.StudentViewModel;
 import com.netcracker.studPract.converters.RequestConverter;
 import com.netcracker.studPract.converters.StudentConverter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -115,12 +116,13 @@ public class StudentController {
     }*/
 
     @RequestMapping(value = "removeStudentFromPractice",method = RequestMethod.POST)
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('HEAD')")
     public String removeStudentFromPractice(@RequestParam("id[]") List<Integer> idR,
                                             @RequestParam("id2") int idS){
 
-        //assigmentsService.deleteById(assigmentsService.findByIdStudentAndRequest(idS,idR).getId());
-
+        for (Integer idReq : idR) {
+            assigmentsService.deleteById(assigmentsService.findByIdStudentAndRequest(idS,idReq).getId());
+        }
         return "redirect:/profile/"+idS;
     }
 }

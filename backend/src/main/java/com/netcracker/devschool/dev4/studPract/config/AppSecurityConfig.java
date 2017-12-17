@@ -52,8 +52,6 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().logoutSuccessUrl("/login?logout")
                 .and()
-                .exceptionHandling().accessDeniedPage("/403")
-                .and()
                 .csrf().and()
                 .rememberMe().tokenRepository(persistentTokenRepository())
                 .tokenValiditySeconds(1209600);

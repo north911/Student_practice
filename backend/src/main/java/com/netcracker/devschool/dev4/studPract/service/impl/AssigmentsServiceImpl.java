@@ -5,6 +5,8 @@ import com.netcracker.devschool.dev4.studPract.repository.AssigmentsRepository;
 import com.netcracker.devschool.dev4.studPract.service.AssigmentsService;
 import com.netcracker.devschool.dev4.studPract.service.RequestsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -74,6 +76,7 @@ public class AssigmentsServiceImpl implements AssigmentsService {
     }
 
     @Override
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteById(int id) {
         assigmentsRepository.delete(id);
     }
