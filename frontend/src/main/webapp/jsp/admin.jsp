@@ -680,6 +680,7 @@
                 type: 'POST',
                 data: { 'id': checkValues },
                 success:function(data){
+                    myFunction();
                 }
             });
         });

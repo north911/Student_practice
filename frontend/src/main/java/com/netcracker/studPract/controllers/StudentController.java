@@ -58,7 +58,6 @@ public class StudentController {
     @RequestMapping("/removeStudent/{id}")
     public String removeStudent(@PathVariable("id") int id){
         studentsService.deleteStudentById(id);
-        usersService.deleteUserById(id);
 
         return "redirect:/admin";
     }

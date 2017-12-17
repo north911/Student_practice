@@ -1,9 +1,11 @@
 package com.netcracker.devschool.dev4.studPract.repository;
 
 import com.netcracker.devschool.dev4.studPract.entity.StudentsEntity;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -22,4 +24,13 @@ public interface StudentsRepository extends CrudRepository<StudentsEntity,Intege
     @Query("select l from StudentsEntity  l where l.idUser in (select a.idUser from AssigmentsEntity a where a.idUser = l.idUser and a.idRequest in " +
             "(select p.idRequest from RequestsEntity p where p.idHead=:idHead))")
     List<StudentsEntity> findStudentsForHead(@Param("idHead") int idHEad);
+
+    @Transactional
+    @Modifying
+    @Query("delete from StudentsEntity s where s.idSpec= :idSpec")
+    void deleteByIdSpec(@Param("idSpec")int idSpec);
+
+
+    @Query("select s from StudentsEntity s where s.idSpec = :idSpec")
+    List<StudentsEntity> findAllByIdSpec(@Param("idSpec")int idSpec);
 }

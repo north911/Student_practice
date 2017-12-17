@@ -23,7 +23,7 @@ public class StudentsServiceImpl implements StudentsService {
     StudentsRepository studentsRepository;
 
     @Autowired
-    UsersRepository usersRepository;
+    UsersService usersService;
 
     @Autowired
     AssigmentsService assigmentsService;
@@ -38,7 +38,7 @@ public class StudentsServiceImpl implements StudentsService {
 
     @Override
     public void deleteStudentById(int id) {
-        usersRepository.delete(id);
+        usersService.deleteUserById(id);
         studentsRepository.delete(id);
         if(!assigmentsService.findByIdUser(id).isEmpty())
         assigmentsService.deleteByIdUser(id);
@@ -67,5 +67,18 @@ public class StudentsServiceImpl implements StudentsService {
     @Override
     public List<StudentsEntity> findForIdHead(int idHEad) {
         return studentsRepository.findStudentsForHead(idHEad);
+    }
+
+    @Override
+    public void deleteByIdSpec(int id) {
+        if(!findAllByIdSpec(id).isEmpty())
+            for (StudentsEntity studentsEntity : findAllByIdSpec(id)) {
+                deleteStudentById(studentsEntity.getIdUser());
+            }
+    }
+
+    @Override
+    public List<StudentsEntity> findAllByIdSpec(int id) {
+        return studentsRepository.findAllByIdSpec(id);
     }
 }
