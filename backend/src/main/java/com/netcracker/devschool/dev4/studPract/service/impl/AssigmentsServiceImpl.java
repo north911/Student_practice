@@ -64,7 +64,17 @@ public class AssigmentsServiceImpl implements AssigmentsService {
     }
 
     @Override
+    public AssigmentsEntity findByIdStudentAndRequest(int idS, int idR) {
+        return assigmentsRepository.findByIdUserAndIdRequest(idS,idR);
+    }
+
+    @Override
     public void deleteByIdRequest(int id) {
         assigmentsRepository.deleteByIdRequest(id);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        assigmentsRepository.delete(id);
     }
 }

@@ -23,6 +23,8 @@
  */
 package com.netcracker.studPract.controllers;
 
+import com.netcracker.devschool.dev4.studPract.service.UsersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -40,31 +42,10 @@ import java.util.List;
 @Controller
 public class TestController {
 
+    @Autowired
+    UsersService usersService;
 
 
-   /* @RequestMapping(value = "/loginpage", method = RequestMethod.GET)
-    public String goToLoginPage() {
-        return "loginpage";
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(
-            @RequestParam("email") String email,
-            @RequestParam("password") String pass){
-        String result;
-        switch (email){
-            case "admin@gmail.com":
-                result = "admin";
-            break;
-            case "head@gmail.com":
-                result = "head";
-                break;
-                default:
-                    result= "profile";
-        }
-        return result;
-
-    }*/
    @RequestMapping(value = "/logout", method = RequestMethod.GET)
    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -98,9 +79,9 @@ public class TestController {
 
             String targetUrl = "";
             if (role.contains("STUDENT")) {
-                targetUrl = "/profile";
+                targetUrl = "/profile/"+usersService.findByUserLogin(auth.getName()).getIdUsers();
             } else if (role.contains("HEAD")) {
-                targetUrl = "/head";
+                targetUrl = "/head/"+usersService.findByUserLogin(auth.getName()).getIdUsers();
             } else if (role.contains("ADMIN")) {
                 targetUrl = "/admin";
             }

@@ -6,6 +6,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <jsp:include page="/jsp/blocks/header.jsp"/>
     <title>profile</title>
 
     <link href="../resources/css/metisMenu.min.css" rel="stylesheet">
@@ -22,10 +23,11 @@
 
     <script src="../https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
+
 </head>
 <body>
 
-<jsp:include page="/jsp/blocks/header.jsp"/>
+
 
 <div id="wrapper">
 
@@ -145,6 +147,7 @@
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                     <tr>
+                                        <th>cb</th>
                                         <th>Company name</th>
                                         <th>Date from</th>
                                         <th>Date to</th>
@@ -153,11 +156,38 @@
                                     <tbody>
                                     <c:forEach items="${listPractices}" var="practice" >
                                         <tr>
+                                            <td><div class="checkbox">
+                                                <label><input type="checkbox" name="checkboxlist" value="${practice.idRequest}"></label>
+                                            </div></td>
                                             <td>${practice.companyName}</td>
                                             <td>${practice.dateFrom}</td>
                                             <td>${practice.dateTo}</td>
+
                                         </tr>
                                     </c:forEach>
+                                    <button class="btn123">remove from checked</button>
+                                    <script type="text/javascript">
+
+                                        $(document).ready(function(){
+
+                                            $('.btn123').click(function(){
+                                                var checkValues = $('input[name=checkboxlist]:checked').map(function()
+                                                {
+                                                    return $(this).val();
+                                                }).get();
+
+                                                $.ajax({
+                                                    url: '/removeStudentFromPractice?${_csrf.parameterName}=${_csrf.token}',
+                                                    type: 'POST',
+                                                    data: { 'id': checkValues,
+                                                        'id2': ${student.idUser}},
+                                                    success:function(data){
+                                                    }
+                                                });
+                                            });
+                                        });
+
+                                    </script>
                                     </tbody>
                                 </table>
                             </div>

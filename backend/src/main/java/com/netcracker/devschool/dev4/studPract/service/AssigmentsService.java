@@ -14,5 +14,7 @@ public interface AssigmentsService {
     AssigmentsEntity findCurrentPracticeByIdUser (int id);
     void deleteByIdUser(int id);
     void deleteByIdRequest(int id);
+    AssigmentsEntity findByIdStudentAndRequest(int idS, int idR);
+    void deleteById(int id);
 
 }

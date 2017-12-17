@@ -12,4 +12,5 @@ public interface RequestsService {
     List<RequestsEntity> findByHeadOfPractice(int id);
     RequestsEntity findRequestById(int id);
     List<RequestsEntity> findByIdStudent (int id);
+    void deleteByIdHead(int id);
 }

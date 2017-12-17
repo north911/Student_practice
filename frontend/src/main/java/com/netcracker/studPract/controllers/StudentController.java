@@ -5,6 +5,7 @@ import com.netcracker.devschool.dev4.studPract.FormValidators.StudentFormValidat
 import com.netcracker.devschool.dev4.studPract.entity.StudentsEntity;
 import com.netcracker.devschool.dev4.studPract.entity.UserRolesEntity;
 import com.netcracker.devschool.dev4.studPract.entity.UsersEntity;
+import com.netcracker.devschool.dev4.studPract.service.AssigmentsService;
 import com.netcracker.devschool.dev4.studPract.service.RequestsService;
 import com.netcracker.devschool.dev4.studPract.service.StudentsService;
 import com.netcracker.devschool.dev4.studPract.service.UsersService;
@@ -12,6 +13,7 @@ import com.netcracker.studPract.beans.StudentViewModel;
 import com.netcracker.studPract.converters.RequestConverter;
 import com.netcracker.studPract.converters.StudentConverter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -40,6 +42,9 @@ public class StudentController {
 
     @Autowired
     RequestConverter requestConverter;
+
+    @Autowired
+    AssigmentsService assigmentsService;
 
 
     @RequestMapping("/profile/{id}")
@@ -96,5 +101,26 @@ public class StudentController {
             studentsEntity.setIdUser(usersService.findByUserLogin(studentFormValidator.getLogin()).getIdUsers());
             studentsService.saveStudent(studentsEntity);
         return studentsEntity;}
+    }
+
+
+  /*  @RequestMapping(value = "/removeStudentFromPractice/{idR}/{idS}",method = RequestMethod.POST)
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public String removeStudentFromPractice(@PathVariable("idR") int idR,
+                                            @PathVariable("idS") int idS){
+
+        assigmentsService.deleteById(assigmentsService.findByIdStudentAndRequest(idS,idR).getId());
+
+        return "redirect:/profile/"+idS;
+    }*/
+
+    @RequestMapping(value = "removeStudentFromPractice",method = RequestMethod.POST)
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public String removeStudentFromPractice(@RequestParam("id[]") List<Integer> idR,
+                                            @RequestParam("id2") int idS){
+
+        //assigmentsService.deleteById(assigmentsService.findByIdStudentAndRequest(idS,idR).getId());
+
+        return "redirect:/profile/"+idS;
     }
 }

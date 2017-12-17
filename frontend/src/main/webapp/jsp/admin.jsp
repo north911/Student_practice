@@ -497,7 +497,6 @@
                                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example1">
                                         <thead>
                                         <tr>
-                                            <th>CB</th>
                                             <th>Company name</th>
                                             <th>Date from</th>
                                             <th>Date to</th>
@@ -513,9 +512,6 @@
 
                                         <c:forEach items="${listRequests}" var="request" >
                                             <tr>
-                                                <td><div class="checkbox">
-                                                    <label><input type="checkbox" value=""></label>
-                                                </div></td>
                                                 <td>${request.companyName}</td>
                                                 <td>${request.dateFrom.toString()}</td>
                                                 <td>${request.dateTo.toString()}</td>
@@ -553,7 +549,6 @@
                                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example3">
                                         <thead>
                                         <tr>
-                                            <th>cb</th>
                                             <th>speciality</th>
                                             <th>Faculty</th>
                                             <th></th>
@@ -562,9 +557,6 @@
                                         <tbody>
                                             <c:forEach items="${listSpecialities}" var="speciality" >
                                                 <tr>
-                                                    <td><div class="checkbox">
-                                                        <label><input type="checkbox" value=""></label>
-                                                    </div></td>
                                                     <td>${speciality.nameSpec}</td>
                                                     <td>${speciality.nameFaculty}</td>
                                                     <td><a href="<c:url value='/removeSpec/${speciality.idSpec}'/>"><button>delete</button></a></td>
@@ -597,6 +589,7 @@
                                         <tr>
                                             <th>First name</th>
                                             <th>Last name</th>
+                                            <th>-//-</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -604,6 +597,7 @@
                                             <tr>
                                                 <td>${hop.firstName}</td>
                                                 <td>${hop.lastName}</td>
+                                                <td><a href="<c:url value='/removeHead/${hop.idHead}'/>"><button>delete</button></a></td>
                                             </tr>
                                         </c:forEach>
                                         </tbody>
@@ -676,7 +670,7 @@
 
 
             $.ajax({
-                url: 'removeCheckedStudents?${_csrf.parameterName}=${_csrf.token}',
+                url: '/removeStudentFromPractice/${idR}/${idS}?${_csrf.parameterName}=${_csrf.token}',
                 type: 'POST',
                 data: { 'id': checkValues },
                 success:function(data){

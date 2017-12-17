@@ -86,4 +86,13 @@ public class HeadOfPracticeController {
         model.addAttribute("listRequests",requestConverter.convert(requestsService.findByHeadOfPractice(id)));
         return "head";
     }
+
+    @RequestMapping("/removeHead/{id}")
+    public String removeHead(@PathVariable("id") int id){
+
+        usersService.deleteUserById(id);
+        requestsService.deleteByIdHead(id);
+
+        return "redirect:/admin";
+    }
 }
