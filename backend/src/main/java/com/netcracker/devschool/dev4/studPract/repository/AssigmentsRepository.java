@@ -13,6 +13,8 @@ public interface AssigmentsRepository extends CrudRepository<AssigmentsEntity, I
 
     List<AssigmentsEntity> findAllByIdRequest(int id);
     List<AssigmentsEntity> findAllByIdUser(int id);
+    @Transactional
+    @Modifying
     @Query("delete from AssigmentsEntity s where s.idUser = :idUser")
     void deleteByIdUser(@Param("idUser") int idUser);
 

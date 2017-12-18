@@ -217,8 +217,6 @@
                                         <th>Is budget</th>
                                         <th>Average ball</th>
                                         <th>Status</th>
-                                        <th>Company</th>
-                                        <th>Period</th>
                                         <th>show info</th>
                                     </tr>
                                     </thead>
@@ -236,8 +234,6 @@
                                             <td>${student.isBudget}</td>
                                             <td>${student.avgBall}</td>
                                             <td>${student.status}</td>
-                                            <td>${student.companyName}</td>
-                                            <td>${student.period}</td>
                                             <td><a href="/profile/${student.idUser}" target="_blank"><button>show</button></a></td>
                                         </tr>
                                     </c:forEach>
