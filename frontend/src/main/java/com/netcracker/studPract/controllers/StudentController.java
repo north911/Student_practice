@@ -105,16 +105,6 @@ public class StudentController {
     }
 
 
-  /*  @RequestMapping(value = "/removeStudentFromPractice/{idR}/{idS}",method = RequestMethod.POST)
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public String removeStudentFromPractice(@PathVariable("idR") int idR,
-                                            @PathVariable("idS") int idS){
-
-        assigmentsService.deleteById(assigmentsService.findByIdStudentAndRequest(idS,idR).getId());
-
-        return "redirect:/profile/"+idS;
-    }*/
-
     @RequestMapping(value = "removeStudentFromPractice",method = RequestMethod.POST)
     @PreAuthorize("hasRole('HEAD')")
     public String removeStudentFromPractice(@RequestParam("id[]") List<Integer> idR,

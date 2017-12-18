@@ -668,7 +668,7 @@
                 return $(this).val();
             }).get();
 
-
+            if(checkValues.length > 0){
             $.ajax({
                 url: '/removeStudentFromPractice/${idR}/${idS}?${_csrf.parameterName}=${_csrf.token}',
                 type: 'POST',
@@ -676,7 +676,8 @@
                 success:function(data){
                     myFunction();
                 }
-            });
+            });}
+            else alert("не выбраны студенты");
         });
     });
 
