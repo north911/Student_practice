@@ -1,6 +1,7 @@
 package com.netcracker.devschool.dev4.studPract.service;
 
 import com.netcracker.devschool.dev4.studPract.entity.AssigmentsEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ public interface AssigmentsService {
     void deleteByIdUser(int id);
     void deleteByIdRequest(int id);
     AssigmentsEntity findByIdStudentAndRequest(int idS, int idR);
+
     void deleteById(int id);
     List<AssigmentsEntity> findAllByIdHead(int id);
 

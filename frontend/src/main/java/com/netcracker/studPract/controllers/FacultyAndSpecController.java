@@ -8,6 +8,7 @@ import com.netcracker.devschool.dev4.studPract.entity.SpecialityEntity;
 import com.netcracker.devschool.dev4.studPract.service.FacultiesService;
 import com.netcracker.devschool.dev4.studPract.service.SpecialityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,7 @@ public class FacultyAndSpecController {
 
     @Autowired
     SpecialityService specialityService;
+
 
     @RequestMapping(value = "/createFaculty", method = RequestMethod.POST)
     @ResponseBody
@@ -38,6 +40,7 @@ public class FacultyAndSpecController {
         }
     }
 
+
     @RequestMapping(value = "/createSpeciality", method = RequestMethod.POST)
     @ResponseBody
     public Object addSpeciality(@Valid @ModelAttribute SpecialityValidator specialityValidator, BindingResult result){
@@ -52,6 +55,7 @@ public class FacultyAndSpecController {
             return specialityEntity;
         }
     }
+
 
     @RequestMapping("/removeSpec/{id}")
     public String removeSpec(@PathVariable("id") int id){
