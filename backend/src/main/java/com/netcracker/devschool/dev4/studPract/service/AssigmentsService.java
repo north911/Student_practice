@@ -16,5 +16,6 @@ public interface AssigmentsService {
     void deleteByIdRequest(int id);
     AssigmentsEntity findByIdStudentAndRequest(int idS, int idR);
     void deleteById(int id);
+    List<AssigmentsEntity> findAllByIdHead(int id);
 
 }

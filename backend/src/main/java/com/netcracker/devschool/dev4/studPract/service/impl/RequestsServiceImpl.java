@@ -1,5 +1,6 @@
 package com.netcracker.devschool.dev4.studPract.service.impl;
 
+import com.netcracker.devschool.dev4.studPract.entity.AssigmentsEntity;
 import com.netcracker.devschool.dev4.studPract.entity.RequestsEntity;
 import com.netcracker.devschool.dev4.studPract.repository.AssigmentsRepository;
 import com.netcracker.devschool.dev4.studPract.repository.RequestsRepository;
@@ -61,8 +62,14 @@ public class RequestsServiceImpl implements RequestsService{
         return requestsRepository.findOne(id);
     }
 
+
+
     @Override
     public void deleteByIdHead(int id) {
+        if(!assigmentsService.findAllByIdHead(id).isEmpty())
+            for (AssigmentsEntity assigmentsEntity : assigmentsService.findAllByIdHead(id)) {
+                assigmentsService.deleteById(assigmentsEntity.getId());
+            }
         requestsRepository.deleteByIdHead(id);
     }
 
@@ -73,6 +80,7 @@ public class RequestsServiceImpl implements RequestsService{
 
     @Override
     public void deleteByIdSpec(int id) {
+        if(!requestsRepository.findAllByIdSpec(id).isEmpty())
         for (RequestsEntity requestsEntity : requestsRepository.findAllByIdSpec(id)) {
             deleteRequestById(requestsEntity.getIdRequest());
         }

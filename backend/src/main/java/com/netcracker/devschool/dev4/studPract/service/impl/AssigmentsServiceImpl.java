@@ -80,4 +80,9 @@ public class AssigmentsServiceImpl implements AssigmentsService {
     public void deleteById(int id) {
         assigmentsRepository.delete(id);
     }
+
+    @Override
+    public List<AssigmentsEntity> findAllByIdHead(int id) {
+        return assigmentsRepository.findAllByIdHead(id);
+    }
 }

@@ -24,4 +24,7 @@ public interface AssigmentsRepository extends CrudRepository<AssigmentsEntity, I
     void deleteByIdRequest(@Param("idRequest") int idRequest);
 
     AssigmentsEntity findByIdUserAndIdRequest(int idS,int idR);
+
+    @Query("select s from AssigmentsEntity s where s.idRequest in (select l.idRequest from RequestsEntity l where l.idHead=:idHead)")
+    List<AssigmentsEntity> findAllByIdHead(@Param("idHead") int idHead);
 }
