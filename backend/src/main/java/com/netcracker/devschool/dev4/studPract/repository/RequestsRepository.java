@@ -20,4 +20,11 @@ public interface RequestsRepository extends CrudRepository<RequestsEntity,Intege
     @Modifying
     @Query("delete from RequestsEntity s where s.idHead = :idHead")
     void deleteByIdHead(@Param("idHead") int idHead);
+
+    List<RequestsEntity> findAllByIdSpec(int id);
+    @Transactional
+    @Modifying
+    @Query("delete from RequestsEntity s where s.idSpec = :idSpec")
+    void deleteByIdSpec(@Param("idSpec") int idSpec);
+
 }

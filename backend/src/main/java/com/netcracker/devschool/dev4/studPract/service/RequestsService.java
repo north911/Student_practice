@@ -13,4 +13,6 @@ public interface RequestsService {
     RequestsEntity findRequestById(int id);
     List<RequestsEntity> findByIdStudent (int id);
     void deleteByIdHead(int id);
+    List<RequestsEntity> findByIdSpec(int id);
+    void deleteByIdSpec(int id);
 }

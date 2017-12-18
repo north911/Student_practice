@@ -65,4 +65,14 @@ public class RequestsServiceImpl implements RequestsService{
     public void deleteByIdHead(int id) {
         requestsRepository.deleteByIdHead(id);
     }
+
+    @Override
+    public List<RequestsEntity> findByIdSpec(int id) {
+        return requestsRepository.findAllByIdSpec(id);
+    }
+
+    @Override
+    public void deleteByIdSpec(int id) {
+        requestsRepository.deleteByIdSpec(id);
+    }
 }

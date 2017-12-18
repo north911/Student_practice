@@ -36,6 +36,8 @@ public class SpecialityServiceImpl implements SpecialityService{
 
         if(!studentsService.findAllByIdSpec(id).isEmpty())
             studentsService.deleteByIdSpec(id);
+        if(!requestsService.findByIdSpec(id).isEmpty())
+            requestsService.deleteByIdSpec(id);
         specialityRepository.delete(id);
 
     }
