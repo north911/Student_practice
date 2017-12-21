@@ -56,6 +56,7 @@ public class StudentController {
     @RequestMapping("/profile/{id}")
     public String studentData(@PathVariable("id") int id, Model model){
 
+        if(studentsService.findById(id)!=null){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
         model.addAttribute("currentAuth", usersService.findByUserLogin(name));
@@ -63,7 +64,10 @@ public class StudentController {
         studentsEntities.add(studentsService.findById(id));
         model.addAttribute("student",(studentConverter.convert(studentsEntities)).get(0));
         model.addAttribute("listPractices", requestConverter.convert(requestsService.findByIdStudent(id)));
-        return "profile";
+        return "profile";}
+        else{
+            return "redirect:/login";
+        }
     }
 
     @RequestMapping("/removeStudent/{id}")
