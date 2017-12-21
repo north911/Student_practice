@@ -7,6 +7,7 @@ import com.netcracker.devschool.dev4.studPract.entity.FacultiesEntity;
 import com.netcracker.devschool.dev4.studPract.entity.SpecialityEntity;
 import com.netcracker.devschool.dev4.studPract.service.FacultiesService;
 import com.netcracker.devschool.dev4.studPract.service.SpecialityService;
+import com.netcracker.studPract.beans.ErrorViewObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -24,19 +25,26 @@ public class FacultyAndSpecController {
     @Autowired
     SpecialityService specialityService;
 
+    @Autowired
+    ErrorViewObject errorViewObject;
+
 
     @RequestMapping(value = "/createFaculty", method = RequestMethod.POST)
     @ResponseBody
     public Object addFaculty(@Valid @ModelAttribute FacultyValidator facultyValidator, BindingResult result){
 
-
         if (result.hasErrors()) {
             return result.getAllErrors();
         } else{
+            if(facultiesService.findFacultyByName(facultyValidator.getFacName())!=null){
+                errorViewObject.setErrorMsg("faculty already exist");
+                return errorViewObject;
+            }
+            else{
             FacultiesEntity facultiesEntity = new FacultiesEntity();
             facultiesEntity.setFacultyName(facultyValidator.getFacName());
             facultiesService.saveFaculty(facultiesEntity);
-            return facultiesEntity;
+            return facultiesEntity;}
         }
     }
 
@@ -48,11 +56,17 @@ public class FacultyAndSpecController {
             return  result.getAllErrors();
         }
         else{
-            SpecialityEntity specialityEntity = new SpecialityEntity();
-            specialityEntity.setIdFaculty(facultiesService.findFacultyById(Integer.parseInt(specialityValidator.getFacultyId())).getIdFaculty());
-            specialityEntity.setNameSpec(specialityValidator.getSpecName());
-            specialityService.saveSpeciality(specialityEntity);
-            return specialityEntity;
+            if(specialityService.findSpecialityByName(specialityValidator.getSpecName())!=null){
+                errorViewObject.setErrorMsg("speciality already exist");
+                return errorViewObject;
+            }
+            else {
+                SpecialityEntity specialityEntity = new SpecialityEntity();
+                specialityEntity.setIdFaculty(facultiesService.findFacultyById(Integer.parseInt(specialityValidator.getFacultyId())).getIdFaculty());
+                specialityEntity.setNameSpec(specialityValidator.getSpecName());
+                specialityService.saveSpeciality(specialityEntity);
+                return specialityEntity;
+            }
         }
     }
 

@@ -9,6 +9,7 @@ import com.netcracker.devschool.dev4.studPract.service.AssigmentsService;
 import com.netcracker.devschool.dev4.studPract.service.RequestsService;
 import com.netcracker.devschool.dev4.studPract.service.StudentsService;
 import com.netcracker.devschool.dev4.studPract.service.UsersService;
+import com.netcracker.studPract.beans.ErrorViewObject;
 import com.netcracker.studPract.beans.StudentViewModel;
 import com.netcracker.studPract.converters.RequestConverter;
 import com.netcracker.studPract.converters.StudentConverter;
@@ -21,6 +22,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -46,6 +48,9 @@ public class StudentController {
 
     @Autowired
     AssigmentsService assigmentsService;
+
+    @Autowired
+    ErrorViewObject errorViewObject;
 
 
     @RequestMapping("/profile/{id}")
@@ -84,9 +89,13 @@ public class StudentController {
         if (result.hasErrors()) {
             return result.getAllErrors();
         } else{
+            if(usersService.findByUserLogin(studentFormValidator.getLogin())!=null){
+                errorViewObject.setErrorMsg("login already exist");
+                return errorViewObject;
+            }
+            else{
             StudentsEntity studentsEntity = new StudentsEntity();
             UsersEntity usersEntity = new UsersEntity();
-            UserRolesEntity userRolesEntity = new UserRolesEntity();
             studentsEntity.setAvgBall(Double.parseDouble(studentFormValidator.getAvgBall()));
             studentsEntity.setIdGroup(Integer.parseInt(studentFormValidator.getIdGroup()));
             studentsEntity.setIdSpec(Integer.parseInt(studentFormValidator.getIdSpec()));
@@ -95,13 +104,9 @@ public class StudentController {
             usersEntity.setLastName(studentFormValidator.getLastName());
             usersEntity.setusername(studentFormValidator.getLogin());
             usersEntity.setPassword( org.apache.commons.codec.digest.DigestUtils.sha256Hex(studentFormValidator.getPassword()));
-            userRolesEntity.setusername(studentFormValidator.getLogin());
-            userRolesEntity.setUserrole("ROLE_STUDENT");
             usersEntity.setEnabled(1);
-            usersService.saveUser(usersEntity,userRolesEntity);
-            studentsEntity.setIdUser(usersService.findByUserLogin(studentFormValidator.getLogin()).getIdUsers());
-            studentsService.saveStudent(studentsEntity);
-        return studentsEntity;}
+            studentsService.saveStudent(studentsEntity, usersEntity);
+        return studentsEntity;}}
     }
 
 

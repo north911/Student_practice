@@ -5,6 +5,7 @@ import com.netcracker.devschool.dev4.studPract.FormValidators.HopValidator;
 import com.netcracker.devschool.dev4.studPract.entity.UserRolesEntity;
 import com.netcracker.devschool.dev4.studPract.entity.UsersEntity;
 import com.netcracker.devschool.dev4.studPract.service.*;
+import com.netcracker.studPract.beans.ErrorViewObject;
 import com.netcracker.studPract.beans.RequestsViewModel;
 import com.netcracker.studPract.beans.SpecialityViewModel;
 import com.netcracker.studPract.beans.StudentViewModel;
@@ -50,28 +51,33 @@ public class HeadOfPracticeController {
     @Autowired
     SpecialityService specialityService;
 
-
+    @Autowired
+    ErrorViewObject errorViewObject;
 
 
     @RequestMapping(value = "/addhead", method = RequestMethod.POST)
     @ResponseBody
     public Object addHead(@Valid @ModelAttribute HopValidator hopValidator, BindingResult result){
 
-
         if (result.hasErrors()) {
             return result.getAllErrors();
         } else{
+            if(usersService.findByUserLogin(hopValidator.getHopLogin())!=null){
+                errorViewObject.setErrorMsg("login already exist");
+                return errorViewObject;
+            }
+            else{
         UsersEntity usersEntity = new UsersEntity();
         UserRolesEntity userRolesEntity = new UserRolesEntity();
         usersEntity.setusername(hopValidator.getHopLogin());
         usersEntity.setFirstName(hopValidator.getHopFirstName());
         usersEntity.setLastName(hopValidator.getHopLastName());
         usersEntity.setEnabled(1);
-        usersEntity.setPassword( org.apache.commons.codec.digest.DigestUtils.sha256Hex( hopValidator.getHopPassword()));
+        usersEntity.setPassword( org.apache.commons.codec.digest.DigestUtils.sha256Hex(hopValidator.getHopPassword()));
         userRolesEntity.setUserrole("ROLE_HEAD");
         userRolesEntity.setusername(hopValidator.getHopLogin());
         usersService.saveUser(usersEntity,userRolesEntity);
-        return usersEntity;}
+        return usersEntity;}}
     }
 
     @RequestMapping("/head/{id}")

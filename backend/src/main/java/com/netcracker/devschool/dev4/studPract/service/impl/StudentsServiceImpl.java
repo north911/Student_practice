@@ -1,6 +1,8 @@
 package com.netcracker.devschool.dev4.studPract.service.impl;
 
 import com.netcracker.devschool.dev4.studPract.entity.StudentsEntity;
+import com.netcracker.devschool.dev4.studPract.entity.UserRolesEntity;
+import com.netcracker.devschool.dev4.studPract.entity.UsersEntity;
 import com.netcracker.devschool.dev4.studPract.repository.AssigmentsRepository;
 import com.netcracker.devschool.dev4.studPract.repository.StudentsRepository;
 import com.netcracker.devschool.dev4.studPract.repository.UserRolesRepository;
@@ -30,8 +32,13 @@ public class StudentsServiceImpl implements StudentsService {
 
 
     @Override
-    public StudentsEntity saveStudent(StudentsEntity studentsEntity) {
+    public StudentsEntity saveStudent(StudentsEntity studentsEntity, UsersEntity usersEntity) {
 
+        UserRolesEntity userRolesEntity = new UserRolesEntity();
+        userRolesEntity.setusername(usersEntity.getusername());
+        userRolesEntity.setUserrole("ROLE_STUDENT");
+        usersService.saveUser(usersEntity,userRolesEntity);
+        studentsEntity.setIdUser(usersService.findByUserLogin(usersEntity.getusername()).getIdUsers());
         return studentsRepository.save(studentsEntity);
 
     }
@@ -71,7 +78,7 @@ public class StudentsServiceImpl implements StudentsService {
 
     @Override
     public void deleteByIdSpec(int id) {
-        if(!findAllByIdSpec(id).isEmpty())
+        if (!findAllByIdSpec(id).isEmpty())
             for (StudentsEntity studentsEntity : findAllByIdSpec(id)) {
                 deleteStudentById(studentsEntity.getIdUser());
             }

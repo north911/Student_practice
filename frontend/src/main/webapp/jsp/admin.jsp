@@ -75,33 +75,48 @@
             $('#faculty_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
-                    myFunction();
+                    if (data.errorMsg!=null)
+                        alert(data.errorMsg);
+                    else
+                        myFunction();
                 }
 
             });
             $('#speciality_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
-                    myFunction();
+                    if (data.errorMsg!=null)
+                        alert(data.errorMsg);
+                    else
+                        myFunction();
                 }
             });
             $('#student_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
+                    if (data.errorMsg!=null)
+                        alert(data.errorMsg);
+                    else
                     myFunction();
-                }
+                },
             });
 
             $('#request_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
-                    myFunction();
+                    if (data.errorMsg!=null)
+                        alert(data.errorMsg);
+                    else
+                        myFunction();
                 }
             });
             $('#head_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
-                    myFunction();
+                    if (data.errorMsg!=null)
+                        alert(data.errorMsg);
+                    else
+                        myFunction();
                 }
             });
 

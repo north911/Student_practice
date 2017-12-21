@@ -1,13 +1,14 @@
 package com.netcracker.devschool.dev4.studPract.service;
 
 import com.netcracker.devschool.dev4.studPract.entity.StudentsEntity;
+import com.netcracker.devschool.dev4.studPract.entity.UsersEntity;
 
 import java.util.Date;
 import java.util.List;
 
 public interface StudentsService {
 
-   StudentsEntity saveStudent(StudentsEntity studentsEntity);
+   StudentsEntity saveStudent(StudentsEntity studentsEntity, UsersEntity usersEntity);
     void deleteStudentById(int id);
     List<StudentsEntity> findAllStudents();
     List<StudentsEntity> findStudentByName(String name);
