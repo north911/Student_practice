@@ -56,17 +56,6 @@ public class TestController {
    }
 
 
-    @RequestMapping(value = "/profile", method = RequestMethod.GET)
-    public String goToProfile() {
-        return "profile";
-    }
-
-    @RequestMapping(value = "/head", method = RequestMethod.GET)
-    public String goToHead() {
-        return "head";
-    }
-
-
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login(@RequestParam(value = "error", required = false) String error,
                               @RequestParam(value = "logout", required = false) String logout) {

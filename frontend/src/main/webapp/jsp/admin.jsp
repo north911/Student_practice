@@ -141,7 +141,7 @@
 
         <div class="nav navbar-bot-links navbar-right" style="margin: 5px">
 
-            <a href="/logout" class="btn btn-primary btn-block"><b>Выйти</b></a>
+            <a href="/logout?${_csrf.parameterName}=${_csrf.token}" class="btn btn-primary btn-block"><b>Выйти</b></a>
         </div>
     </nav>
 
@@ -295,7 +295,7 @@
                                             </div>
                                                 <div class="row">
                                                     <div class="col-md-4 "><label>login</label></div>
-                                                    <div class="col-md-4 col-md-offset-1"><label>pass</label></div>
+                                                    <div class="col-md-4 col-md-offset-1"><label>password</label></div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-5"><input class="form-control" name="login"></div>
@@ -486,7 +486,6 @@
                                             </tr>
                                         </c:forEach>
 
-
                                         </tbody>
                                     </table>
                                     <!-- /.table-responsive -->
@@ -637,7 +636,7 @@
                     <div class="panel-body">
                         <p>
                         <div id="response"></div>
-                            <button type="button" class="btnadd" id="btnadd">delete selected students</button>
+                            <button type="button" class="btn btn-danger" id="btnadd">delete selected students</button>
 
                         </p>
                     </div>
@@ -677,7 +676,7 @@
 <script type="text/javascript">
 
     $(document).ready(function(){
-        $('.btnadd').click(function(){
+        $('#btnadd').click(function(){
             var checkValues = $('input[name=checkboxlist]:checked').map(function()
             {
                 return $(this).val();
@@ -755,8 +754,10 @@
             },
             idSpec:{
                 required: true
-            }
-
+            },
+            idHead:{
+                required: true
+            },
         }
     });
 

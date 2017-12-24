@@ -110,5 +110,5 @@ public class RequestController {
             assigmentsEntityList.add(assigmentsEntity);
         }
         assigmentsService.saveListAssigments(assigmentsEntityList);
-     return "redirect:/head";}
+     return "redirect:/head/" + ida;}
 }

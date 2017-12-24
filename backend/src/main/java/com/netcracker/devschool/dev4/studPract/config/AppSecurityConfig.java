@@ -9,9 +9,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
-import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
-import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+
 
 import javax.sql.DataSource;
 
@@ -42,7 +40,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/head/**").access("hasAnyRole('ROLE_HEAD','ROLE_ADMIN')")
+                .antMatchers("/head/**").access("hasRole('ROLE_HEAD')")
                 .antMatchers("/profile/**").access("hasRole('ROLE_STUDENT')")
                 .antMatchers("/profile/**").access("hasAnyRole('ROLE_STUDENT', 'ROLE_ADMIN','ROLE_HEAD')")
                 .and()
@@ -54,26 +52,8 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().logoutSuccessUrl("/login?logout")
                 .and()
-                .csrf().and()
-                .rememberMe().tokenRepository(persistentTokenRepository())
-                .tokenValiditySeconds(1209600);
+                .csrf();
 
     }
 
-    @Bean
-    public PersistentTokenRepository persistentTokenRepository() {
-        JdbcTokenRepositoryImpl db = new JdbcTokenRepositoryImpl();
-        db.setDataSource(dataSource);
-        return db;
-    }
-
-    @Bean
-    public SavedRequestAwareAuthenticationSuccessHandler
-    savedRequestAwareAuthenticationSuccessHandler() {
-
-        SavedRequestAwareAuthenticationSuccessHandler auth
-                = new SavedRequestAwareAuthenticationSuccessHandler();
-        auth.setTargetUrlParameter("targetUrl");
-        return auth;
-    }
 }
