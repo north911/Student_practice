@@ -320,22 +320,6 @@
 
                         </p>
                     </div>
-                    <%--   <script>
-
-                           $('#btnadd').click(function() {
-
-                               $.ajax({
-                                   url: "testcb",
-                                   type: "post",
-                                   data: $('.ids:checked').serialize(),
-                                   success: function(data) {
-                                       $('#response').html(data);
-                                   }
-                               });
-
-                           });
-                       </script>--%>
-
 
                 </div>
             </div>

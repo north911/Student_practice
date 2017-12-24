@@ -85,6 +85,7 @@ public class HeadOfPracticeController {
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
+        if(usersService.findByUserLogin(name).getIdUsers()==id){
         model.addAttribute("currentAuth", usersService.findByUserLogin(name));
         model.addAttribute("listFaculties", facultiesService.findAllFaculties());
         model.addAttribute("listSpecialities",new ArrayList<SpecialityViewModel>(specialityConverter.convert(specialityService.findAllSpecialities())));
@@ -92,7 +93,8 @@ public class HeadOfPracticeController {
         model.addAttribute("visible", "hidden");
         model.addAttribute("listStudents",studentConverter.convert(studentsService.findForIdHead(id)));
         model.addAttribute("listRequests",requestConverter.convert(requestsService.findByHeadOfPractice(id)));
-        return "head";
+        return "head";}
+        else return "redirect:/login";
     }
 
     @RequestMapping("/removeHead/{id}")
