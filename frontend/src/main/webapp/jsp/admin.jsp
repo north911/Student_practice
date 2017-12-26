@@ -68,14 +68,11 @@
 
         }
 
-
         function init() {
-
-
             $('#faculty_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
-                    if (data.errorMsg!=null)
+                    if (data.errorMsg != null)
                         alert(data.errorMsg);
                     else
                         myFunction();
@@ -85,7 +82,7 @@
             $('#speciality_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
-                    if (data.errorMsg!=null)
+                    if (data.errorMsg != null)
                         alert(data.errorMsg);
                     else
                         myFunction();
@@ -94,17 +91,17 @@
             $('#student_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
-                    if (data.errorMsg!=null)
+                    if (data.errorMsg != null)
                         alert(data.errorMsg);
                     else
-                    myFunction();
+                        myFunction();
                 },
             });
 
             $('#request_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
-                    if (data.errorMsg!=null)
+                    if (data.errorMsg != null)
                         alert(data.errorMsg);
                     else
                         myFunction();
@@ -113,7 +110,7 @@
             $('#head_add').ajaxForm({
                 dataType: 'json',
                 success: function (data) {
-                    if (data.errorMsg!=null)
+                    if (data.errorMsg != null)
                         alert(data.errorMsg);
                     else
                         myFunction();
@@ -125,6 +122,7 @@
             refreshSpecialities(data.idFaculty, data.idSpec);
 
         }
+
         function myFunction() {
             location.reload();
         }
@@ -146,7 +144,6 @@
     </nav>
 
 
-
     <div class="col-md-12">
         <div class="row">
             <div class="col-lg-12">
@@ -158,80 +155,93 @@
                         <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                             Add request
                         </button>
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                             aria-hidden="true" style="display: none;">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                        </button>
                                         <h4 class="modal-title" id="myModalLabel">Create request</h4>
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
-                                            <form action="/createRequest?${_csrf.parameterName}=${_csrf.token}" id="request_add" method="post" role="form">
-                                            <div class="row">
-                                                <div class="col-md-5"><label>Company name</label></div>
-                                                <div class="col-md-5 "><label>Head of Practice</label></div>
-                                            </div>
+                                            <form action="/createRequest?${_csrf.parameterName}=${_csrf.token}"
+                                                  id="request_add" method="post" role="form">
                                                 <div class="row">
-                                                    <div class="col-md-5"><label><input id="cname" name="companyName" minlength="2" type="text" required="" aria-required="true" class="error" aria-invalid="true"></label></div>
-                                                    <div class="col-md-5"><select id="listHops" name="idHead" class="form-control">
+                                                    <div class="col-md-5"><label>Company name*</label></div>
+                                                    <div class="col-md-5"><label>Head of Practice*</label></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-5"><label><input id="cname"
+                                                                                        name="companyName"></label>
+                                                    </div>
+                                                    <div class="col-md-5"><select id="listHops" name="idHead"
+                                                                                  class="form-control">
                                                         <c:forEach items="${listHops}" var="head">
                                                             <option value="${head.idHead}">${head.lastName}</option>
                                                         </c:forEach>
                                                     </select></div>
                                                 </div>
-                                            <div class="row">
-                                                <div class="col-md-4"><label>From</label></div>
-                                                <div class="col-md-4"><label>To</label></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="input-group date">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-calendar"></i>
-                                                        </div>
-                                                        <input type="text" class="form-control pull-right" id="datepicker" name="dateFrom">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="input-group date">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-calendar"></i>
-                                                        </div>
-                                                        <input type="text" class="form-control pull-right" id="datepicker1" name="dateTo">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-3 "><label>faculties</label></div>
-                                                <div class="col-md-6 col-md-offset-1"><label>specialities</label></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4"><select id="faculties" name="idFaculty" class="form-control">
-                                                    <c:forEach items="${listFaculties}" var="faculty">
-                                                        <option value="${faculty.idFaculty}">${faculty.facultyName}</option>
-                                                    </c:forEach>
-                                                </select></div>
-                                                <div class="col-md-4"><select id="specs" name="idSpec" class="form-control">
-                                                </select>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4"><label>Quantity</label></div>
-                                                <div class="col-md-4"><label>Min avg ball</label></div>
-                                                <div class="col-md-4"><label>status</label></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4"><input  id="quantity" name="quantity"></div>
-                                                <div class="col-md-4"><input id="minAvg"  name="minAvgBall"></div>
-                                                <div class="col-md-4"><select class="form-control" name="isBudget">
-                                                    <option value="1">бюджет</option>
-                                                    <option value="0">платное</option>
-                                                </select></div>
-                                            </div>
                                                 <div class="row">
-                                                 <button type="submit" class="btn btn-primary">Create</button>
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    <div class="col-md-4"><label>From*</label></div>
+                                                    <div class="col-md-4"><label>To*</label></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="input-group date">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </div>
+                                                            <input type="text" class="form-control pull-right"
+                                                                   id="datepicker" name="dateFrom">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="input-group date">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </div>
+                                                            <input type="text" class="form-control pull-right"
+                                                                   id="datepicker1" name="dateTo">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3 "><label>faculties*</label></div>
+                                                    <div class="col-md-6 col-md-offset-1"><label>specialities*</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4"><select id="faculties" name="idFaculty"
+                                                                                  class="form-control">
+                                                        <c:forEach items="${listFaculties}" var="faculty">
+                                                            <option value="${faculty.idFaculty}">${faculty.facultyName}</option>
+                                                        </c:forEach>
+                                                    </select></div>
+                                                    <div class="col-md-4"><select id="specs" name="idSpec"
+                                                                                  class="form-control">
+                                                    </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4"><label>Quantity*</label></div>
+                                                    <div class="col-md-4"><label>Min avg ball*</label></div>
+                                                    <div class="col-md-4"><label>Status*</label></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4"><input id="quantity" name="quantity"></div>
+                                                    <div class="col-md-4"><input id="minAvg" name="minAvgBall"></div>
+                                                    <div class="col-md-4"><select class="form-control" name="isBudget">
+                                                        <option value="1">бюджет</option>
+                                                        <option value="0">платное</option>
+                                                    </select></div>
+                                                </div>
+                                                <div class="row">
+                                                    <button type="submit" class="btn btn-primary">Create</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                        Close
+                                                    </button>
                                                 </div>
                                             </form>
 
@@ -248,61 +258,73 @@
                         <button class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
                             Add student
                         </button>
-                        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                             aria-hidden="true" style="display: none;">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                        </button>
                                         <h4 class="modal-title" id="myModalLabel1">Add student</h4>
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
-                                            <form action="/createStudent?${_csrf.parameterName}=${_csrf.token}" id="student_add" method="post" role="form">
-                                            <div class="row">
-                                                <div class="col-md-5"><label>First name</label></div>
-                                                <div class="col-md-5 col-md-offset-1"><label>Last name</label></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-5"><input class="form-control" name="firstName"></div>
-                                                <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="lastName"></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4"><label>Faculty</label></div>
-                                                <div class="col-md-4"><label>Speciality</label></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4"><select id="faculties1" name="idFaculty" class="form-control">
-                                                    <c:forEach items="${listFaculties}" var="faculty">
-                                                        <option value="${faculty.idFaculty}">${faculty.facultyName}</option>
-                                                    </c:forEach>
-                                                </select></div>
-                                                <div class="col-md-4"><select id="specs1" name="idSpec" class="form-control">
-                                                </select>
+                                            <form action="/createStudent?${_csrf.parameterName}=${_csrf.token}"
+                                                  id="student_add" method="post" role="form">
+                                                <div class="row">
+                                                    <div class="col-md-5"><label>First name*</label></div>
+                                                    <div class="col-md-5 col-md-offset-1"><label>Last name*</label></div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-3 "><label>Avg ball</label></div>
-                                                <div class="col-md-3 col-md-offset-1"><label>Is budget</label></div>
-                                                <div class="col-md-3 "><label>num group</label></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-3"><input type="number" name="avgBall"></div>
-                                                <div class="col-md-3 col-md-offset-1"><select class="form-control" name="isBudget">
-                                                    <option value="1">budget</option>
-                                                    <option value="0">obligated</option>
-                                                </select></div>
-                                                <div class="col-md-3"><input type="number" name="idGroup"></div>
-                                            </div>
+                                                <div class="row">
+                                                    <div class="col-md-5"><input class="form-control" name="firstName">
+                                                    </div>
+                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control"
+                                                                                                  name="lastName"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4"><label>Faculty*</label></div>
+                                                    <div class="col-md-4"><label>Speciality*</label></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4"><select id="faculties1" name="idFaculty"
+                                                                                  class="form-control">
+                                                        <c:forEach items="${listFaculties}" var="faculty">
+                                                            <option value="${faculty.idFaculty}">${faculty.facultyName}</option>
+                                                        </c:forEach>
+                                                    </select></div>
+                                                    <div class="col-md-4"><select id="specs1" name="idSpec"
+                                                                                  class="form-control">
+                                                    </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3 "><label>Avg ball*</label></div>
+                                                    <div class="col-md-3 col-md-offset-1"><label>Is budget*</label></div>
+                                                    <div class="col-md-3 "><label>group id*</label></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3"><input type="number" name="avgBall"></div>
+                                                    <div class="col-md-3 col-md-offset-1"><select class="form-control"
+                                                                                                  name="isBudget">
+                                                        <option value="1">budget</option>
+                                                        <option value="0">obligated</option>
+                                                    </select></div>
+                                                    <div class="col-md-3"><input type="number" name="idGroup"></div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-4 "><label>login</label></div>
-                                                    <div class="col-md-4 col-md-offset-1"><label>password</label></div>
+                                                    <div class="col-md-4 col-md-offset-1"><label>password*</label></div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-5"><input class="form-control" name="login"></div>
-                                                    <div class="col-md-5"><input class="form-control" name="password"></div>
+                                                    <div class="col-md-5"><input class="form-control" name="login">
+                                                    </div>
+                                                    <div class="col-md-5"><input class="form-control" name="password">
+                                                    </div>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Create</button>
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                    Close
+                                                </button>
                                             </form>
                                         </div>
                                     </div>
@@ -314,31 +336,40 @@
                             </div>
                             <!-- /.modal-dialog -->
                         </div>
-                        <button type="button" class="btn btn-primary" data-target="#myModal5" data-toggle="modal">Create spec</button>
-                        <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                        <button type="button" class="btn btn-primary" data-target="#myModal5" data-toggle="modal">Create
+                            spec
+                        </button>
+                        <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                             aria-hidden="true" style="display: none;">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                        </button>
                                         <h4 class="modal-title" id="myModalLabel5">Add student</h4>
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
-                                            <form action="/createSpeciality?${_csrf.parameterName}=${_csrf.token}" id="speciality_add" method="post" role="form">
-                                            <div class="row">
-                                                <div class="col-md-5"><label>available faculties</label></div>
-                                                <div class="col-md-5 col-md-offset-1"><label>spec name</label></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4"><select id="listFaculties" name="facultyId" class="form-control">
-                                                    <c:forEach items="${listFaculties}" var="faculty">
-                                                        <option value="${faculty.idFaculty}">${faculty.facultyName}</option>
-                                                    </c:forEach>
-                                                </select></div>
-                                                <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="specName"></div>
-                                            </div>
+                                            <form action="/createSpeciality?${_csrf.parameterName}=${_csrf.token}"
+                                                  id="speciality_add" method="post" role="form">
+                                                <div class="row">
+                                                    <div class="col-md-5"><label>available faculties*</label></div>
+                                                    <div class="col-md-5 col-md-offset-1"><label>spec name*</label></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4"><select id="listFaculties" name="facultyId"
+                                                                                  class="form-control">
+                                                        <c:forEach items="${listFaculties}" var="faculty">
+                                                            <option value="${faculty.idFaculty}">${faculty.facultyName}</option>
+                                                        </c:forEach>
+                                                    </select></div>
+                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control"
+                                                                                                  name="specName"></div>
+                                                </div>
                                                 <button type="submit" class="btn btn-primary">Create</button>
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                    Close
+                                                </button>
                                             </form>
                                         </div>
                                     </div>
@@ -351,36 +382,50 @@
                             <!-- /.modal-dialog -->
                         </div>
 
-                        <button type="button" class="btn btn-primary" data-target="#myModal7" data-toggle="modal">Register HOP</button>
-                        <div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                        <button type="button" class="btn btn-primary" data-target="#myModal7" data-toggle="modal">
+                            Register HOP
+                        </button>
+                        <div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                             aria-hidden="true" style="display: none;">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                        </button>
                                         <h4 class="modal-title" id="myModalLabel7">Add faculty</h4>
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
-                                            <form action="/addhead?${_csrf.parameterName}=${_csrf.token}" id="head_add" method="post" role="form">
-                                            <div class="row">
-                                                <div class="col-md-5"><label>first name</label></div>
-                                                <div class="col-md-5 col-md-offset-1 " ><label>last name</label></div>
+                                            <form action="/addhead?${_csrf.parameterName}=${_csrf.token}" id="head_add"
+                                                  method="post" role="form">
+                                                <div class="row">
+                                                    <div class="col-md-5"><label>first name*</label></div>
+                                                    <div class="col-md-5 col-md-offset-1 "><label>last name*</label>
+                                                    </div>
 
-                                            </div>
-                                                <div class="row">
-                                                    <div class="col-md-5"><input class="form-control" name="hopFirstName"></div>
-                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="hopLastName"></div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-5"><label>login</label></div>
-                                                    <div class="col-md-5 col-md-offset-1 "><label>password</label></div>
+                                                    <div class="col-md-5"><input class="form-control"
+                                                                                 name="hopFirstName"></div>
+                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control"
+                                                                                                  name="hopLastName">
+                                                    </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-5 "><input class="form-control" name="hopLogin"></div>
-                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="hopPassword"></div>
+                                                    <div class="col-md-5"><label>login*</label></div>
+                                                    <div class="col-md-5 col-md-offset-1 "><label>password*</label></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-5 "><input class="form-control" name="hopLogin">
+                                                    </div>
+                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control"
+                                                                                                  name="hopPassword">
+                                                    </div>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Create</button>
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                    Close
+                                                </button>
                                             </form>
                                         </div>
                                     </div>
@@ -392,25 +437,33 @@
                             <!-- /.modal-dialog -->
                         </div>
 
-                        <button type="button" class="btn btn-primary" data-target="#myModal6" data-toggle="modal">Create fac</button>
-                        <div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                        <button type="button" class="btn btn-primary" data-target="#myModal6" data-toggle="modal">Create
+                            fac
+                        </button>
+                        <div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                             aria-hidden="true" style="display: none;">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                        </button>
                                         <h4 class="modal-title" id="myModalLabel6">Add faculty</h4>
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
-                                            <form action="/createFaculty?${_csrf.parameterName}=${_csrf.token}" id="faculty_add" method="post" role="form">
+                                            <form action="/createFaculty?${_csrf.parameterName}=${_csrf.token}"
+                                                  id="faculty_add" method="post" role="form">
                                                 <div class="row">
-                                                    <div class="col-md-5"><label>faculty name</label></div>
+                                                    <div class="col-md-5"><label>faculty name*</label></div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control" name="facName"></div>
+                                                    <div class="col-md-5 col-md-offset-1 "><input class="form-control"
+                                                                                                  name="facName"></div>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Create</button>
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                    Close
+                                                </button>
                                             </form>
                                         </div>
                                     </div>
@@ -449,7 +502,8 @@
                             <div class="panel panel-default">
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
-                                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <table width="100%" class="table table-striped table-bordered table-hover"
+                                           id="dataTables-example">
                                         <thead>
                                         <tr>
                                             <th>CB</th>
@@ -467,11 +521,14 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <c:forEach items="${listStudents}" var="student" >
+                                        <c:forEach items="${listStudents}" var="student">
                                             <tr>
-                                                <td><div class="checkbox">
-                                                    <label><input type="checkbox" name="checkboxlist" value="${student.idUser}"></label>
-                                                </div></td>
+                                                <td>
+                                                    <div class="checkbox">
+                                                        <label><input type="checkbox" name="checkboxlist"
+                                                                      value="${student.idUser}"></label>
+                                                    </div>
+                                                </td>
                                                 <td>${student.firstName}</td>
                                                 <td>${student.lastName}</td>
                                                 <td>${student.facName}</td>
@@ -482,7 +539,9 @@
                                                 <td>${student.status}</td>
                                                 <td>${student.companyName}</td>
                                                 <td>${student.period}</td>
-                                                <td><a href="/profile/${student.idUser}" target="_blank"><button>show</button></a></td>
+                                                <td><a href="/profile/${student.idUser}" target="_blank">
+                                                    <button>show</button>
+                                                </a></td>
                                             </tr>
                                         </c:forEach>
 
@@ -508,7 +567,8 @@
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
-                                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example1">
+                                    <table width="100%" class="table table-striped table-bordered table-hover"
+                                           id="dataTables-example1">
                                         <thead>
                                         <tr>
                                             <th>Company name</th>
@@ -524,7 +584,7 @@
                                         </thead>
                                         <tbody>
 
-                                        <c:forEach items="${listRequests}" var="request" >
+                                        <c:forEach items="${listRequests}" var="request">
                                             <tr>
                                                 <td>${request.companyName}</td>
                                                 <td>${request.dateFrom.toString()}</td>
@@ -534,7 +594,9 @@
                                                 <td>${request.minAvg}</td>
                                                 <td>${request.quantity}</td>
                                                 <td>${request.availableQuantity}</td>
-                                                <td><a href="<c:url value='/removeRequest/${request.idRequest}'/>"><button>delete</button></a></td>
+                                                <td><a href="<c:url value='/removeRequest/${request.idRequest}'/>">
+                                                    <button>delete</button>
+                                                </a></td>
                                             </tr>
                                         </c:forEach>
 
@@ -560,7 +622,8 @@
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
-                                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example3">
+                                    <table width="100%" class="table table-striped table-bordered table-hover"
+                                           id="dataTables-example3">
                                         <thead>
                                         <tr>
                                             <th>speciality</th>
@@ -569,13 +632,15 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach items="${listSpecialities}" var="speciality" >
-                                                <tr>
-                                                    <td>${speciality.nameSpec}</td>
-                                                    <td>${speciality.nameFaculty}</td>
-                                                    <td><a href="<c:url value='/removeSpec/${speciality.idSpec}'/>"><button>delete</button></a></td>
-                                                </tr>
-                                            </c:forEach>
+                                        <c:forEach items="${listSpecialities}" var="speciality">
+                                            <tr>
+                                                <td>${speciality.nameSpec}</td>
+                                                <td>${speciality.nameFaculty}</td>
+                                                <td><a href="<c:url value='/removeSpec/${speciality.idSpec}'/>">
+                                                    <button>delete</button>
+                                                </a></td>
+                                            </tr>
+                                        </c:forEach>
                                         </tbody>
                                     </table>
                                     <!-- /.table-responsive -->
@@ -598,7 +663,8 @@
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
-                                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example4">
+                                    <table width="100%" class="table table-striped table-bordered table-hover"
+                                           id="dataTables-example4">
                                         <thead>
                                         <tr>
                                             <th>First name</th>
@@ -607,11 +673,13 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <c:forEach items="${listHops}" var="hop" >
+                                        <c:forEach items="${listHops}" var="hop">
                                             <tr>
                                                 <td>${hop.firstName}</td>
                                                 <td>${hop.lastName}</td>
-                                                <td><a href="<c:url value='/removeHead/${hop.idHead}'/>"><button>delete</button></a></td>
+                                                <td><a href="<c:url value='/removeHead/${hop.idHead}'/>">
+                                                    <button>delete</button>
+                                                </a></td>
                                             </tr>
                                         </c:forEach>
                                         </tbody>
@@ -636,25 +704,25 @@
                     <div class="panel-body">
                         <p>
                         <div id="response"></div>
-                            <button type="button" class="btn btn-danger" id="btnadd">delete selected students</button>
+                        <button type="button" class="btn btn-danger" id="btnadd">delete selected students</button>
 
                         </p>
                     </div>
-                 <%--   <script>
+                    <%--   <script>
 
-                        $('#btnadd').click(function() {
+                           $('#btnadd').click(function() {
 
-                            $.ajax({
-                                url: "testcb",
-                                type: "post",
-                                data: $('.ids:checked').serialize(),
-                                success: function(data) {
-                                    $('#response').html(data);
-                                }
-                            });
+                               $.ajax({
+                                   url: "testcb",
+                                   type: "post",
+                                   data: $('.ids:checked').serialize(),
+                                   success: function(data) {
+                                       $('#response').html(data);
+                                   }
+                               });
 
-                        });
-                    </script>--%>
+                           });
+                       </script>--%>
 
 
                 </div>
@@ -675,22 +743,22 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function(){
-        $('#btnadd').click(function(){
-            var checkValues = $('input[name=checkboxlist]:checked').map(function()
-            {
+    $(document).ready(function () {
+        $('#btnadd').click(function () {
+            var checkValues = $('input[name=checkboxlist]:checked').map(function () {
                 return $(this).val();
             }).get();
 
-            if(checkValues.length > 0){
-            $.ajax({
-                url: '/removeCheckedStudents?${_csrf.parameterName}=${_csrf.token}',
-                type: 'POST',
-                data: { 'id': checkValues },
-                success:function(data){
-                    myFunction();
-                }
-            });}
+            if (checkValues.length > 0) {
+                $.ajax({
+                    url: '/removeCheckedStudents?${_csrf.parameterName}=${_csrf.token}',
+                    type: 'POST',
+                    data: {'id': checkValues},
+                    success: function (data) {
+                        myFunction();
+                    }
+                });
+            }
             else alert("не выбраны студенты");
         });
     });
@@ -698,7 +766,7 @@
 </script>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#dataTables-example').DataTable({
             responsive: true
         });
@@ -722,20 +790,9 @@
     })
 
 </script>
-<%--<script>
-    $("#request_add").validate();
-    jQuery.validator.addClassRules("inputQ", {
-        required: true,
-        range: [0, 15]
-    });
-    jQuery.validator.addClassRules("inputAvg", {
-        required: true,
-        range: [4, 10],
-        number: true
-    });
-</script>--%>
+
 <script>
-    $( "#request_add" ).validate({
+    $("#request_add").validate({
         rules: {
             quantity: {
                 required: true,
@@ -746,22 +803,30 @@
                 range: [4, 10],
                 number: true
             },
-            dateFrom:{
+            dateFrom: {
                 required: true
             },
-            dateTo:{
+            dateTo: {
                 required: true
             },
-            idSpec:{
+            idSpec: {
                 required: true
             },
-            idHead:{
+            idHead: {
                 required: true
             },
+            companyName: {
+                required: true,
+                minlength: 2
+            },
+            idFaculty: {
+                required: true
+            }
+
         }
     });
 
-    $( "#student_add" ).validate({
+    $("#student_add").validate({
         rules: {
             firstName: {
                 required: true,
@@ -773,7 +838,7 @@
                 minlength: 2
             },
             idSpec: {
-            required: true
+                required: true
             },
             avgBall: {
                 required: true,
@@ -792,11 +857,14 @@
                 required: true,
                 minlength: 6,
                 maxlength: 6
+            },
+            idFaculty: {
+                required: true
             }
         }
     });
 
-    $("#speciality_add" ).validate({
+    $("#speciality_add").validate({
         rules: {
             specName: {
                 required: true,
@@ -805,7 +873,7 @@
         }
     });
 
-    $( "#faculty_add" ).validate({
+    $("#faculty_add").validate({
         rules: {
             facName: {
                 required: true,
@@ -814,7 +882,7 @@
         }
     });
 
-    $( "#head_add" ).validate({
+    $("#head_add").validate({
         rules: {
             hopFirstName: {
                 required: true,
