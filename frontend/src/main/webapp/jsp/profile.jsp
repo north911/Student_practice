@@ -172,7 +172,7 @@
 
                                     </tbody>
                                 </table>
-                                <button class="btn123">remove from checked</button>
+                                <button type="button" class="btn btn-danger" id="btn123">remove from checked</button>
                             </div>
                         </div>
                         <div class="tab-pane fade active in" id="messages">
@@ -201,12 +201,12 @@
 
     $(document).ready(function(){
 
-        $('.btn123').click(function(){
+        $('#btn123').click(function(){
             var checkValues = $('input[name=checkboxlist]:checked').map(function()
             {
                 return $(this).val();
             }).get();
-
+            if (checkValues.length > 0) {
             $.ajax({
                 url: '/removeStudentFromPractice?${_csrf.parameterName}=${_csrf.token}',
                 type: 'POST',
@@ -216,6 +216,8 @@
                     myFunction();
                 }
             });
+            }
+             else alert("не выбраны практики");
         });
     });
 

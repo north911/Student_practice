@@ -540,7 +540,7 @@
                                                 <td>${student.companyName}</td>
                                                 <td>${student.period}</td>
                                                 <td><a href="/profile/${student.idUser}" target="_blank">
-                                                    <button>show</button>
+                                                    <button type="button" class="btn btn-outline btn-info">show</button>
                                                 </a></td>
                                             </tr>
                                         </c:forEach>
@@ -595,7 +595,7 @@
                                                 <td>${request.quantity}</td>
                                                 <td>${request.availableQuantity}</td>
                                                 <td><a href="<c:url value='/removeRequest/${request.idRequest}'/>">
-                                                    <button>delete</button>
+                                                    <button type="button" class="btn btn-outline btn-danger">delete</button>
                                                 </a></td>
                                             </tr>
                                         </c:forEach>
@@ -637,7 +637,7 @@
                                                 <td>${speciality.nameSpec}</td>
                                                 <td>${speciality.nameFaculty}</td>
                                                 <td><a href="<c:url value='/removeSpec/${speciality.idSpec}'/>">
-                                                    <button>delete</button>
+                                                    <button type="button" class="btn btn-outline btn-danger">delete</button>
                                                 </a></td>
                                             </tr>
                                         </c:forEach>
@@ -678,7 +678,7 @@
                                                 <td>${hop.firstName}</td>
                                                 <td>${hop.lastName}</td>
                                                 <td><a href="<c:url value='/removeHead/${hop.idHead}'/>">
-                                                    <button>delete</button>
+                                                    <button type="button" class="btn btn-outline btn-danger">delete</button>
                                                 </a></td>
                                             </tr>
                                         </c:forEach>
