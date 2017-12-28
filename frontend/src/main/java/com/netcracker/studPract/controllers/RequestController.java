@@ -14,6 +14,7 @@ import com.netcracker.studPract.converters.StudentConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -46,13 +47,13 @@ public class RequestController {
 
     @RequestMapping(value = "/createRequest", method = RequestMethod.POST)
     @ResponseBody
-    public Object addRequest(@Valid @ModelAttribute RequestValidator requestValidator, BindingResult result){
+    public Object addRequest(@Valid @ModelAttribute RequestValidator requestValidator, BindingResult result) {
 
         if (result.hasErrors()) {
             return result.getAllErrors();
-        } else{
-        RequestsEntity requestsEntity = new RequestsEntity();
-        DateFormat format = new SimpleDateFormat("MM/dd/yy", Locale.ENGLISH);
+        } else {
+            RequestsEntity requestsEntity = new RequestsEntity();
+            DateFormat format = new SimpleDateFormat("MM/dd/yy", Locale.ENGLISH);
             try {
                 Date start = format.parse(requestValidator.getDateFrom());
                 requestsEntity.setDateFrom(start);
@@ -69,37 +70,40 @@ public class RequestController {
             requestsEntity.setIsBudget(Byte.parseByte(requestValidator.getIsBudget()));
             requestsEntity.setIdHead(Integer.parseInt(requestValidator.getIdHead()));
             requestsService.save(requestsEntity);
-            return requestsEntity;}
+            return requestsEntity;
+        }
 
     }
 
     @RequestMapping("/removeRequest/{id}")
-    public String removeRequest(@PathVariable("id") int id){
+    public String removeRequest(@PathVariable("id") int id) {
         requestsService.deleteRequestById(id);
 
         return "redirect:/admin";
     }
-    @RequestMapping("/findForRequest/{idR}")
-    public ModelAndView assignRequest(@PathVariable("idR") int idR){
 
-        ModelAndView model = new ModelAndView("head");
-        List<RequestsEntity> requestsEntities=new ArrayList<>();
-        model.addObject("listStudents" , new ArrayList<StudentViewModel>(studentConverter.convert(studentsService.findForRequest(
+    @RequestMapping("/findForRequest/{idR}")
+    public String assignRequest(@PathVariable("idR") int idR, Model model) {
+
+        if(requestsService.findRequestById(idR)!=null){
+        List<RequestsEntity> requestsEntities = new ArrayList<>();
+        model.addAttribute("listStudents", new ArrayList<StudentViewModel>(studentConverter.convert(studentsService.findForRequest(
                 requestsService.findRequestById(idR).getMinAvg(),
                 requestsService.findRequestById(idR).getIdSpec(),
                 requestsService.findRequestById(idR).getDateFrom(),
                 requestsService.findRequestById(idR).getDateTo(),
                 requestsService.findRequestById(idR).getIsBudget()))));
-        model.addObject("requestId", idR);
-        model.addObject("visible", "visible");
+        model.addAttribute("requestId", idR);
+        model.addAttribute("visible", "visible");
         requestsEntities.add(requestsService.findRequestById(idR));
-        model.addObject("availableQ",requestConverter.convert(requestsEntities).get(0).getAvailableQuantity());
-        return model ;
+        model.addAttribute("availableQ", requestConverter.convert(requestsEntities).get(0).getAvailableQuantity());
+        return "head";}
+        else return "redirect:/head/"+idR;
     }
 
     @RequestMapping(value = "/assignRequest/{id}", method = RequestMethod.POST)
     public String assignRequest(@PathVariable("id") int ida,
-            @RequestParam(value = "id[]",required = false)List<String> ids){
+                                @RequestParam(value = "id[]", required = false) List<String> ids) {
 
         List<AssigmentsEntity> assigmentsEntityList = new ArrayList<>();
 
@@ -110,5 +114,6 @@ public class RequestController {
             assigmentsEntityList.add(assigmentsEntity);
         }
         assigmentsService.saveListAssigments(assigmentsEntityList);
-     return "redirect:/head/" + ida;}
+        return "redirect:/head/" + ida;
+    }
 }
