@@ -45,13 +45,6 @@
                         <div class="form-group">
                             <input type="password" class="form-control" minlength="3" placeholder="password" name="password">
                         </div>
-                        <div class="checkbox">
-
-                            <label>
-                                <input type="checkbox" name="remember-me" />Remember Me
-                            </label>
-
-                        </div>
                         <div class="form-group">
                             <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
                         </div>

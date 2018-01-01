@@ -36,7 +36,7 @@ public class StudentEntityToViewModel implements StudentConverter{
     private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy-MM-dd", Locale.getDefault());
 
     @Override
-    public List<StudentViewModel> convert( List<StudentsEntity> studentsEntities) {
+    public List<StudentViewModel> convert(List<StudentsEntity> studentsEntities) {
 
         List<StudentViewModel> studentViewModels = new ArrayList<>();
 
@@ -52,13 +52,12 @@ public class StudentEntityToViewModel implements StudentConverter{
             studentViewModel.setFacName(facultiesService.findFacultyById(specialityService.findById(studentsEntity.getIdSpec()).getIdFaculty()).getFacultyName());
             studentViewModel.setIdUser(Integer.toString(studentsEntity.getIdUser()));
             AssigmentsEntity assigmentsEntity = assigmentsService.findCurrentPracticeByIdUser(studentsEntity.getIdUser());
-            if(assigmentsEntity!=null){
+            if (assigmentsEntity != null) {
                 studentViewModel.setCompanyName(requestsService.findRequestById(assigmentsEntity.getIdRequest()).getCompanyName());
                 studentViewModel.setStatus("on practice");
-                studentViewModel.setPeriod("from "+simpleDateFormat.format(requestsService.findRequestById( assigmentsEntity.getIdRequest()).getDateFrom())+ " to "
+                studentViewModel.setPeriod("from " + simpleDateFormat.format(requestsService.findRequestById(assigmentsEntity.getIdRequest()).getDateFrom()) + " to "
                         + simpleDateFormat.format(requestsService.findRequestById(assigmentsEntity.getIdRequest()).getDateTo()));
-            }
-            else{
+            } else {
                 studentViewModel.setStatus("available");
             }
             studentViewModels.add(studentViewModel);

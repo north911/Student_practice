@@ -95,5 +95,4 @@ public class DataConfig extends WebMvcConfigurerAdapter {
         return viewResolver;
     }
 
-
 }

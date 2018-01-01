@@ -17,7 +17,7 @@ public class SpecialityEntityToView implements SpecialityConverter {
     FacultiesService facultiesService;
 
     @Override
-    public List<SpecialityViewModel> convert(List<SpecialityEntity> specialityEntity){
+    public List<SpecialityViewModel> convert(List<SpecialityEntity> specialityEntity) {
 
         List<SpecialityViewModel> specialityViewModels = new ArrayList<>();
 
@@ -31,11 +31,5 @@ public class SpecialityEntityToView implements SpecialityConverter {
         }
         return specialityViewModels;
     }
-
-    /*public SpecialityViewModel soloConverter(SpecialityEntity specialityEntity, FacultiesService facultiesService){
-
-
-        return specialityViewModel;
-    }*/
 
 }

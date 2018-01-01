@@ -43,7 +43,7 @@ public class RequestEntityToViewConverter implements RequestConverter {
             requestsViewModel.setQuantity(Integer.toString(requestsEntity.getQuantity()));
             requestsViewModel.setNameSpec(specialityService.findById(requestsEntity.getIdSpec()).getNameSpec());
             requestsViewModel.setNameFaculty(facultiesService.findFacultyById(requestsEntity.getIdFaculty()).getFacultyName());
-            requestsViewModel.setAvailableQuantity(Integer.toString(requestsEntity.getQuantity()-assigmentsService.findByIdRequest(requestsEntity.getIdRequest()).size()));
+            requestsViewModel.setAvailableQuantity(Integer.toString(requestsEntity.getQuantity() - assigmentsService.findByIdRequest(requestsEntity.getIdRequest()).size()));
             requestsViewModels.add(requestsViewModel);
         }
 

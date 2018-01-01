@@ -46,14 +46,14 @@ public class TestController {
     UsersService usersService;
 
 
-   @RequestMapping(value = "/logout", method = RequestMethod.GET)
-   public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
-       Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-       if (auth != null) {
-           new SecurityContextLogoutHandler().logout(request, response, auth);
-       }
-       return "redirect:/login?logout";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
-   }
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return "redirect:/login?logout";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
+    }
 
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -65,12 +65,11 @@ public class TestController {
 
             String role = auth.getAuthorities().toString();
 
-
             String targetUrl = "";
             if (role.contains("STUDENT")) {
-                targetUrl = "/profile/"+usersService.findByUserLogin(auth.getName()).getIdUsers();
+                targetUrl = "/profile/" + usersService.findByUserLogin(auth.getName()).getIdUsers();
             } else if (role.contains("HEAD")) {
-                targetUrl = "/head/"+usersService.findByUserLogin(auth.getName()).getIdUsers();
+                targetUrl = "/head/" + usersService.findByUserLogin(auth.getName()).getIdUsers();
             } else if (role.contains("ADMIN")) {
                 targetUrl = "/admin";
             }

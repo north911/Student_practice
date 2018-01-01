@@ -33,18 +33,17 @@ public class FacultyAndSpecController {
     @ResponseBody
     public Object addFaculty(@Valid @ModelAttribute FacultyValidator facultyValidator, BindingResult result){
 
+        if (facultiesService.findFacultyByName(facultyValidator.getFacName()) != null) {
+            errorViewObject.setErrorMsg("faculty already exist");
+            return errorViewObject;
+        }
         if (result.hasErrors()) {
             return result.getAllErrors();
-        } else{
-            if(facultiesService.findFacultyByName(facultyValidator.getFacName())!=null){
-                errorViewObject.setErrorMsg("faculty already exist");
-                return errorViewObject;
-            }
-            else{
+        } else {
             FacultiesEntity facultiesEntity = new FacultiesEntity();
             facultiesEntity.setFacultyName(facultyValidator.getFacName());
             facultiesService.saveFaculty(facultiesEntity);
-            return facultiesEntity;}
+            return facultiesEntity;
         }
     }
 
@@ -52,25 +51,25 @@ public class FacultyAndSpecController {
     @RequestMapping(value = "/createSpeciality", method = RequestMethod.POST)
     @ResponseBody
     public Object addSpeciality(@Valid @ModelAttribute SpecialityValidator specialityValidator, BindingResult result){
-        if(result.hasErrors()){
-            return  result.getAllErrors();
+
+        if (specialityService.findSpecialityByName(specialityValidator.getSpecName()) != null) {
+            errorViewObject.setErrorMsg("speciality already exist");
+            return errorViewObject;
         }
-        else{
-            if(specialityService.findSpecialityByName(specialityValidator.getSpecName())!=null){
-                errorViewObject.setErrorMsg("speciality already exist");
-                return errorViewObject;
-            }
-            else {
-                SpecialityEntity specialityEntity = new SpecialityEntity();
-                specialityEntity.setIdFaculty(facultiesService.findFacultyById(Integer.parseInt(specialityValidator.getFacultyId())).getIdFaculty());
-                specialityEntity.setNameSpec(specialityValidator.getSpecName());
-                specialityService.saveSpeciality(specialityEntity);
-                return specialityEntity;
-            }
+        if (result.hasErrors()) {
+            return result.getAllErrors();
+        } else {
+            SpecialityEntity specialityEntity = new SpecialityEntity();
+            specialityEntity.setIdFaculty(facultiesService.findFacultyById(Integer.parseInt(specialityValidator.getFacultyId())).getIdFaculty());
+            specialityEntity.setNameSpec(specialityValidator.getSpecName());
+            specialityService.saveSpeciality(specialityEntity);
+            return specialityEntity;
+
         }
     }
 
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping("/removeSpec/{id}")
     public String removeSpec(@PathVariable("id") int id){
         specialityService.deleteSpecialityById(id);

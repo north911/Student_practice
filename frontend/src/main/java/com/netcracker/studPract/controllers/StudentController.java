@@ -56,29 +56,23 @@ public class StudentController {
     @RequestMapping("/profile/{id}")
     public String studentData(@PathVariable("id") int id, Model model){
 
-        if(studentsService.findById(id)!=null){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String name = auth.getName();
-        model.addAttribute("currentAuth", usersService.findByUserLogin(name));
-        List<StudentsEntity> studentsEntities = new ArrayList<StudentsEntity>();
-        studentsEntities.add(studentsService.findById(id));
-        model.addAttribute("student",(studentConverter.convert(studentsEntities)).get(0));
-        model.addAttribute("listPractices", requestConverter.convert(requestsService.findByIdStudent(id)));
-        return "profile";}
-        else{
+        if (studentsService.findById(id) != null) {
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            String name = auth.getName();
+            model.addAttribute("currentAuth", usersService.findByUserLogin(name));
+            List<StudentsEntity> studentsEntities = new ArrayList<StudentsEntity>();
+            studentsEntities.add(studentsService.findById(id));
+            model.addAttribute("student", (studentConverter.convert(studentsEntities)).get(0));
+            model.addAttribute("listPractices", requestConverter.convert(requestsService.findByIdStudent(id)));
+            return "profile";
+        } else {
             return "redirect:/login";
         }
     }
 
-    @RequestMapping("/removeStudent/{id}")
-    public String removeStudent(@PathVariable("id") int id){
-        studentsService.deleteStudentById(id);
-
-        return "redirect:/admin";
-    }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/removeCheckedStudents", method = RequestMethod.POST)
-    public String removeCheckedStudents(@RequestParam(value = "id[]",required = false)List<String> id){
+    public String removeCheckedStudents(@RequestParam(value = "id[]", required = false) List<String> id) {
 
         for (String s : id) {
             studentsService.deleteStudentById(Integer.parseInt(s));
@@ -86,18 +80,18 @@ public class StudentController {
         return "redirect:/admin";
     }
 
+
     @RequestMapping(value = "/createStudent", method = RequestMethod.POST)
     @ResponseBody
-    public Object addStudent(@Valid @ModelAttribute StudentFormValidator studentFormValidator, BindingResult result){
+    public Object addStudent(@Valid @ModelAttribute StudentFormValidator studentFormValidator, BindingResult result) {
 
+        if (usersService.findByUserLogin(studentFormValidator.getLogin()) != null) {
+            errorViewObject.setErrorMsg("login already exist");
+            return errorViewObject;
+        }
         if (result.hasErrors()) {
             return result.getAllErrors();
-        } else{
-            if(usersService.findByUserLogin(studentFormValidator.getLogin())!=null){
-                errorViewObject.setErrorMsg("login already exist");
-                return errorViewObject;
-            }
-            else{
+        } else {
             StudentsEntity studentsEntity = new StudentsEntity();
             UsersEntity usersEntity = new UsersEntity();
             studentsEntity.setAvgBall(Double.parseDouble(studentFormValidator.getAvgBall()));
@@ -107,10 +101,11 @@ public class StudentController {
             usersEntity.setFirstName(studentFormValidator.getFirstName());
             usersEntity.setLastName(studentFormValidator.getLastName());
             usersEntity.setusername(studentFormValidator.getLogin());
-            usersEntity.setPassword( org.apache.commons.codec.digest.DigestUtils.sha256Hex(studentFormValidator.getPassword()));
+            usersEntity.setPassword(org.apache.commons.codec.digest.DigestUtils.sha256Hex(studentFormValidator.getPassword()));
             usersEntity.setEnabled(1);
             studentsService.saveStudent(studentsEntity, usersEntity);
-        return studentsEntity;}}
+            return studentsEntity;
+        }
     }
 
 

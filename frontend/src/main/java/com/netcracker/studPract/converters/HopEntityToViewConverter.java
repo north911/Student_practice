@@ -32,10 +32,4 @@ public class HopEntityToViewConverter implements HopConverter {
         return hopViewModelList;
     }
 
-   /* public HopViewModel soloConvert(UsersEntity usersEntity){
-        HopViewModel hopViewModel = new HopViewModel();
-        hopViewModel.setFirstName(usersEntity.getFirstName());
-        hopViewModel.setLastName(usersEntity.getLastName());
-        return hopViewModel;
-    }*/
 }
