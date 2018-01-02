@@ -14,7 +14,7 @@ public interface RequestsRepository extends CrudRepository<RequestsEntity,Intege
     List<RequestsEntity> findAllByIdHead(int id);
 
     @Query("select s from RequestsEntity s where s.idRequest in (select p.idRequest from AssigmentsEntity p where p.idUser= :idUser)")
-    List<RequestsEntity> findAllByIdUser(@Param("idUser")int idUser);
+    List<RequestsEntity> findAllByIdUser(@Param("idUser") int idUser);
 
     @Transactional
     @Modifying
@@ -22,6 +22,7 @@ public interface RequestsRepository extends CrudRepository<RequestsEntity,Intege
     void deleteByIdHead(@Param("idHead") int idHead);
 
     List<RequestsEntity> findAllByIdSpec(int id);
+
     @Transactional
     @Modifying
     @Query("delete from RequestsEntity s where s.idSpec = :idSpec")

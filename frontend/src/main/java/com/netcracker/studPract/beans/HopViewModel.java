@@ -1,5 +1,6 @@
 package com.netcracker.studPract.beans;
 
+
 public class HopViewModel {
 
     private String firstName;

@@ -214,10 +214,13 @@
                     'id2': ${student.idUser}},
                 success:function(data){
                     myFunction();
-                }
+                },
+                error:function(data){
+                    alert("you dont have access");
+            }
             });
             }
-             else alert("не выбраны практики");
+             else alert("nothing checked");
         });
     });
 

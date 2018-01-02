@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface SpecialityRepository extends CrudRepository<SpecialityEntity,Integer> {
+public interface SpecialityRepository extends CrudRepository<SpecialityEntity, Integer> {
 
     @Query("select s from SpecialityEntity s where s.idFaculty = :idFaculty")
     List<SpecialityEntity> findByFacultyId(@Param("idFaculty") int idFaculty);

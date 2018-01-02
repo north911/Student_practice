@@ -13,8 +13,6 @@ public interface UsersService {
 
     List<UsersEntity> findAllUsers();
 
-    List<UsersEntity> findUserByName(String name);
-
     UsersEntity findByUserLogin(String login);
 
     UsersEntity findById(int id);

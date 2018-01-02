@@ -43,11 +43,6 @@ public class RequestsServiceImpl implements RequestsService{
     }
 
     @Override
-    public List<RequestsEntity> findRequestByName(String name) {
-        return null;
-    }
-
-    @Override
     public List<RequestsEntity> findByHeadOfPractice(int id) {
         return requestsRepository.findAllByIdHead(id);
     }

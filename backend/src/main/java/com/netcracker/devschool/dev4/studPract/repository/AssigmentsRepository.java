@@ -12,7 +12,9 @@ import java.util.List;
 public interface AssigmentsRepository extends CrudRepository<AssigmentsEntity, Integer> {
 
     List<AssigmentsEntity> findAllByIdRequest(int id);
+
     List<AssigmentsEntity> findAllByIdUser(int id);
+
     @Transactional
     @Modifying
     @Query("delete from AssigmentsEntity s where s.idUser = :idUser")
@@ -23,7 +25,7 @@ public interface AssigmentsRepository extends CrudRepository<AssigmentsEntity, I
     @Query("delete from AssigmentsEntity s where s.idRequest = :idRequest")
     void deleteByIdRequest(@Param("idRequest") int idRequest);
 
-    AssigmentsEntity findByIdUserAndIdRequest(int idS,int idR);
+    AssigmentsEntity findByIdUserAndIdRequest(int idS, int idR);
 
     @Query("select s from AssigmentsEntity s where s.idRequest in (select l.idRequest from RequestsEntity l where l.idHead=:idHead)")
     List<AssigmentsEntity> findAllByIdHead(@Param("idHead") int idHead);

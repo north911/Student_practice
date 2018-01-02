@@ -7,6 +7,7 @@ import com.netcracker.devschool.dev4.studPract.service.SpecialityService;
 import com.netcracker.studPract.beans.RequestsViewModel;
 import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
@@ -26,6 +27,9 @@ public class RequestEntityToViewConverter implements RequestConverter {
     @Autowired
     AssigmentsService assigmentsService;
 
+    @Autowired
+    ApplicationContext applicationContext;
+
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
 
     @Override
@@ -34,7 +38,7 @@ public class RequestEntityToViewConverter implements RequestConverter {
         List<RequestsViewModel> requestsViewModels = new ArrayList<>();
 
         for (RequestsEntity requestsEntity : requestsEntities) {
-            RequestsViewModel requestsViewModel = new RequestsViewModel();
+            RequestsViewModel requestsViewModel = (RequestsViewModel)applicationContext.getBean("requestsViewModel");
             requestsViewModel.setCompanyName(requestsEntity.getCompanyName());
             requestsViewModel.setDateFrom(simpleDateFormat.format(requestsEntity.getDateFrom()));
             requestsViewModel.setDateTo(simpleDateFormat.format(requestsEntity.getDateTo()));

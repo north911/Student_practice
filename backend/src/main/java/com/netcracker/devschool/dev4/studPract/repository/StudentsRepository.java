@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Date;
 import java.util.List;
 
-public interface StudentsRepository extends CrudRepository<StudentsEntity,Integer> {
+public interface StudentsRepository extends CrudRepository<StudentsEntity, Integer> {
 
     @Query("select l from StudentsEntity l where l.idSpec = :sid and l.avgBall >= :minavg and l.isBudget= :isBudget" +
             " and not exists (select p from RequestsEntity p where p.idRequest in (select a.idRequest from AssigmentsEntity a where " +
@@ -28,9 +28,9 @@ public interface StudentsRepository extends CrudRepository<StudentsEntity,Intege
     @Transactional
     @Modifying
     @Query("delete from StudentsEntity s where s.idSpec= :idSpec")
-    void deleteByIdSpec(@Param("idSpec")int idSpec);
+    void deleteByIdSpec(@Param("idSpec") int idSpec);
 
 
     @Query("select s from StudentsEntity s where s.idSpec = :idSpec")
-    List<StudentsEntity> findAllByIdSpec(@Param("idSpec")int idSpec);
+    List<StudentsEntity> findAllByIdSpec(@Param("idSpec") int idSpec);
 }

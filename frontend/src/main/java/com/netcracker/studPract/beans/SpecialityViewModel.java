@@ -1,6 +1,5 @@
 package com.netcracker.studPract.beans;
 
-
 public class SpecialityViewModel {
 
     private String nameSpec;

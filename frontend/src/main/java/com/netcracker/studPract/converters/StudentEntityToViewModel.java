@@ -8,6 +8,7 @@ import com.netcracker.devschool.dev4.studPract.service.*;
 import com.netcracker.studPract.beans.SpecialityViewModel;
 import com.netcracker.studPract.beans.StudentViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
@@ -33,6 +34,9 @@ public class StudentEntityToViewModel implements StudentConverter{
     @Autowired
     RequestsService requestsService;
 
+    @Autowired
+    ApplicationContext applicationContext;
+
     private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy-MM-dd", Locale.getDefault());
 
     @Override
@@ -42,7 +46,7 @@ public class StudentEntityToViewModel implements StudentConverter{
 
 
         for (StudentsEntity studentsEntity : studentsEntities) {
-            StudentViewModel studentViewModel = new StudentViewModel();
+            StudentViewModel studentViewModel = (StudentViewModel) applicationContext.getBean("studentViewModel");
             studentViewModel.setFirstName(usersService.findById(studentsEntity.getIdUser()).getFirstName());
             studentViewModel.setLastName(usersService.findById(studentsEntity.getIdUser()).getLastName());
             studentViewModel.setAvgBall(Double.toString(studentsEntity.getAvgBall()));

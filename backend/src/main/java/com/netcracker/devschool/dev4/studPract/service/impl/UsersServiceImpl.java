@@ -57,10 +57,5 @@ public class UsersServiceImpl implements UsersService {
         return (List<UsersEntity>)usersRepository.findAll();
     }
 
-    @Override
-    public List<UsersEntity> findUserByName(String name) {
-        return null;
-    }
-
 }
 

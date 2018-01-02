@@ -57,11 +57,6 @@ public class StudentsServiceImpl implements StudentsService {
     }
 
     @Override
-    public List<StudentsEntity> findStudentByName(String name) {
-        return null;
-    }
-
-    @Override
     public StudentsEntity findById(int id) {
         return studentsRepository.findOne(id);
     }

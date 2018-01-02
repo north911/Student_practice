@@ -1,10 +1,11 @@
 package com.netcracker.studPract.config;
 
+import com.netcracker.studPract.beans.HopViewModel;
+import com.netcracker.studPract.beans.RequestsViewModel;
+import com.netcracker.studPract.beans.SpecialityViewModel;
+import com.netcracker.studPract.beans.StudentViewModel;
 import org.hibernate.jpa.HibernatePersistenceProvider;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -92,6 +93,30 @@ public class DataConfig extends WebMvcConfigurerAdapter {
         viewResolver.setViewClass(JstlView.class);
         viewResolver.setSuffix(".jsp");
         return viewResolver;
+    }
+
+    @Bean
+    @Scope("prototype")
+    public SpecialityViewModel specialityViewModel(){
+        return new SpecialityViewModel();
+    }
+
+    @Bean
+    @Scope("prototype")
+    public HopViewModel hopViewModel(){
+        return new HopViewModel();
+    }
+
+    @Bean
+    @Scope("prototype")
+    public RequestsViewModel requestsViewModel(){
+        return new RequestsViewModel();
+    }
+
+    @Bean
+    @Scope("prototype")
+    public StudentViewModel studentViewModel(){
+        return new StudentViewModel();
     }
 
 }
