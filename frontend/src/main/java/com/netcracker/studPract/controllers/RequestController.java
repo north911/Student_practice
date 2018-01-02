@@ -1,28 +1,19 @@
 package com.netcracker.studPract.controllers;
 
-import com.netcracker.devschool.dev4.studPract.FormValidators.RequestValidator;
-import com.netcracker.devschool.dev4.studPract.entity.AssigmentsEntity;
+import com.netcracker.studPract.FormValidators.RequestValidator;
 import com.netcracker.devschool.dev4.studPract.entity.RequestsEntity;
-import com.netcracker.devschool.dev4.studPract.service.AssigmentsService;
 import com.netcracker.devschool.dev4.studPract.service.RequestsService;
-import com.netcracker.devschool.dev4.studPract.service.StudentsService;
-import com.netcracker.studPract.beans.RequestsViewModel;
-import com.netcracker.studPract.beans.StudentViewModel;
 import com.netcracker.studPract.converters.RequestConverter;
-import com.netcracker.studPract.converters.StudentConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+
 import javax.validation.Valid;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 @Controller

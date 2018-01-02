@@ -1,4 +1,4 @@
-package com.netcracker.devschool.dev4.studPract.config;
+package com.netcracker.studPract.config;
 
 import com.netcracker.devschool.dev4.studPract.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;

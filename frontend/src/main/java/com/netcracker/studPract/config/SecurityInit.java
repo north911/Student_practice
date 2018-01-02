@@ -1,4 +1,4 @@
-package com.netcracker.devschool.dev4.studPract.config;
+package com.netcracker.studPract.config;
 
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;

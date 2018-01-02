@@ -1,8 +1,8 @@
 package com.netcracker.studPract.controllers;
 
 
-import com.netcracker.devschool.dev4.studPract.FormValidators.FacultyValidator;
-import com.netcracker.devschool.dev4.studPract.FormValidators.SpecialityValidator;
+import com.netcracker.studPract.FormValidators.FacultyValidator;
+import com.netcracker.studPract.FormValidators.SpecialityValidator;
 import com.netcracker.devschool.dev4.studPract.entity.FacultiesEntity;
 import com.netcracker.devschool.dev4.studPract.entity.SpecialityEntity;
 import com.netcracker.devschool.dev4.studPract.service.FacultiesService;

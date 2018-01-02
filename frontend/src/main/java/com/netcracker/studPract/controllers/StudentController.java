@@ -1,20 +1,17 @@
 package com.netcracker.studPract.controllers;
 
 
-import com.netcracker.devschool.dev4.studPract.FormValidators.StudentFormValidator;
+import com.netcracker.studPract.FormValidators.StudentFormValidator;
 import com.netcracker.devschool.dev4.studPract.entity.StudentsEntity;
-import com.netcracker.devschool.dev4.studPract.entity.UserRolesEntity;
 import com.netcracker.devschool.dev4.studPract.entity.UsersEntity;
 import com.netcracker.devschool.dev4.studPract.service.AssigmentsService;
 import com.netcracker.devschool.dev4.studPract.service.RequestsService;
 import com.netcracker.devschool.dev4.studPract.service.StudentsService;
 import com.netcracker.devschool.dev4.studPract.service.UsersService;
 import com.netcracker.studPract.beans.ErrorViewObject;
-import com.netcracker.studPract.beans.StudentViewModel;
 import com.netcracker.studPract.converters.RequestConverter;
 import com.netcracker.studPract.converters.StudentConverter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,7 +19,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.ArrayList;

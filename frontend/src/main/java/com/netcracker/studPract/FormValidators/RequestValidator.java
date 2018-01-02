@@ -1,4 +1,4 @@
-package com.netcracker.devschool.dev4.studPract.FormValidators;
+package com.netcracker.studPract.FormValidators;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
